@@ -1,23 +1,11 @@
-package Objective_1_Java_Basics.Subobjective_1_Scope_Of_Variables;
-
-class Phone {
-    private boolean tested;
-    static boolean softKeyBoard = true;
-
-    public void setTested(boolean val) {
-        tested = val;
-    }
-
-    public boolean isTested() {
-        //val = false;
-        return tested;
-    }
-}
+package Objective_1_Java_Basics.Subobjective_1;
 
 public class ScopeOfVars {
 
+    // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
+
     public static void main(String [ ] args) {
-        System.out.println("Chapter 3.1 - Scope of Variables");
+        System.out.println("Chapter 1.1 - Scope of Variables");
 
         /** Available scopes for variables:
          *      - local (aka method-local variables)
@@ -64,19 +52,33 @@ public class ScopeOfVars {
         */
 
         Phone.softKeyBoard = true;
-        Phone p1 = new Phone();
-        Phone p2 = new Phone();
+        Phone _p1 = new Phone();
+        Phone $p2 = new Phone();
 
-        System.out.println("p1.softKeyBoard: " + p1.softKeyBoard);
-        System.out.println("p2.softKeyBoard: " + p2.softKeyBoard);
-        p1.softKeyBoard = true;
-        System.out.println("p1.softKeyBoard: " + p1.softKeyBoard);
-        System.out.println("p2.softKeyBoard: " + p2.softKeyBoard);
-        System.out.println("p1.softKeyBoard: " + p1.softKeyBoard);
+        System.out.println("_p1.softKeyBoard: " + _p1.softKeyBoard);
+        System.out.println("$p2.softKeyBoard: " + $p2.softKeyBoard);
+        _p1.softKeyBoard = true;
+        System.out.println("_p1.softKeyBoard: " + _p1.softKeyBoard);
+        System.out.println("$p2.softKeyBoard: " + $p2.softKeyBoard);
+        System.out.println("_p1.softKeyBoard: " + _p1.softKeyBoard);
         System.out.println("Phone.softKeyBoard: " + Phone.softKeyBoard);
 
         Phone phoneNull = null;
         System.out.println("phoneNull.softKeyBoard: " + phoneNull.softKeyBoard);
+    }
+}
+
+class Phone {
+    private boolean tested;
+    static boolean softKeyBoard = true;
+
+    public void setTested(boolean val) {
+        tested = val;
+    }
+
+    public boolean isTested() {
+        //val = false;
+        return tested;
     }
 }
 
@@ -86,10 +88,10 @@ public class ScopeOfVars {
 
 class ScopeTest1 {
     static boolean var1 = true;
-    //boolean var1 = true; // NOT VALID
+    //boolean var1 = true; // NOT VALID -> var1 is already defined
 
     void method1(int weight) {
-        //int weight = 10; // NOT VALID
+        //int weight = 10; // NOT VALID -> cannot shadow parameter argument!
     }
 }
 
@@ -101,5 +103,21 @@ class ShadowClass {
             boolean shadowVar = false;  // shadowing the class variable
             String number = "007";      // shadowing the instance variable
         }
+}
+
+class Whiz {
+    static int x = 9;
+
+    public static void main(String [ ] a) {
+        //int[] a = {1, 2, 3}; // COMPILE ERROR -> cannot shadow parameter argument!
+        //System.out.println(a);
+
+        int x = 8;
+        for(;x>-1;x--) // the for-loop picks the x with the closest scope which is that of the method!
+            System.out.print(x);
+
+        for(int y = 3;y>-1;y--);    // <-- nasty semicolon!
+            //System.out.print(y); //EEEK!
+    }
 }
 

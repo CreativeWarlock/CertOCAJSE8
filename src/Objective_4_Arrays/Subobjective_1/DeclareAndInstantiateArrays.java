@@ -1,13 +1,13 @@
-package Objective_4_Arrays;
+package Objective_4_Arrays.Subobjective_1;
 
 import java.util.Arrays;
 
-public class MyArrays {
+public class DeclareAndInstantiateArrays {
 
     static int staticVar;
 
     public static void main(String [ ] args) {
-        System.out.println("Chapter 4.3 - MyArrays");
+        System.out.println("Chapter 4.1 - Declare, Instantiate and use a one-dimensional Array");
 
         /**
          * Once allocated, all the array elements store their default values:

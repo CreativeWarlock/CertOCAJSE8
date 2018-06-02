@@ -1,4 +1,4 @@
-package Objective_6_Working_With_Methods;
+package Objective_6_Methods_And_Encapsulation.Subobjective_1;
 
 public class OverloadedMethods {
 
