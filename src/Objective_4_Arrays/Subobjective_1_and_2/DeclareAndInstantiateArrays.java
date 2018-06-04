@@ -1,8 +1,12 @@
-package Objective_4_Arrays.Subobjective_1;
+package Objective_4_Arrays.Subobjective_1_and_2;
 
 import java.util.Arrays;
 
 public class DeclareAndInstantiateArrays {
+
+    // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+    // http://tutorials.jenkov.com/java/arrays.html
 
     static int staticVar;
 
@@ -19,52 +23,62 @@ public class DeclareAndInstantiateArrays {
          *      \u0000 for char data.
          */
 
-        // ==========================
-        //  Single dimensional array
-        // ==========================
+        /**==========================
+        //  One dimensional array
+        // ========================*/
 
         int arrayDeclaration[];
-        int[] arrayDeclaration2;
+        int []arrayDeclaration2;
 
         // =============================================================================================================
 
+        /** Instantiation: */
         int[] singleDim = new int[2]; // 1-Dim array with 2 elements initialized with 0.
 
-        int[] singleDimInit1 = {5};           // Uses initializer
-        int[] singleDimInit2 = new int[] {5}; // Uses initializer with new operator for additional Type safety
+        /** Initialization: */
+        int[] singleDimInit1 = {5, 6, 7, 8};           // Uses initializer with curly brackets
+        int[] singleDimInit2 = new int[] {5, 6, 7, 8}; // Uses initializer with new operator for additional Type safety
 
-        //int[] singleDimTypeAndInitializer = new int[4] { 1, 2, 3}; // --> NOT VALID -> Cannot combine declaration, allocation and initialization with specifying the size of the array!
+        /** Following is NOT VALID -> Cannot combine declaration, allocation and initialization with specifying the size of the array! */
+        //int[] singleDimTypeAndInitializer = new int[4] { 1, 2, 3}; //
 
         //int[] singleDimInit3;
         //singleDimInit3 = {5}; // initializer is NOT ALLOWED here
 
-        //int[] singleDim = new int[]; //--> NOT VALID -> initializer expected; at least the top level bracket must define a dimension!
+        /** Following is NOT VALID -> initializer expected; at least the top level bracket must define a dimension! */
+        //int[] singleDim = new int[];
 
         int[] singleDim10 = new int[2*5]; // evaluates to an int :)
         int[] singleDimMax = new int[Math.max(2,5)]; // evaluates to an int :)
 
         // =============================================================================================================
 
-        // Won't compile
+        /** Won't compile! */
         //        int fail1[2];
         //        int[2] fail2;
         //        int[2] fail3[3];
 
         // =============================================================================================================
 
-        int[] arrayDeclaration3[]; // 2-Dimensional
-        //arrayDeclaration3 = new int[2]; // --> NOT VALID
-          arrayDeclaration3 = new int[2][];
+        /** // int can be cast to long implicitly. However, this is not available for arrays types! */
+        // long[] myLongArray = new int[]{1, 2, 3};
 
         // =============================================================================================================
 
+        int[] arrayDeclaration3[]; // 2-Dimensional
+        //arrayDeclaration3 = new int[2]; // --> NOT VALID since it requires type int[][]
+          arrayDeclaration3 = new int[2][]; // better :)
+
+        // =============================================================================================================
+
+        /** Following code causes a RunTimeException: ArrayIndexOutOfBoundsException */
         //int[] singleDimNegativeIndexAccess = { 1, 2, 3};
-        //System.out.println("singleDimNegativeIndexAccess[-1]: " + singleDimNegativeIndexAccess[-1]); // -> Run time Exception: ArrayIndexOutOfBoundsException
+        //System.out.println("singleDimNegativeIndexAccess[-1]: " + singleDimNegativeIndexAccess[-1]);
 
         // =============================================================================================================
 
         int testWithStaticVariable[] = new int[] {10, 12, 15};
-        System.out.println("testWithStaticVariable" + testWithStaticVariable[++staticVar]);
+        System.out.println("testWithStaticVariable: " + testWithStaticVariable[++staticVar]);
 
         // =============================================================================================================
 
@@ -93,24 +107,27 @@ public class DeclareAndInstantiateArrays {
 
         seasonsArray[2] = null;
 
+        System.out.print("Seasons: ");
         for (String season : seasonsArray) {
-            System.out.println("Season: " + season); // Prints null if element is null!
+            System.out.print(season + ", "); // Prints null if element is null!
         }
+        System.out.println();
 
         // =============================================================================================================
 
-        // ==========================
+        /**==========================
         //  Multi dimensional array
-        // ==========================
+        // ========================*/
 
-        //int[][] singleDim = new int[][]; --> NOT VALID -> initializer expected; at least the top level bracket must define a dimension
+        /** Following is NOT VALID -> initializer expected; at least the top level bracket must define a dimension */
+        //int[][] singleDim = new int[][];
 
         // =============================================================================================================
 
         int[][] intArray3x2 = {{1, 2, 3}, {4, 5}};
         int[][] intArray3x2WithTypeSafety = new int[][]{{1, 2, 3}, {4, 5}};
-        System.out.println("intArray3x2" + Arrays.deepToString(intArray3x2));
-        System.out.println("intArray3x2WithTypeSafety" + Arrays.deepToString(intArray3x2WithTypeSafety));
+        System.out.println("intArray3x2: " + Arrays.deepToString(intArray3x2));
+        System.out.println("intArray3x2WithTypeSafety: " + Arrays.deepToString(intArray3x2WithTypeSafety));
 
         // =============================================================================================================
 
@@ -120,7 +137,7 @@ public class DeclareAndInstantiateArrays {
                 intArray2x3[i][j] = i + j;
             }
         }
-        System.out.println("intArray2x3" + Arrays.deepToString(intArray2x3));
+        System.out.println("intArray2x3: " + Arrays.deepToString(intArray2x3));
 
         // =============================================================================================================
 
@@ -133,20 +150,18 @@ public class DeclareAndInstantiateArrays {
 
         // =============================================================================================================
 
-        /*
-        int[][] intArray2xX = new int[2][]; //int[][] intArray2xX = new int[2][]; --> won't work
-        intArray2xX[0][0] = 0; // Eek!
-        intArray2xX[0][1] = 1;
-        intArray2xX[0][2] = 2;
-        System.out.println("intArray2xX" + Arrays.deepToString(intArray2xX));
-        */
+        int[][] intArray2xX = new int[2][];
+//        intArray2xX[0][0] = 0; // -> NPE!
+//        intArray2xX[0][1] = 1;
+//        intArray2xX[0][2] = 2;
+        System.out.println("intArray2xX: " + Arrays.deepToString(intArray2xX));
 
         // =============================================================================================================
 
         int[][] intArray2xCheckLength = new int[2][];
         intArray2xCheckLength[0] = new int[3];
         intArray2xCheckLength[1] = new int[2];
-        System.out.println("intArray2xCheckLength" + Arrays.deepToString(intArray2xCheckLength));
+        System.out.println("intArray2xCheckLength: " + Arrays.deepToString(intArray2xCheckLength));
         System.out.println("intArray2xCheckLength.length + intArray2xCheckLength[1].length: " + intArray2xCheckLength.length + intArray2xCheckLength[1].length);
 
         // =============================================================================================================
@@ -158,7 +173,7 @@ public class DeclareAndInstantiateArrays {
         // Testing varying length of array elements at some nesting level:
         int[][][] intArray3x3 = {{{1, 2, 3}, {4, 5}, {1, 2, 3}}, {{1, 2}, {4}}}; // Elements may vary in length due to having uninitialized fields
 
-        System.out.println("Test array with varying element length: intArray3x3" + Arrays.deepToString(intArray3x3));
+        System.out.println("Test array with varying element length: intArray3x3: " + Arrays.deepToString(intArray3x3));
 
         // =============================================================================================================
 
@@ -172,7 +187,7 @@ public class DeclareAndInstantiateArrays {
 
         // =============================================================================================================
 
-        // Array initializer being of various types
+        /** IMPORTANT - Array initializer being of various types */
         //int[][] intArray2x2Fails = {{1, 2}, {4.0, 5.0}}; // COMPILATION FAILS -> must be of same type! Only Number or Object works!
         Number[][] intArray2x2Works = {{1, 2}, {4.0, 5.0}};
 
@@ -187,7 +202,5 @@ public class DeclareAndInstantiateArrays {
          *      - Abstract class (those assigned elements must extend that abstract class!)
          *      - concrete class
          */
-
-
     }
 }

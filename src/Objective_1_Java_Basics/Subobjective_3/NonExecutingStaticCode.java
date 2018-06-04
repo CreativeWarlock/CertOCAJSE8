@@ -10,7 +10,7 @@ public class NonExecutingStaticCode {
     }
 
     /**
-     * What is t he output?
+     * What is the output?
      *
      * a) "This java program will run without the main method" will be printed
      * b) Compilation succeeds and no output

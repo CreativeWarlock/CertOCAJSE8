@@ -2,12 +2,14 @@ package Objective_2_Java_Data_TRypes.Subobjective_2;
 
 public class DifferentiateBetweenObjectReferenceAndPrimitiveVariables {
 
-    // http://www.oracle.com/technetwork/java/javase/tech/index.html
+    // https://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.12
 
     public static void main(String [ ] args) {
-        System.out.println("Objective 1.4 - Compare and Contrast Features and Components of Java, e.g. platform independence, OO, encapsulation, etc.");
+        System.out.println("Objective 2.2 - Differentiate between Object Reference and Primitive Variables");
 
         /**
+         * Essential statements:
+         * ---------------------
          * - Primitive variables store actual values
          * - Object reference variables store the address of objects they refer to
          *

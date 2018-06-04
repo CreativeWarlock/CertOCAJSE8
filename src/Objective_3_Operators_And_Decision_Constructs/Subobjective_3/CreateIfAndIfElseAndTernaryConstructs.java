@@ -2,21 +2,55 @@ package Objective_3_Operators_And_Decision_Constructs.Subobjective_3;
 
 public class CreateIfAndIfElseAndTernaryConstructs {
 
-
+    // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+    // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op2.html
 
     public static void main(String[] args) {
-        System.out.println("Chapter 3.1 - Create If and Else and Ternary Constructs");
+        System.out.println("Chapter 3.3 - Create If and Else and Ternary Constructs");
 
-        ComparingStringObjectVersusStringLiteral();
+        /**
+         * The if-then Construct
+         * ---------------------
+         * If a particular test evaluates to 'true' a certain section of code is executed
+         * */
+        int i = 1;
+        if (i > 0) {
+            System.out.println("Positive");
+        }
 
-    }
+        /**
+         * The if-then-else Construct
+         * --------------------------
+         * Provides a secondary path of execution for if-then when the if clause evaluates to false
+         * */
+        i = -1;
+        if (i > 0) {
+            System.out.println("Positive");
+        }
+        else {
+            System.out.println("Non-Positive");
+        }
 
-    private static void ComparingStringObjectVersusStringLiteral() {
-        String name1 = "Bhaka";
-        //String name2 = "Bhaka";
-        String name2 = new String("Bhaka");
+        /**
+         * Ternary Operator
+         * ----------------
+         * Shorthand for if-then-else construct
+         * syntax: condition ? value1 : value2
+         * */
+        i = -1;
+        String output = i > 0 ? "Positive" : "Non-Positive";
+        System.out.println(output);
 
-        System.out.println(name1.equals(name2) + " ");
-        System.out.println(name1 == name2);
+        /** Question: What happens with the following code fragment? */
+        int i1 = 1, i2 = 2;
+        //if (i1 + i2)                // Compilation fails
+            //System.out.println(i1);
+        //else
+            //System.out.println(i2);
+
+        /** Question: What is printed in the following code? */
+        i = 1; short s = 2;
+        int number = i > s ? i : s;
+        System.out.println(number);
     }
 }
