@@ -16,11 +16,11 @@ public class DifferentiateBetweenObjectReferenceAndPrimitiveVariables {
          * Parameter passing:
          * ------------------
          *
-         * A primitive variable is passed in a method by actual value
+         * A *PRIMITIVE* variable is passed in a method by actual value
          * -> changes made to the parameter are independent of the passed-in argument
          *
-         * An object reference variable is passed by the address of the referenced object in the memory
-         * -> changes made t othe parameter are reflected in the argument
+         * An *OBJECT REFERENCE* variable is passed by the address of the referenced object in the memory
+         * -> changes made to the parameter are reflected in the argument
          *
          * Value returning:
          * ----------------
