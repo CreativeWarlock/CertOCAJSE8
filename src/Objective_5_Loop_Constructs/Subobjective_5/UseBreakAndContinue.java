@@ -29,6 +29,12 @@ public class UseBreakAndContinue {
             System.out.print("outer - ");
         }
 
+        byte b = 1;
+
+        if (b == 3) {
+
+        }
+
         System.out.println();
 
         /** The continue statement

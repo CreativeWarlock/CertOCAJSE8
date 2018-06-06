@@ -22,9 +22,28 @@ public class CreateAndUseWhileLoops {
         while (i<10)
             i++;
 
-        System.out.print(i + " ");
+        System.out.println(i + " ");
 
+        /** Question: What will be printed out? */
 
+        /*while (false) {
+            i = 20;
+            System.out.print("i: " + i);
+        }*/
 
+        // Answer: Nothing. Compile time error: Unreachable statement!
+
+        /** Question what will be printed out? */
+
+        int x = 0;
+
+        do {
+            System.out.print(x);
+        } while (x++ < 2);
+
+        for(x = 0; x++ < 2;)
+            System.out.print(x);
+
+        // Answer: 01212
     }
 }

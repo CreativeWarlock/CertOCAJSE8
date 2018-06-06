@@ -53,14 +53,26 @@ public class ObjectRefsAndPrimitiveValuesPassedIntoMethods {
         swapData(data1, data2);
         System.out.println("data1.value: " + data1.value + " " + "data2.value: " + data2.value);
 
-        //swapDataUsingMembers(data1, data2);
-        //System.out.println("data1.value: " + data1.value + " " + "data2.value: " + data2.value);
+        swapDataUsingMembers(data1, data2);
+        System.out.println("data1.value: " + data1.value + " " + "data2.value: " + data2.value);
 
         /*DataWrapper dataWrapper1 = new DataWrapper(data1);
         DataWrapper dataWrapper2 = new DataWrapper(data2);
 
         swapDataWithWrapper(dataWrapper1, dataWrapper2);
         System.out.println("data1.value: " + dataWrapper1.data.value + " " + "data2.value: " + dataWrapper2.data.value);*/
+
+        // =============================================================================================================
+
+        /** Question: What is the output? */
+        A a = new B();
+        //System.out.println(a.calc(2.0, 3.1));   // A knows only calc(int a, int b) !!
+
+        // Answer:  The reference type is important here! It is A, therefor the compiler cannot find
+        //          any calc-method that accepts 2 doubles!
+
+        B b = new B();
+        System.out.println(b.calc(2.0, 3.1));   // this works!
     }
 
     static void changeValue(Data data) {
@@ -92,5 +104,17 @@ public class ObjectRefsAndPrimitiveValuesPassedIntoMethods {
         dataWrapper1.data = dataWrapper2.data;
         dataWrapper2.data = tempData;
 
+    }
+}
+
+class A {
+    public int calc(int a, int b) {
+        return a+b;
+    }
+}
+
+class B extends A {
+    public double calc(double a, double b) {
+        return a+b;
     }
 }

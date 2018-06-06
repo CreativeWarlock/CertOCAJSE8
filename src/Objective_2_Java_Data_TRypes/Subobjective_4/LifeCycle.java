@@ -55,7 +55,7 @@ public class LifeCycle {
         // -> Answer: 2 objects are eligible for GC:
         //              - 1 because the default constructor of MyClass is invoked
         //                      -> an instance is created, but never referenced by any variable
-        //              - 1 because within myMethod() object2 is never referenced
+        //              - 1 because within setMyOtherInt() object2 is never referenced
         //              - objectX is not ready for GC!
 
     }

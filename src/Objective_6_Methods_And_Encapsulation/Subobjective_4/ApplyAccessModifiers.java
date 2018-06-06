@@ -13,10 +13,19 @@ public class ApplyAccessModifiers {
          *
          * Access control levels:
          * ----------------------
-         *  + Top Level: public or private-package
-         *  + Member Level: public, protected, private-package or private
+         *  + Top level class: public or private-package
+         *  + Member level: public, protected, private-package or private
          *
-         *  + A class cannot be private or protected except nested class!
+         * IMPORTANT:
+         *  + A class CANNOT be private or protected!
+         *  + A nested class CAN BE private or protected!
+         *
+         *  + A static nested class is behaviorally a top level class!
+         *      -> it interacts with the instance members of its outer class (and other classes)
+         *      just like any other top level class
+         *
+         * + A method-local class can NOT access any local variables
+         *
          *
          * Modifier permission:
          * --------------------
@@ -40,7 +49,40 @@ public class ApplyAccessModifiers {
          *
          *
          * */
+    }
 
-
+    // A static nested class is behaviorally a top level class
+    static class NestedStaticClass {
+        NestedStaticClass() {
+            // Can interact with the instance members of its outer class (and other classes)
+            AnotherClass ac = new AnotherClass();
+            ac.setMyOtherInt(4);
+        }
     }
 }
+
+/**
+ * Using method-local classes can increase the readability of your code by keeping related parts together.
+ * As a contrived example, suppose you have a method that needs to create a thread to do something in the background:
+ * */
+class TestMethodLocalInnerClass {
+    public static void main(String[] args) {
+        class Greeter implements Runnable {
+            private final String _greeted;
+
+            public Greeter(String greeted) {
+                super();
+                _greeted = greeted;
+            }
+
+            public void run() {
+                System.out.printf("Hello %s!\n", _greeted);
+            }
+        }
+
+        new Greeter("world").run();
+        new Greeter("dog").run();
+    }
+}
+ /**
+ * */

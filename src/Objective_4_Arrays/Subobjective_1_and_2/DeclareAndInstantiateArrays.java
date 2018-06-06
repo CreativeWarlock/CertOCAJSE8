@@ -126,6 +126,7 @@ public class DeclareAndInstantiateArrays {
 
         int[][] intArray3x2 = {{1, 2, 3}, {4, 5}};
         int[][] intArray3x2WithTypeSafety = new int[][]{{1, 2, 3}, {4, 5}};
+        System.out.println("intArray3x2: " + intArray3x2);
         System.out.println("intArray3x2: " + Arrays.deepToString(intArray3x2));
         System.out.println("intArray3x2WithTypeSafety: " + Arrays.deepToString(intArray3x2WithTypeSafety));
 

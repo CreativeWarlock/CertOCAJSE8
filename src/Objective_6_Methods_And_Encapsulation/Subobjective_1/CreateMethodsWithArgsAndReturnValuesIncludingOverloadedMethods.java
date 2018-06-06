@@ -84,7 +84,7 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
     // =================================================================================================================
 
     void    myMethod() { }
-    //boolean myMethod() { return true; } // Can not have myMethod() with 2 different return types:
+    //boolean setMyOtherInt() { return true; } // Can not have setMyOtherInt() with 2 different return types:
     void    myMethod(double value) { }
     void    myMethod(int value) { }
     byte    myMethod(Integer value) { return 0; } // A changed Return type is independent from the method parameter list
