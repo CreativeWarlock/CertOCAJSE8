@@ -22,27 +22,61 @@ public class DescribeInheritenceAndItsBenefits {
          *
          * */
 
-        SubClass sub = new SubClass();
-        sub.print();
+/*        SubClass sub = new SubClass();
+        sub.print();*/
+
+        SuperClass subClass = new SubClass();
+        subClass.print();
+
+        // =============================================================================================================
+
+        Animal bird = new Bird();
+        bird.print();
+        //bird.fly();                 // Method fly() is not known to type Animal!
     }
 }
 
 class SuperClass {
     protected String field = "SuperClass!";
+
+    public SuperClass() {
+        super();
+    }
+
     protected void print() {
         System.out.println(field);
     }
 }
 
 class SubClass extends SuperClass {
+
     protected String field = "Sub class..";
     protected void print() {
         super.print();
         System.out.println(field);
     }
+}
+
+// =====================================================================================================================
+
+class Bird extends Animal {
+        public void print() {
+            System.out.print("Bird");
+        }
+        void fly() {
+            System.out.print("Bird flies");
+        }
+}
+
+class Animal {
+    public void print() {
+        System.out.print("Animal");
+    }
+}
+
+// =====================================================================================================================
 
 /**
-
     package com
     public class Super {
         String value;
@@ -63,4 +97,3 @@ class SubClass extends SuperClass {
     // Answer: No, since field 'value' has private package access only and
     //         and class 'Me' is in a different package than Super class.
     //         Therefor the field 'value' is not inherited down to Sub class.
-}

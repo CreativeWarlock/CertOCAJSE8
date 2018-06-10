@@ -1,9 +1,13 @@
 package Objective_7_Inheritence.Subobjective_5;
 
+import Objective_6_Methods_And_Encapsulation.Subobjective_4.AnotherClass;
+
 public class AbstractClassesVsInterfaces {
 
     // https://docs.oracle.com/javase/tutorial/java/IandI/interfaceDef.html
     // https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
+
+    static Animal bird = new Bird();
 
     public static void main(String[] args) {
         System.out.println("Chapter 7.5 - Abstract classes vs interfaces");
@@ -48,30 +52,129 @@ public class AbstractClassesVsInterfaces {
          *
          * - take advantage of multiple inheritance of type
          *
+         * - can directly implement an interface using a body which implements all methods which have no default implementation
          */
 
         // AbstractA abs = new AbstractA(); // NOPE - cannot instantiate an abstract class!
+
+        // =============================================================================================================
+
+        Integer myInt = new Integer(9);
+        boolean isInstOf = myInt instanceof Number;
+
+        InterfaceA i = new InterfaceA() {
+            @Override
+            public int myMethod(int i) {
+                return 0;
+            }
+        }; // Possible, but it must implement non-default methods!
+
+        System.out.println(10 + 5 + "I: " + i);
+
+        // =============================================================================================================
+
+        A a = new A();
+        //C c1 = (C)a;    // ClassCastException!
+        //c1.meth();
+
+        // =============================================================================================================
+
+        boolean canBirdFly = bird instanceof Fly;
+        System.out.println(canBirdFly);
+
+        // =============================================================================================================
+
+        Bird bird = new Bird();
+        boolean isAnimal = bird instanceof Animal;
+        boolean canFly = bird instanceof Fly;
+        boolean isObject = bird instanceof Object;
+
+        System.out.println("Bird is Animal? " + isAnimal);
+        System.out.println("Bird can fly? " + canFly);
+        System.out.println("Bird is Object? " + isObject);
+
+        Animal animal = new Animal();
+        isAnimal = animal instanceof Animal;
+        canFly = animal instanceof Fly;
+        isObject = animal instanceof Object;
+
+        System.out.println("Animal is Animal? " + isAnimal);
+        System.out.println("Animal can fly? " + canFly);
+        System.out.println("Animal is Object? " + isObject);
+
+        // =============================================================================================================
+
+        System.out.print(In2.print());
     }
 }
 
-interface InferfaceA {
+interface InterfaceA {
     public static final int numberA = 0; // final must be initialized!
-    int numberB = 0;
+    int numberB = 10;
 
     //public int myMethod(int i) { return i; } // methods cannot have a body!
 
     public int myMethod(int i);                // can ONLY have public, not any other access modifier!
 
-    static int getNumberA() { return numberA; } // static methods -> must have a body!
+    public static int getNumberA() { return numberA; } // static methods -> must have a body!
 
-    default int defaultMethod() { return numberB; }
+    public default int defaultMethodB() { return numberB; }
+
+    //public default String toString() { return "I"; } // EEK! Cannot override a member of Object!
 }
 
-abstract class AbstractA implements InferfaceA { // an abstract must not implement any methods! ;)
+abstract class AbstractA implements InterfaceA { // an abstract must not implement any methods! ;)
     private String name;
     public AbstractA() {    // constructor cannot be directly called! Only from sub classes!
         name = "AbstractA";
     }
 
+    // public void print(); // Method declarations are not valid!
+
     public String getName() { return name; }
+}
+
+// =====================================================================================================================
+
+interface I {
+    void meth();
+}
+
+class A implements I {
+
+    void A(String s) { }
+
+    @Override
+    public void meth() {
+
+    }
+}
+
+class C extends A implements I {
+    @Override
+    public void meth() {
+        System.out.println("C");
+    }
+}
+
+// =====================================================================================================================
+
+class Animal {}
+
+interface Fly {}
+
+class Bird extends Animal implements Fly {}
+
+// =====================================================================================================================
+
+interface In1 {
+    public static void print() {
+        System.out.println("Interface 1");
+    }
+}
+
+interface In2 extends In1 {
+    static String print() {
+        return "Interface 2";
+    }
 }

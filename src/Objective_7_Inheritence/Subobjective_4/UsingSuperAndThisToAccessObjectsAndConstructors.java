@@ -20,7 +20,7 @@ public class UsingSuperAndThisToAccessObjectsAndConstructors {
          * - in a constructor 'this' must be the FIRST statement!
          */
 
-        MyClass mc = new MyClass();
+        MyClass mc = new MyClass("Bla");
         mc.execute();
 
         /** 'super' keyword:
@@ -38,7 +38,13 @@ public class UsingSuperAndThisToAccessObjectsAndConstructors {
         MySubClass mySubClass = new MySubClass();
         mySubClass.execute();
 
+        boolean b = mySubClass instanceof MySuperClass;
+
         //int number = this.number + 1; // this can only be referenced from an instance, not a static context!
+
+        MySuperClass superClass = new MySubClass("Make me proud!");
+        superClass.print("Some String");
+        ((MySubClass) superClass).execute();
     }
 }
 
@@ -69,8 +75,9 @@ class MySuperClass {
 
     protected static int number;
 
-    protected MySuperClass() {
-        this.field = "I'm the SUPER CLASS!!!";
+    protected MySuperClass(String additionalString) {       // -> Then we cannot use super() in sub classes! We can call super(null)
+    //protected MySuperClass() {
+        this.field = "I'm the SUPER CLASS!!! " + additionalString;
     }
 
     protected void print(String string) {
@@ -83,19 +90,23 @@ class MySuperClass {
 class MySubClass extends MySuperClass {
     public String field = "I'm the sub class... -.-";
 
+    public MySubClass(String additionalString) {
+        super(additionalString);
+    }
+
     public MySubClass() {
-        super();          // will be called automatically! :)
+        super("+");          // will be called automatically! :)
         System.out.println("MySubClass constructor: super.field = " + super.field);
 
         super.increment(super.number);
         System.out.println("Number : " + this.number);
     }
 
-    public void print(String string) {
+    public final void print(String string) {
         System.out.println("SubClass: " + string);
     }
     public void execute() {
-        //super.print(super.field);
-        print(field);
+        super.print(super.field);
+        //print(field);
     }
 }
