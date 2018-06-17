@@ -8,7 +8,7 @@ public class UsingSuperAndThisToAccessObjectsAndConstructors {
     int number = 0;
 
     public static void main(String[] args) {
-        System.out.println("Chapter 7.4 - Using 'super' and 'this' to access objects and constructors");
+        System.out.println("Chapter 7.4 - Using 'super' and 'this' to access Objects and Constructors");
 
         /**
          * 'this' keyword:

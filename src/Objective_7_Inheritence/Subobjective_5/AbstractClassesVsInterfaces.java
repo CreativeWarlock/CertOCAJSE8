@@ -10,7 +10,7 @@ public class AbstractClassesVsInterfaces {
     static Animal bird = new Bird();
 
     public static void main(String[] args) {
-        System.out.println("Chapter 7.5 - Abstract classes vs interfaces");
+        System.out.println("Chapter 7.5 - Abstract Classes vs Interfaces");
 
         /**
          * Similarities:
