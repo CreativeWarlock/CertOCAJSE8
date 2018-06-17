@@ -45,11 +45,11 @@ public class UseSwitchStatement {
 
         }*/
 
-        String s = "Whizlabs";
+        String s = "RockLand";
         switch(s) {
             default:
                 System.out.println("Java");
-            case "Whizlabs":
+            case "RockLand":
                 System.out.println("OCAJP");
             //default:  // NOT VALID
                 //System.out.println("Another default?");

@@ -22,9 +22,9 @@ public class EqualityBetweenStringsAndObjects {
          *  The == operator compares OBJECTS by REFERENCE
          *  implying that an EQUALITY test EVALUATES to TRUE *only* if the two objects in comparison are THE SAME.
          * */
-        String string1 = new String("WhizLabs");
-        String string2 = "WhizLabs";
-        String string3 = "WhizLabs";
+        String string1 = new String("RockLand");
+        String string2 = "RockLand";
+        String string3 = "RockLand";
         System.out.println(string1 == string2); // false
         System.out.println(string2 == string3); // true
 
@@ -50,9 +50,9 @@ public class EqualityBetweenStringsAndObjects {
          * - The equals() method is overridden in the String class
          * - it compares strings based on their contained literals values
          * */
-        string1 = new String("WhizLabs");
-        string2 = "WhizLabs";
-        string3 = "WhizLabs";
+        string1 = new String("RockLand");
+        string2 = "RockLand";
+        string3 = "RockLand";
         System.out.println("string1.equals(string2): " + string1.equals(string2)); // true
         System.out.println("string2.equals(string3): " + string2.equals(string3)); // true
 

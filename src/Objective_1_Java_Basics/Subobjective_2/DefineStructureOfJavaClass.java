@@ -30,9 +30,9 @@ public class DefineStructureOfJavaClass {
         // ----------------
 
          Element                Example                     Requirement?            Place
-         Package declaration    package whiz;               no                      First line in file
+         Package declaration    package Rock;               no                      First line in file
          Import statement/s     import java.io.*            no                      immediately after package!
-         class declaration      public class Whiz           yes                     immediately after import!
+         class declaration      public class Rock           yes                     immediately after import!
          field declaration/s    int value;                  no                      anywhere inside a class
          method declarations    void method()               no                      anywhere inside a class
 

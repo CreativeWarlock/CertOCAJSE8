@@ -105,7 +105,7 @@ class ShadowClass {
         }
 }
 
-class Whiz {
+class Rock {
     static int x = 9;
 
     public static void main(String [ ] a) {

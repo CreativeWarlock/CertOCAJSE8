@@ -17,11 +17,11 @@ public class UseBreakAndContinue {
          */
 
         int i, j;
-        whizlabs: for(i = 1; i < 4; i++) {
+        RockLand: for(i = 1; i < 4; i++) {
             j = 1;
             while (j<3) {
                 if (j % 2 == 0) {
-                    break; // whizlabs;
+                    break; // RockLand;
                 }
                 j++;
                 System.out.print("inner - ");
@@ -47,12 +47,12 @@ public class UseBreakAndContinue {
          *      + labeled   -> may skip an outer loop
          */
 
-        whizlabs: for(i = 1; i < 4; i++) {
+        RockLand: for(i = 1; i < 4; i++) {
             j = 1;
             while (j < 4) {
                 j++;
                 if (j % 2 == 0) {
-                    continue whizlabs;
+                    continue RockLand;
                 }
                 System.out.print(" inner ");
             }
@@ -62,7 +62,7 @@ public class UseBreakAndContinue {
         /** NOT VALID */
         for(int m = 1; m < 4; m++) {
             for(int n = 1; n < 4; n++) {
-                System.out.print("Whizlabs");
+                System.out.print("RockLand");
                 //continue 1;
             }
         }

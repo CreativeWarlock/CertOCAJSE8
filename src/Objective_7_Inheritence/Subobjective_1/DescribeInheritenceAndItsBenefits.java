@@ -82,7 +82,7 @@ class Animal {
         String value;
     }
 
-    package com.whizlabs
+    package com.RockLand
     public class Me extends Super { }
 
     package com
