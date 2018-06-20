@@ -61,6 +61,8 @@ public class CreateAndManipulateStrings {
         String newThug = thug.replace("\\s", "-");  // ... nope!
         System.out.println(newThug);
 
+        /** ------------------------------------------------------------------------------------------------------ */
+
         /** Question 2: What happens if the following code is compiled and executed?
          * A) It prints number 0
          * B) It prints number 1
@@ -83,6 +85,8 @@ public class CreateAndManipulateStrings {
         String[] nonwhiteMatch4 = wow.split("\\S");
         System.out.println(nonwhiteMatch4.length);
 
+        /** ------------------------------------------------------------------------------------------------------ */
+
         /** Question 3: What happens if the following code is compiled and executed?
          * A) Compilation fails
          * B) It prints "A+B+C
@@ -92,7 +96,9 @@ public class CreateAndManipulateStrings {
         String joint = String.join("+", "-", "A", "B", "C");
         System.out.println(joint);
 
-        /** Question 3: What happens if the following code is compiled and executed?
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        /** Question 4: What happens if the following code is compiled and executed?
          * A) Compilation fails
          * B) It prints "A+B+C
          * C) It prints "-+A+B+C"
@@ -109,5 +115,48 @@ public class CreateAndManipulateStrings {
 
         String holyMoly = String.format("%4$10s %3$2s %2$2s %1$2s", "a", "b", "c", "d");
         System.out.println(holyMoly);
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        /** Question 5: How many Strings objects are created when reaching line 4?
+         * A) 1
+         * B) 2
+         * C) 3
+         * D) 4
+         * E) 5
+         * */
+
+        String s = "Rock";      // (1)
+        s.concat("Land");        // (2)
+        s.toLowerCase();        // (3)
+        System.out.println(s);  // (4)
+
+        // Answer:  Line 1 creates a new String object and assigns the value "Rock". At line 2, two String objects are created ("Land" and "RockLand").
+        //          At line 3, a new String object is created ("rock");
+        //          In total 4 objects are created -> Answer D
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        /** Question 6: What is the result of the following code?
+         * A) hizl
+         * B)  hizl
+         * C) izla
+         * D) An exception.
+         * E) Compilation fails.
+         * */
+
+        StringBuilder sb = new StringBuilder("RockLand");
+        char[] ch = new char[4];
+        sb.getChars(1, 5, ch, 1);
+        for (char c : ch) {
+            System.out.println(c);
+        }
+
+        //Answer: getChars() copies characters from a character sequence (here: 'sb') into the destination character array (here: 'ch').
+        // The first character to be copied is at index srcBegin (here: 1);
+        // The last character to be copied is at index scrEnd-1 (here: 5);
+        // The total number of characters to be copied is srcEnd-srcBegin (here: 5-1 = 4)
+        // The index offset in the destination character array is 1 the 4 characters to be copied will lead to an ArrayIndexOutofBoundsException
+        // since the character array has only 4 elements (from index 0 to 3). Therefor answer D is correct.
     }
 }

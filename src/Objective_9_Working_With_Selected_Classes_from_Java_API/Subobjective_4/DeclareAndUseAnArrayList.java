@@ -2,6 +2,7 @@ package Objective_9_Working_With_Selected_Classes_from_Java_API.Subobjective_4;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class DeclareAndUseAnArrayList {
 
@@ -59,6 +60,18 @@ public class DeclareAndUseAnArrayList {
         anotherList.set(0, "4th");
         System.out.println(anotherList.toString());
 
+        /** --------------------------------------------------------------------------------------------------------- */
+
+        List nonGenericList = new ArrayList<>();
+        nonGenericList.add(1);
+        nonGenericList.add('c');
+        nonGenericList.add("A");
+        nonGenericList.add(new Integer(4));
+        System.out.println("nonGenericList: " + nonGenericList);
+
+
+        /** --------------------------------------------------------------------------------------------------------- */
+
         /** Question 1: What happens when the following code fragment is compiled and executed? */
 
 //        ArrayList myInts = new ArrayList();
@@ -75,6 +88,8 @@ public class DeclareAndUseAnArrayList {
 
         // Answer B since there are no elements at position 1 yet.
 
+        /** --------------------------------------------------------------------------------------------------------- */
+
         /** Question 2: What happens when the following code fragment is compiled and executed? */
 
 //        ArrayList myStrings = new ArrayList();
@@ -90,6 +105,8 @@ public class DeclareAndUseAnArrayList {
          * */
 
         // Answer A since myStrings is of a raw type -> get method returns an object, not string!
+
+        /** --------------------------------------------------------------------------------------------------------- */
 
         /** Question 3: What happens when the following code fragment is compiled and executed? */
 
@@ -109,6 +126,8 @@ public class DeclareAndUseAnArrayList {
         // Answer D since   1. remove(0) can operate on the list and
         //                  2. remove(0) return type is not assigned to an int which conflicts with the raw type of the list!
 
+        /** --------------------------------------------------------------------------------------------------------- */
+
         /** Question 3: What happens when the following code fragment is compiled and executed? */
 
 //        ArrayList myList = new ArrayList();
@@ -125,5 +144,88 @@ public class DeclareAndUseAnArrayList {
 
         // Answer A since   1. set(1,1) returns the Element of type Object and not a boolean result value. -> Compilation error
         //                  2. without error 1) set(1,1) would throw an exception because it accesses with the wrong index.
+
+        /** --------------------------------------------------------------------------------------------------------- */
+
+        /** Question 4: What happens when the following code fragment is compiled and executed? */
+
+        List<String> strings = new ArrayList<>();
+        strings.add("A");
+        strings.add("B");
+        strings.add("C");
+        String[] arr = new String[2];
+
+        arr = strings.toArray(arr);
+
+        for (String s : arr) {
+            System.out.print(s);
+        }
+
+        System.out.println("\nLength of array 'arr': " + arr.length);
+
+        /**
+         * A) It prints "AB", , the length of the array is 2
+         * B) It prints "ABC", , the length of the array is 3
+         * C) It prints "nullnull", the length of the array is 2
+         * D) An exception is thrown
+         * E) Compilation fails.
+         * */
+
+        // Answer: Since strings is longer than the length of array 'arr' the toArray() method allocates a new array
+        // whose length is equal to the length of the 'strings' list.
+
+        /** Documentation to toArray: "If the list fits in the specified array, it is returned therein.
+         *          Otherwise, a new array is allocated with the runtime type of the specified array and the size of this list.
+         *          If the list fits in the specified array with room to spare (i.e., the array has more elements than the list),
+         *          the element in the array immediately following the end of the list is set to null.
+         *          (This is useful in determining the length of the list only if the caller knows that the list does not contain any null elements.)
+         */
+
+        /** --------------------------------------------------------------------------------------------------------- */
+
+        /** Question 5: What happens when the following code fragment is compiled and executed? */
+
+        strings = new ArrayList<>();
+        strings.add("A");
+        strings.add("B");
+        strings.add("C");
+        arr = new String[5];
+
+        arr = strings.toArray(arr);
+
+        for (String s : arr) {
+            System.out.print(s);
+        }
+
+        System.out.print("\nLength of array 'arr': " + arr.length);
+
+        /**
+         * A) It prints "ABC", , the length of the array is 3
+         * B) It prints "ABC", , the length of the array is 5
+         * C) An exception is thrown
+         * D) Compilation fails.
+         * */
+
+        // Answer: Since the array is now longer than the 'strings' list the toArray() method sets the remaining 2 elements in 'arr' to null.
+        // Therefor answer B is correct.
+
+        /** --------------------------------------------------------------------------------------------------------- */
+
+        /** Question 6: What is  the output? */
+
+//        List list = new ArrayList<>();
+//        list.add(5);
+//        list.add(5);
+//        System.out.print(Integer.max(list.get(0), 1));
+
+        /**
+         * A) true
+         * B) 10
+         * C) 1
+         * D) An exception is thrown.
+         * E) Compilation fails..
+         * */
+
+        // Answer: Since all elements of the list are of raw type (Object) and the max() method expects an Integer the compilation fails -> E
     }
 }
