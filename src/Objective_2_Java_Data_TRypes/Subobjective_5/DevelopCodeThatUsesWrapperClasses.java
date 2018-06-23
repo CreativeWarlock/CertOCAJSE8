@@ -34,20 +34,20 @@ public class DevelopCodeThatUsesWrapperClasses {
          * Numerical Wrapper classes:
          *      Byte, Short, Integer, Long
          *
-         *      - Fields and methods have similar names and functionalities
+         *      - Fields and methods have similar names and functionality
         */
 
         int sum = Integer.sum(1, 4);
         System.out.println("sum: " + sum);
 
-        int intCompare = Integer.compare(1, 4);
+        int intCompare = Integer.compare(6, 4);
         System.out.println("intCompare: " + intCompare);
 
         /**
          * Floating point Wrapper classes:
          *      Float, Double
          *
-         *      - Fields and methods have similar names and functionalities
+         *      - Fields and methods have similar names and functionality
          */
         double max = Double.max(1.1, 2.1);
         System.out.println("max: " + max);

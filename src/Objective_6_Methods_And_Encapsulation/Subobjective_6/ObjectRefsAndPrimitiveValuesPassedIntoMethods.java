@@ -28,10 +28,10 @@ public class ObjectRefsAndPrimitiveValuesPassedIntoMethods {
          * -> Both argument and parameter point to the same object
          * => any changes made to the parameter are reflected in the argument
          *
-         * However, careful, references are always passed in by value, meaning that the reference itself cannot be changed
-         * only visible fields and members behind the address of the reference!
+         * However, careful, references are always passed in by value, meaning that the reference itself cannot be changed!
+         * -> only visible fields and members behind the address of the reference can be changed!
          *
-         * */
+         */
 
         int arg = 1;
         System.out.println("arg: " + arg);
@@ -56,11 +56,11 @@ public class ObjectRefsAndPrimitiveValuesPassedIntoMethods {
         swapDataUsingMembers(data1, data2);
         System.out.println("data1.value: " + data1.value + " " + "data2.value: " + data2.value);
 
-        /*DataWrapper dataWrapper1 = new DataWrapper(data1);
+        DataWrapper dataWrapper1 = new DataWrapper(data1);
         DataWrapper dataWrapper2 = new DataWrapper(data2);
 
         swapDataWithWrapper(dataWrapper1, dataWrapper2);
-        System.out.println("data1.value: " + dataWrapper1.data.value + " " + "data2.value: " + dataWrapper2.data.value);*/
+        System.out.println("data1.value: " + dataWrapper1.data.value + " " + "data2.value: " + dataWrapper2.data.value);
 
         // =============================================================================================================
 
@@ -68,19 +68,22 @@ public class ObjectRefsAndPrimitiveValuesPassedIntoMethods {
         A a = new B();
         //System.out.println(a.calc(2.0, 3.1));   // A knows only calc(int a, int b) !!
 
-        // Answer:  The reference type is important here! It is A, therefor the compiler cannot find
+        // Answer:  The reference type is important during compile time! It is A, therefor the compiler cannot find
         //          any calc-method that accepts 2 doubles!
+        // (See Objective 7.2 for 'Reference Type vs. Object Types')
 
         B b = new B();
         System.out.println(b.calc(2.0, 3.1));   // this works!
     }
 
-    static void changeValue(Data data) {
-        data.value = 2 * data.value;
+    static void changeValueInVain(int param) {
+        System.out.println("Trying to change value (in vain)...");
+        param = 2 * param;
     }
 
-    static void changeValueInVain(int param) {
-        param = 2 * param;
+    static void changeValue(Data data) {
+        System.out.println("Changing value by accessing its member variable");
+        data.value = 2 * data.value;
     }
 
     //  When we pass in data1 and data2 to swapData(), the function swap() creates a copy of these references!

@@ -18,15 +18,13 @@ public class DetermineWhenCastingIsNecessary {
          * - two kinds of casting:
          *      up-casting:     can be done implicitly
          *      down-casting:   must be done with cast operator
-         *
-         *  Upcasting:
          */
+
+        /** Upcasting: */
         String myString = "Hello World!";
         Object myStringObject = (Object)myString; // superfluous operator!
 
-        /** Downcasting:
-         * Upcasting:
-         */
+        /** Downcasting:*/
         String myCastedString = (String)myStringObject;
 
         System.out.println(myCastedString);
@@ -40,9 +38,16 @@ public class DetermineWhenCastingIsNecessary {
         //Double biggerFloat = (Double)f;       // cannot cast to Float! Float is no sub/super-type of Double!
 
         Object o = new Object();
-        Integer myInt = (Integer)o;             // produces a ClassCastException since 'o' is not an instance of type Integer!
-        Number myNum = (Number)myInt;
-        Long myLong = (Long)myNum;              // may produce a ClassCastException!
+        //Integer myInt = (Integer)o;             // produces a ClassCastException since 'o' is not an instance of type Integer!
+
+        // it only works if the object 'o' would have been created by casting up from an Integer like so:
+        Integer intForO = new Integer(42);
+        Object betterO = (Object)intForO;
+        Integer theOldIntAgain = (Integer)betterO;
+        System.out.println(theOldIntAgain);
+
+        Number myNum = (Number)theOldIntAgain;
+        Long myLong = (Long)myNum;              // produces a ClassCastException!
 
 
     }

@@ -4,8 +4,6 @@ public class ApplyEncapsulationPrinciplesToAClass {
 
     // https://docs.oracle.com/javase/tutorial/java/concepts/object.html
 
-    final int j = 32;
-
     public static void main(String[] args) {
         System.out.println("Chapter 6.5 - Create and Overload Constructors; Differentiate between default and user defined constructors");
 
@@ -14,8 +12,7 @@ public class ApplyEncapsulationPrinciplesToAClass {
          * --------------
          * is a mechanism of wrapping data (variables) and code acting on the data (methods)
          * together as a single unit.
-         *
-         * */
+         */
 
 
         /** Question: */
@@ -31,13 +28,14 @@ public class ApplyEncapsulationPrinciplesToAClass {
         return x;
     }
 
-    /** Question 14: is this method usable?
-     *
-     * static int calc(int i) {
-     *      return i + j;
-     * }
-     *
-     */
+    // Variable declaration here for the next question
+    final int j = 32;
 
-    // Answer: No, j cannot be accessed from static context!
+    /** Question 14: is the following method 'calc(int i)' compilable? */
+
+//    static int calc(int i) {
+//        return i + j;
+//    }
+
+    // Answer: Since j cannot be accessed from static context, the method cannot be compiled.
 }

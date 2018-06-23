@@ -20,8 +20,8 @@ public class UsingSuperAndThisToAccessObjectsAndConstructors {
          * - in a constructor 'this' must be the FIRST statement!
          */
 
-        MyClass mc = new MyClass("Bla");
-        mc.execute();
+        AssignWithConstructorClass mc = new AssignWithConstructorClass("Area 51");
+        mc.printInstanceField();
 
         /** 'super' keyword:
          * -----------------
@@ -36,7 +36,7 @@ public class UsingSuperAndThisToAccessObjectsAndConstructors {
          * */
 
         MySubClass mySubClass = new MySubClass();
-        mySubClass.execute();
+        mySubClass.print();
 
         boolean b = mySubClass instanceof MySuperClass;
 
@@ -44,38 +44,37 @@ public class UsingSuperAndThisToAccessObjectsAndConstructors {
 
         MySuperClass superClass = new MySubClass("Make me proud!");
         superClass.print("Some String");
-        ((MySubClass) superClass).execute();
+        ((MySubClass) superClass).print();
     }
 }
 
-class MyClass {
-    protected String field = "Instance field";
+class AssignWithConstructorClass {
+    protected String field = "Secret Area";
 
-    MyClass(String name) {
+    AssignWithConstructorClass(String name) {
         this.field = name;
     }
 
-    MyClass() {
+    AssignWithConstructorClass() {
         //System.out.println(field); // If used then 'this' cannot be 2nd statement!
-        this("No name");
+        this("Unrestricted Area");
     }
 
     protected void print(String string) {
         System.out.println(string);
     }
 
-    public void execute() {
-        String field = "Local variable";
-        this.print("MyClass.Execute(): " + this.field);
+    public void printInstanceField() {
+        String field = "Rocky Mountains";
+        this.print("AssignWithConstructorClass.printInstanceField(): " + this.field);
     }
 }
 
 class MySuperClass {
     protected String field;
-
     protected static int number;
 
-    protected MySuperClass(String additionalString) {       // -> Then we cannot use super() in sub classes! We can call super(null)
+    protected MySuperClass(String additionalString) {       // -> Then we cannot use super() in sub classes! But we can call, e.g., super(null)
     //protected MySuperClass() {
         this.field = "I'm the SUPER CLASS!!! " + additionalString;
     }
@@ -95,17 +94,17 @@ class MySubClass extends MySuperClass {
     }
 
     public MySubClass() {
-        super("+");          // will be called automatically! :)
-        System.out.println("MySubClass constructor: super.field = " + super.field);
+        super("[ empty ]"); // will be called automatically! :)
+        System.out.println("MySubClass constructor with super.field = " + super.field);
 
         super.increment(super.number);
         System.out.println("Number : " + this.number);
     }
 
     public final void print(String string) {
-        System.out.println("SubClass: " + string);
+        System.out.println("The passed over string is: " + string);
     }
-    public void execute() {
+    public void print() {
         super.print(super.field);
         //print(field);
     }

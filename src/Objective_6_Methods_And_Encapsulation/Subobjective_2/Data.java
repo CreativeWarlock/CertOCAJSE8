@@ -1,7 +1,7 @@
 package Objective_6_Methods_And_Encapsulation.Subobjective_2;
 
 public class Data {
-    int instanceValue;
+    protected int instanceValue;
     static int staticValue;
 
     public void instanceMethodIncrementStaticValue() {

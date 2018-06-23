@@ -58,9 +58,9 @@ public class EqualityBetweenStringsAndObjects {
 
         /** Question: What does the following code print? */
         String ocaString = new String("OCAJP 8");
-        String copiedOcString = new String(ocaString);
-        System.out.println("ocaString == copiedOcString: " + ocaString == copiedOcString); // prints false alone
-        System.out.println("ocaString == copiedOcString: " + (ocaString == copiedOcString));
+        String copiedOcaString = new String(ocaString);
+        System.out.println("ocaString == copiedOcString: " + ocaString == copiedOcaString); // ATTENTION! This println ONLY prints "false"! Watch out for the error
+        System.out.println("ocaString == copiedOcString: " + (ocaString == copiedOcaString));
 
         /** Question: What does the following code print? */
         data1 = new Data(0);
@@ -68,11 +68,9 @@ public class EqualityBetweenStringsAndObjects {
         Data data3 = data2;
         data2 = data1;
         System.out.println("data1.equals(data3): " + data1.equals(data3));
-        // The answer is false since data3 receives reference from data2 which is independent from data1 plus equals()is not overridden in class Data!
-
-
+        // The answer is false since data3 receives reference from data2 which is independent from data1
+        // plus equals() is not overridden in class Data!
     }
-
 }
 
 class Data {

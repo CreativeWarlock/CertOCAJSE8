@@ -27,8 +27,8 @@ public class NonExecutingStaticCode {
      * From Java 7 onwards, the JVM looks for the main method. If it doesn't find any main method, it gives you an error.
      * If there is a main method then it loads the class into memory.
      *
-     * A class may not have the main method. So there will be no compile time error when compiling such a class.
-     * However, trying to execute the class file of that class causes an Error not an exception.
+     * The main method may be missing in a class. So there will be no compile time error when compiling such a class.
+     * However, trying to printInstanceField the class file of that class causes an Error not an exception.
      *
      * So option e) is correct. Option a) and b) are incorrect as the code produces an error before producing any output!
      * Option d) is incorrect as the code compiles fine.

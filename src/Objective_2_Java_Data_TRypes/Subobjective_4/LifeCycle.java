@@ -27,12 +27,13 @@ public class LifeCycle {
         /** Question: How many objects are created after the above code? */
         // --> Answer is: 1 object since 3 instances reference the same object 'object1'.
 
+        /** Question: No object (object1, object2, object3) becomes eligible for GC. True or False? */
+        // -- Answer: True because object2 and object3 reference to object 1 and
+        //            since object1 is not null and thus not ready for GC.
+
+        // Dereferencing object2 and object3 by reassignment, that is, by assigning null:
         object2 = null;
         object3 = null;
-
-        /** Question: No object becomes eligible for GC. True or False? */
-        // -- Answer: True because object2 and object 3 reference to object 1 and
-        //            since object1 is not null and thus not ready for GC.
 
         /** - You can only determine which objects are eligible to be garbage collected.
          *  - You can never determine when a particular object will be garbage collected.
@@ -53,9 +54,9 @@ public class LifeCycle {
 
         /** Question: How many objects are eligible for GC after line X is executed?  */
         // -> Answer: 2 objects are eligible for GC:
-        //              - 1 because the default constructor of MyClass is invoked
+        //              - 1 because the DEFAULT constructor of MyClass is invoked
         //                      -> an instance is created, but never referenced by any variable
-        //              - 1 because within setMyOtherInt() object2 is never referenced
+        //              - 1 because within myMethod() object2 is never referenced
         //              - objectX is not ready for GC!
 
     }

@@ -58,5 +58,14 @@ public class UsingJavaOperatorsAndDecisionConstructs {
         i = 4 << 4 / 2; // careful...
         System.out.println("i: " + i);
 
+        int x = 0;
+        int y = 0;
+        int assignmentFun = (y = 2) + y * (x = 5) + x;
+        System.out.println("assignmentFun: " + assignmentFun);
+
+        x = 1;
+        y = 1;
+        int madness = ((x -= y + (y = x + (x = 2) + x++) + y) + y) * --x;
+        System.out.println("madness: " + madness);
     }
 }

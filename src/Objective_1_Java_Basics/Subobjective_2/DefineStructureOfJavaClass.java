@@ -48,7 +48,7 @@ public class DefineStructureOfJavaClass {
          * e) All of above
          *
          * Answer:
-         * a) class one() {}            --> Illegal parantheses for class declaration
+         * a) class one() {}            --> Illegal parentheses for class declaration
          * b) static class Test{}       --> Illegal static use with top level class declaration
          * c) protected class Test{}    --> Protected and private access level are not allowed with top level class decl.
          * d) class If{}                --> Correct

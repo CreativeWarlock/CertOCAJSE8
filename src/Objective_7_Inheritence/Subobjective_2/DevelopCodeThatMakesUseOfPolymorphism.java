@@ -12,7 +12,7 @@ public class DevelopCodeThatMakesUseOfPolymorphism {
 
         /**
          * Polymorphism:
-         * -------------
+         * =============
          *
          * - is the ability for a method to behave differently based on the actual object it is invoked on (on runtime!).
          *
@@ -25,12 +25,14 @@ public class DevelopCodeThatMakesUseOfPolymorphism {
 
         /**
          * Method Overriding:
+         * ------------------
          *
-         * - is a mechanism where an instance method in a subtype with the same name as an instance method in a supertype
+         * - is a mechanism where an instance method in a subtype with the SAME NAME as an instance method in a supertype
          * replaces the behavior of the inherited method with its own
          *
-         * - must return a value of the same type as, OR a subtype of, the type that is returned by the overridden method.
-         * - in addition: The access specifier for an overriding method can allow more, but not less, access than the overridden method.
+         * - MUST return a value of the SAME TYPE as OR a SUBTYPE of the type that is returned by the overridden method.
+         *
+         * - The access specifier for an overriding method CAN ALLOW MORE -but NOT less(!)- access than the overridden method.
          *
          */
 

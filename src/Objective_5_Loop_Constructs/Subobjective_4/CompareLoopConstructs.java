@@ -13,7 +13,7 @@ public class CompareLoopConstructs {
          * The 'for' statement provides a compact way to iterate over a range of values
          * It has two forms, with one designed for looping through elements of a collection/array.
          *
-         * Both 'while' and 'do-while' statements continually execute a block of statements
+         * Both 'while' and 'do-while' statements continually printInstanceField a block of statements
          * while a particular condition is 'true';
          * The difference is that 'while' evaluates the condition at the top of the loop; whereas
          * 'do-while' evaluates at the bottom of the loop

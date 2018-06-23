@@ -109,18 +109,22 @@ public class AbstractClassesVsInterfaces {
 }
 
 interface InterfaceA {
-    public static final int numberA = 0; // final must be initialized!
+    /** FINAL must be initialized!! */
+    public static final int numberA = 0;
     int numberB = 10;
 
-    //public int myMethod(int i) { return i; } // methods cannot have a body!
+    /** non static, non default methods must be abstrace / have NO body! */
+    //public int myMethod(int i) { return i; }
 
-    public int myMethod(int i);                // can ONLY have public, not any other access modifier!
-
-    public static int getNumberA() { return numberA; } // static methods -> must have a body!
-
+    /** static and default methods must have a body */
+    public static int getNumberA() { return numberA; }
     public default int defaultMethodB() { return numberB; }
 
-    //public default String toString() { return "I"; } // EEK! Cannot override a member of Object!
+    /** non static and non default methods may ONLY have public, not even public is not required */
+    public int myMethod(int i);
+
+    /** EEK! Cannot override a member of Object! */
+    //public default String toString() { return "I"; }
 }
 
 abstract class AbstractA implements InterfaceA { // an abstract must not implement any methods! ;)

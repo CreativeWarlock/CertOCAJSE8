@@ -1,5 +1,7 @@
 package Objective_6_Methods_And_Encapsulation.Subobjective_4;
 
+import Objective_6_Methods_And_Encapsulation.Subobjective_2.Data;
+
 public class ApplyAccessModifiers {
 
     // https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html
@@ -49,6 +51,9 @@ public class ApplyAccessModifiers {
          *
          *
          * */
+
+        InheritedData id = new InheritedData();
+        // id.instanceValue = 5; //cannot access due to protected modifier only
     }
 
     // A static nested class is behaviorally a top level class
@@ -58,6 +63,12 @@ public class ApplyAccessModifiers {
             AnotherClass ac = new AnotherClass();
             ac.setMyOtherInt(4);
         }
+    }
+}
+
+class InheritedData extends Data {
+    public InheritedData() {
+        instanceValue = 5; //can access due to protected modifier
     }
 }
 

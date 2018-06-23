@@ -5,9 +5,8 @@ public class SomeClass {
 
     SomeClass() {
         MyClassInSamePackage myClassInSamePackage = new MyClassInSamePackage();
-        myClassInSamePackage.myMethod(); // accessible due to private-package modifier of the class -> allows accessing ONLY inside this package!
+        myClassInSamePackage.myMethod(); // private-package modifier of this class allows access ONLY inside this package!
     }
-
 }
 
 class MyClassInSamePackage {

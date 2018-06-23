@@ -36,7 +36,7 @@ public class Declare_And_Initialize_Variables {
          * Widening casting: -> implicitly implemented!
          *      byte -> short -> int -> long -> float -> double
          *
-         * Narrowing casting: -> explicitly implemented!
+         * Narrowing casting: -> must be implemented explicitly!
          *      double -> float -> long -> int -> short -> byte
          *
          *      -> REQUIRES casting Operator!
@@ -46,11 +46,11 @@ public class Declare_And_Initialize_Variables {
          *  - has the same length as short
          *
          * Casting to and from char:
-         *
-         *  Widening casting:
+         * -------------------------
+         *  * Widening casting:
          *      from char -> (int, long, float or double)
          *
-         *  Narrowing casting:
+         *  * Narrowing casting:
          *      from char -> (byte or short)
          *      from (short, int, long, float or double) -> char
          *
@@ -88,5 +88,21 @@ class CastingTests {
         f = l + i;          // Works fine -> implicit cast from long to float
 
         System.out.println(f);
+    }
+
+    public void castingWithChars() {
+        char c = 'A';
+        int charInt = c;
+        short charShort = (short)c;
+        byte charByte = (byte)c;
+
+        short mySpecialShort = 65;
+        char letter = (char)mySpecialShort;
+
+        int mySpecialInt = 65;
+        char letterFromInt = (char)mySpecialInt;
+
+        int mySpecialByte = 177;
+        char letterFromByte = (char)mySpecialByte;
     }
 }

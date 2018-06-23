@@ -40,7 +40,5 @@ public class CreateAndOverloadConstructors {
          * c) no, because a c'tor is never inherited -> final keyword is not applicable here!
          * d) yes
          * */
-
-
     }
 }
