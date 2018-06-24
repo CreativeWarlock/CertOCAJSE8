@@ -65,6 +65,9 @@ public class Declare_And_Initialize_Variables {
         CastingTests tests = new CastingTests();
         tests.intAndByteCasting();
         tests.castingWithFloatAndLong();
+
+        int _6 = 6;
+        int x = 0XE;
     }
 }
 

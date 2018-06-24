@@ -39,7 +39,27 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
          * Most specific types -> Casting -> Boxing/Unboxing -> Varargs -> Compile Time Error
          *
          *
-         * */
+         * =========================================================================
+         * ||        Difference between Overloaded and Overridden methods         ||
+         * || --------------------------------------------------------------------||
+         * ||                                                                     ||
+         * || Property      | Overloaded method | Overridden method               ||
+         * || --------------------------------------------------------------------||
+         * || Access Level  |    Can Change     | Must SAME or LESS restrictive   ||
+         * ||               |                   |                                 ||
+         * || Argument List |    MUST Change    |       must NOT change           ||
+         * ||               |                   |                                 ||
+         * || Exceptions    |    Can change     |     Can throw new or broader    ||
+         * ||               |                   |        runtime exceptions       ||
+         * ||               |                   |                                 ||
+         * || Return Type   |    Can change     | MUST NOT change except for      ||
+         * ||               |                   |       covariant returns         ||
+         * ||               |                   |                                 ||
+         * || Invocation    |  Reference type   |         Object type             ||
+         * ||               | determines which  |       determines which          ||
+         * ||               |      version      |           version               ||
+         * =========================================================================
+         */
 
         short s1 = 1, s2 = 2;
 
@@ -120,3 +140,13 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
         System.out.println("Integer : " + arg);
     }
 }
+
+/*
+class Overloader {
+    void print(String message) {
+        System.out.println(message);
+    }
+    void print(String message) {
+        System.out.println(message);
+    }
+}*/

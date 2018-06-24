@@ -55,6 +55,21 @@ public class UseSwitchStatement {
                 //System.out.println("Another default?");
         }
 
+        final int x = 0;
+//        final int x;
+//        x = 0;
+        final int y = 2;
+
+        switch(x) {
+            case x:     // fails to compile when uncommenting above because x is then NO compile time constant!! (since x was assigned afterwards)
+            {System.out.print("A"); }
+            case 1:
+            {System.out.print("B"); }
+            default:
+            System.out.print("default"); break;
+            case y:
+            System.out.print("C");
+        }
 
     }
 }

@@ -84,7 +84,9 @@ public class DeclareAndInstantiateArrays {
 
         int x = 2;
         int[] dependingArray= new int[x];
-        dependingArray[0] = 0;
+        //dependingArray[0] = 0;
+
+        System.out.println("dependingArray: " + dependingArray[0]);
 
         // =============================================================================================================
 
@@ -166,6 +168,17 @@ public class DeclareAndInstantiateArrays {
         System.out.println("intArray2xCheckLength.length + intArray2xCheckLength[1].length: " + intArray2xCheckLength.length + intArray2xCheckLength[1].length);
 
         // =============================================================================================================
+
+        String[][] wildLetters = {{"A", "Z"}, {"C", "D", "P"}, {"L", "Q"}};
+        Arrays.sort(wildLetters); // will throw CCE
+        for(String[] str : wildLetters)
+            for (String s : str) {
+                System.out.print(s);
+            }
+
+
+        // =============================================================================================================
+
 
         // ==========================
         //     Asymmetrical array

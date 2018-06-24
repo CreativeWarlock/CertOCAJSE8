@@ -41,6 +41,11 @@ public class RecognizeCommonExceptionClasses {
         int i = 0;
         //int j = 1/i;    // Will throw an AE
 
+        Double d1 = 0.0 / 0.0; // No AE!
+        System.out.println("Double.isNaN(d1): " + Double.isNaN(d1)+ " ");
+        System.out.print("Double.isInfinite(d1): " + Double.isInfinite(d1));
+
+
         /**
          * ArrayIndexOutOfBoundException:
          * ------------------------------
@@ -65,6 +70,10 @@ public class RecognizeCommonExceptionClasses {
         Number number = new Integer(0);
         //Float floatingPoint = (Float)number;        // Will throw a CCE
 
+        Object obj = new Double(3.0);
+        Number num = (Number)obj;
+        System.out.println(num);    // CCE will not be thrown since the Number is a superclass of wrappers. So, casting will occur without any issue.
+
         /** ------------------------------------------------------------------------------------ */
 
         /** Question 1:
@@ -78,6 +87,7 @@ public class RecognizeCommonExceptionClasses {
         int[] myArray = new int[2];
         //myArray[2] = myArray[0] / myArray[1];
 
+        // -------------------------------------------------------
 
         /** Question 2:
          * Which exception will be thrown in the following code?
@@ -91,6 +101,7 @@ public class RecognizeCommonExceptionClasses {
         if (myArray2.length > 0)
             myArray2[1] = 1;        //will not be executed...
 
+        // -------------------------------------------------------
 
         /** Question 3:
          * Which exception will be thrown in the following code?
@@ -105,6 +116,7 @@ public class RecognizeCommonExceptionClasses {
         array1 = array2;
         //array1[0] = array1.length;    // will throw..
 
+        // -------------------------------------------------------
 
         /** Question 4:
          * Which exception will be thrown in the following code?
@@ -118,7 +130,7 @@ public class RecognizeCommonExceptionClasses {
         if (myArray3.length == 0)
             myArray3 = null;
 
-        //myArray3[0] = (Integer)(Number)new Double(0);
+        //myArray3[0] = (Integer)(Number)new Double(0); // will throw..
         //int a = 0.2d; // ;)
     }
 }

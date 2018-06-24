@@ -1,17 +1,19 @@
 package Objective_1_Java_Basics.Subobjective_4;
 
+import Objective_1_Java_Basics.Subobjective_4.one.*;
+
 import java.awt.Rectangle.*; // <-- this import alone will not import the Rectangle class!
 import java.awt.*;
 // import javafx.scene.shape.Rectangle; // ambiguous import! -> Rectangle would need to be fully qualified
-
+import static java.lang.System.*;
 
 public class Import_Other_Java_Packages {
 
     // https://docs.oracle.com/javase/tutorial/java/package/usepkgs.html
 
-    public static void main(String [ ] args) {
+    public static void main(String [] args) {
 
-        System.out.println("Objective 1.4 - Import other Java packages to make them accessible in your code");
+        out.println("Objective 1.4 - Import other Java packages to make them accessible in your code");
 
         /**=============================================================================================================
          * Essential statements:
@@ -93,5 +95,9 @@ public class Import_Other_Java_Packages {
          *
         */
     }
+
+//    class B extends A {
+//
+//    }
 }
 

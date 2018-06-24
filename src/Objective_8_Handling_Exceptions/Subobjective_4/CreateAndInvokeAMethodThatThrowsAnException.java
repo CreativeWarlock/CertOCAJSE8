@@ -12,17 +12,17 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
         /**
          * Creating and Invoking Methods:
          * ------------------------------
-         * A method that can throw a CHECKED exception:
+         * A) A method that can throw a CHECKED exception:
          *
          * - MUST specify the exception in a 'throws' clause!
          *
          * - when invoking such a method, the calling method MUST:
-         *      - EITHER it handles the exception by itself, by surrounding the invocation with a 'try-catch' block
-         *      - OR it rethrows/propagates the exception with a 'throws' clause (and naming the proper Exception class)
+         *      - EITHER handle the exception by itself, by surrounding the invocation with a 'try-catch' block
+         *      - OR rethrow/propagate the exception with a 'throws' clause (and naming the proper Exception class)
          *
          * ----------------------------------------------------------------
          *
-         * A method that can throw an unchecked exception:
+         * B) A method that can throw an UNCHECKED exception:
          *
          * - No requirements:
          *      - for the method that throws the unchecked exception
@@ -64,11 +64,14 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
         uncheckedExceptionMethod();
     }
 
-    //public static void uncheckedExceptionMethod() throws Exception // Would lead to unhandled exception! (despite there is no such Exception being thrown ;) )
+    //public static void uncheckedExceptionMethod() throws Exception { // Would lead to unhandled exception! (despite there is no such Exception being thrown ;) )
     //public static void uncheckedExceptionMethod() throws RuntimeException { // NO NEED FOR extra 'throws' clause!
     public static void uncheckedExceptionMethod() {
         throw new RuntimeException();
+        //throw new Exception();
     }
+
+    // ------------------------------------------------------
 
     /** Question 1:
      *
@@ -84,7 +87,9 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
      * A) Compilation succeeds
      * B) Compilation fails
      *
-     * */
+     */
+
+    // ------------------------------------------------------
 
     /** Question 2:
      *
@@ -100,7 +105,7 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
      * A) Compilation succeeds
      * B) Compilation fails
      *
-     * */
+     */
 
     // Answer Q1: B)
     // Answer Q2: B)

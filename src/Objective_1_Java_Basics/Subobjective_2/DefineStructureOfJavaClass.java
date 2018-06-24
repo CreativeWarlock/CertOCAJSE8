@@ -5,6 +5,9 @@ public class DefineStructureOfJavaClass {
     // https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
     // https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html
 
+    { System.out.println("Hello World"); }
+    static { System.out.println("Static Hello World"); }
+
     public static void main(String [ ] args) {
         System.out.println("Objective 1.2 - Define Structure of a JavaClass");
 
@@ -54,8 +57,6 @@ public class DefineStructureOfJavaClass {
          * d) class If{}                --> Correct
          * e) All of above
          */
-
-
     }
 }
 

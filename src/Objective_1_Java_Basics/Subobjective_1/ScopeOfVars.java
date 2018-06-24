@@ -54,6 +54,7 @@ public class ScopeOfVars {
         Phone.softKeyBoard = true;
         Phone _p1 = new Phone();
         Phone $p2 = new Phone();
+        int _6 = 6;
 
         System.out.println("_p1.softKeyBoard: " + _p1.softKeyBoard);
         System.out.println("$p2.softKeyBoard: " + $p2.softKeyBoard);

@@ -80,5 +80,29 @@ public class ManipulateDataUsingStringBuilder {
         sb3.insert(0, 1L);
         System.out.println(sb3);
 
+        // --------------------------------------------------
+
+        char[] chars = {'R', '2', 'D'};
+        StringBuilder charSB = new StringBuilder();
+        charSB.append(chars, 0, chars.length - 1);
+        charSB.append('2');
+        charSB.append(" \\o/");
+        System.out.print(charSB);
+
+        // --------------------------------------------------
+
+        char[] chars2 = {'R', '2', 'D', '2'};
+        charSB = new StringBuilder();
+        charSB.append(chars2, 0, chars.length - 1);
+        charSB.append('2');
+        charSB.append(" \\o/");
+        charSB.setLength(4);
+        sb1.insert(5, "XXX");
+        System.out.print(charSB);
+
+        String bla = "bla";
+        bla.indexOf("ha");
+        bla.indexOf('a', 4);
+        bla.indexOf('a');
     }
 }

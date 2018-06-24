@@ -48,6 +48,16 @@ public class CreateAndManipulateStrings {
         String credits = String.format("And the actors are: %2$s and %s.", robot, robot2);
         System.out.println(credits);
 
+        String s1 = "Bla";
+        String s2 = "Bla";  // Uses same String pool -> References will be equal!!
+        //String s2 = new String("Bla");
+
+        if (s1 == s2)
+            System.out.println("Hossa!");
+
+        if (s1.hashCode() == s2.hashCode())
+            System.out.println("Same HashCode!");
+
         /** -------------------------------------------------------------------------------------------- */
 
         /** Question 1: What happens if the following code is compiled and executed?
@@ -138,16 +148,16 @@ public class CreateAndManipulateStrings {
         /** ------------------------------------------------------------------------------------------------------ */
 
         /** Question 6: What is the result of the following code?
-         * A) hizl
-         * B)  hizl
-         * C) izla
+         * A) ockL
+         * B)  ockL
+         * C) ckLa
          * D) An exception.
          * E) Compilation fails.
          * */
 
         StringBuilder sb = new StringBuilder("RockLand");
         char[] ch = new char[4];
-        sb.getChars(1, 5, ch, 1);
+        //sb.getChars(1, 5, ch, 1);
         for (char c : ch) {
             System.out.println(c);
         }
@@ -156,7 +166,16 @@ public class CreateAndManipulateStrings {
         // The first character to be copied is at index srcBegin (here: 1);
         // The last character to be copied is at index scrEnd-1 (here: 5);
         // The total number of characters to be copied is srcEnd-srcBegin (here: 5-1 = 4)
-        // The index offset in the destination character array is 1 the 4 characters to be copied will lead to an ArrayIndexOutofBoundsException
+        // The index offset in the destination character array is 1 the 4 characters to be copied will lead to an ArrayIndexOutOfBoundsException
         // since the character array has only 4 elements (from index 0 to 3). Therefor answer D is correct.
+
+        //Character myCharacter = new Character("A");
+        Character myCharacter = new Character('a');
+        Character.isLetterOrDigit(myCharacter);
+        System.out.println("Character.isLetterOrDigit(myCharacter): " + Character.isLetterOrDigit(myCharacter));
+
+        int capitalA = 97;
+        char fromInt = (char)capitalA;
+        System.out.println("fromInt: " + fromInt);
     }
 }

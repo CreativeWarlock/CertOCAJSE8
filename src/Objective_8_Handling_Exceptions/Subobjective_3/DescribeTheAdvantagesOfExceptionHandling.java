@@ -14,18 +14,15 @@ public class DescribeTheAdvantagesOfExceptionHandling {
          * Exception Handling Advantages:
          * ------------------------------
          *
-         * - separating error-handling code from regular code
-         * - propagating errors up the call stack
-         * - grouping and differentiating error types
+         * 1. Separating Error-Handling Code from "Regular" Code
+         * 2. Propagating Errors Up the Call Stack
+         * 3. Grouping and Differentiating Error Types
          *
-         * ad) Separating error-handling code from regular code:
-         *
+         * ad 1.)
          *      - exceptions provide the means to separate the details of what to do when
          *        an unusual situation happens in the main workflow of a program
          *
-         * ad) Propagating errors up the call stack
-         *
-         * Example:
+         * ad 2.) Example:
          */
 
         try {
@@ -35,10 +32,8 @@ public class DescribeTheAdvantagesOfExceptionHandling {
         }
 
          /**
-         * ad) Grouping and differentiating error types
-         *
-          *     - The exception hierarchy helps exception handlers to decide on the best recovery strategies
-          *       based on what types of exception occurred
+         * ad 3.) - The exception hierarchy helps exception handlers to decide on the best recovery strategies
+          *         based on what types of exception occurred
           *
           * Example:
          * */
@@ -53,6 +48,8 @@ public class DescribeTheAdvantagesOfExceptionHandling {
             // exception handling
         }
 
+        // ---------------------------------------------
+
         /** Question 1: Is this statement true or false:
          *
          * In order for a checked exception to be handled by a method up the call stack, the statements that can throw the exception
@@ -60,7 +57,9 @@ public class DescribeTheAdvantagesOfExceptionHandling {
          *
          * A) true
          * B) false
-         * */
+         */
+
+        // ---------------------------------------------
 
         /** Question 2: Is this statement true or false:
          *

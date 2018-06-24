@@ -35,10 +35,12 @@ public class WriteASimpleLambdaExpression {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0, 1);
         map.put(2, 2);
-        //compareEquality(map, (Integer i, Integer j) -> { return i == j; });
-        //compareEquality(map, (i, j) -> i == j);
-        //compareEquality(map, (Integer i, Integer j) -> i.equals(j));
+        compareEquality(map, (Integer i, Integer j) -> { return i == j; });
+        compareEquality(map, (i, j) -> i == j);
+        compareEquality(map, (Integer i, Integer j) -> i.equals(j));
         compareEquality(map, Integer::equals);
+
+        // ----------------------------------------------------------------------------------
 
         /** Question 1: Which of the following is a valid declaration of a 'ValueComparator' variable ?
          * A) ValueComparator comparator = (i,j) -> i > j;
@@ -49,6 +51,8 @@ public class WriteASimpleLambdaExpression {
 
         // Answer: Since B is using the wrong parameter types int, and C does not make a proper use of a statement block,
         //         the correct answer is A.
+
+        // ----------------------------------------------------------------------------------
     }
 
     public static void compareEquality(Map<Integer, Integer> map, NumberComparator comparator) {
@@ -58,9 +62,11 @@ public class WriteASimpleLambdaExpression {
         }
     }
 
+    // ----------------------------------------------------------------------------------
+
     /** Question 2: Which of the following is a valid invocation of 'doSomething()'? */
-    public static void doSomething(Boolean check) {
-    }
+    public static void doSomething(Boolean check) { }
+
     /**
      * A) doSomething( () -> true);
      * B) doSomething( () -> return true);
@@ -72,11 +78,13 @@ public class WriteASimpleLambdaExpression {
         // Answer: A lambda expression can only be used in methods that expect a functional interface.
         //         However, doSomething() does not expect a functional interface! Therefor answer D is correct.
 
+
+
     /** Functional Interface:
      *  ---------------------
      *
      *  - Instances of functional interfaces can be created with lambda expressions, method references, or constructor references.
-     *  - A functional interface has exactly one abstract method.
+     *  - A functional interface has exactly ONE abstract method.
      *
      *  - Since default methods have an implementation, they are not abstract.
      *      If an interface declares an abstract method overriding one of the public methods of java.lang.Object,
@@ -84,6 +92,10 @@ public class WriteASimpleLambdaExpression {
      *      will have an implementation from java.lang.Object or ELSEWHERE.
      *
      * */
+
+    // ----------------------------------------------------------------------------------
+
+    Predicate<Integer> p;
 
     /** Question 3: Which of the following is the functional method of a java.util.function.Predicate<T> interface?
      *
@@ -94,6 +106,8 @@ public class WriteASimpleLambdaExpression {
      * */
 
     // Answer: One of the functional methods declared in the Predicate interface is test(T t) with return type boolean. -> answer D
+
+    // ----------------------------------------------------------------------------------
 
     /** Question 4: Which of the following can be considered as a functional interface?
      *

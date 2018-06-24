@@ -4,6 +4,14 @@ public class ApplyTheStaticKeywordToMethodsAndFields {
 
     // https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
 
+    static {
+        int x = 10;
+        int y = 5;
+    }
+
+    //final int x;
+    //final static int y;
+
     int instanceVariable;
     void instanceMethod() {}
 
@@ -44,5 +52,25 @@ public class ApplyTheStaticKeywordToMethodsAndFields {
         System.out.println("Data.staticValue: " + Data.staticValue);
         System.out.println("data2.instanceValue: " + data2.instanceValue);
         System.out.println("data2.staticValue: " + data2.staticValue);
+
+        NastyStatic nastyStatic = new NastyStatic();
+        //NastyStatic.p2(6);       //A
+        //nastyStatic.print(6);    //B
+        //NastyStatic.print();     //C
+                                   //D none
+
+        /** Question 1: Which of the above comments will compile when uncommmenting (A-C) or will none (D)? */
+
+        // Answer: Because it is allowed to access static methods from an instance, B is correct.
+    }
+}
+
+class NastyStatic {
+    private static void p2(int i) {
+        System.out.print(i*2);
+    }
+
+    static void print(int i) {
+        System.out.print(i);
     }
 }

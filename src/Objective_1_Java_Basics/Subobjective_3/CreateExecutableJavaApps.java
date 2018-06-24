@@ -12,7 +12,7 @@ public class CreateExecutableJavaApps {
         System.out.println("Objective 1.3 - Create Executable Java Applications with a main method; run a Java program from the Command Line; incl. console output");
 
         /**
-
+            javac CreateExecutableJavaApps.java
         */
     }
 }

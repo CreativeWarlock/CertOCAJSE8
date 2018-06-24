@@ -4,6 +4,8 @@ public class CreateAndUseForLoops {
 
     // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html
 
+    static int staticX = 10;
+
     public static void main(String[] args) {
         System.out.println("Chapter 5.2 - Create and Use For loops including the enhanced for loop");
 
@@ -42,6 +44,15 @@ public class CreateAndUseForLoops {
         int[] intArray = new int[] {0, 2, 4, 6, 8};
         for(int element : intArray) {
             System.out.print(element + " ");
+        }
+
+        System.out.println();
+
+        int[] nums = {0, 1, 2, 3, 4};
+        for(int x : nums) {
+            System.out.print(x);
+            continue;
+            //System.out.print(staticX);
         }
 
         System.out.println();

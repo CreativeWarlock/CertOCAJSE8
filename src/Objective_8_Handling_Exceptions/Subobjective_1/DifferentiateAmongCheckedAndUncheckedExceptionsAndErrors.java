@@ -87,5 +87,5 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
      *
      * */
 
-    // answer: C -> Unchecked exceptions are not subject to the 'Catch or Specifier Requirement'; hence A) and B) make no difference in the outcome!
+    // answer: C -> Unchecked exceptions and errors are not subject to the 'Catch or Specifier Requirement'; hence A) and B) make no difference in the outcome!
 }

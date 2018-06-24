@@ -28,11 +28,19 @@ public class DescribeInheritenceAndItsBenefits {
         SuperClass subClass = new SubClass();
         subClass.print(); // finds print in sub class
 
+
+        SubClass realSubClass = new SubClass();
+        System.out.println("realSubClass.field: " + realSubClass.field);
         // =============================================================================================================
 
         Animal bird = new Bird();
         bird.print();
         //bird.fly();                 // Method fly() is not known to type Animal!
+
+        System.out.println();
+
+        A a = new B();
+        a.method();
     }
 }
 
@@ -50,7 +58,7 @@ class SuperClass {
 
 class SubClass extends SuperClass {
 
-    protected String field = "Sub class..";
+    //protected String field = "Sub class..";
     protected void print() {
         super.print();
         System.out.println(field);
@@ -60,7 +68,11 @@ class SubClass extends SuperClass {
 // =====================================================================================================================
 
 class Bird extends Animal {
-        public void print() {
+    // Some extra madness
+    static { System.out.println("Static Bird block. "); }
+    Bird() { System.out.println("Bird c'tor. ");}
+
+        void print() {
             System.out.print("Bird");
         }
         void fly() {
@@ -69,8 +81,12 @@ class Bird extends Animal {
 }
 
 class Animal {
-    public void print() {
-        System.out.print("Animal");
+    // Some extra madness
+    static { System.out.println("Static Animal block. "); }
+    Animal() { super(); System.out.println("Animal c'tor. ");}
+
+    void print() {
+        System.out.println("Animal");
     }
 }
 
@@ -97,3 +113,15 @@ class Animal {
     // Answer: No, since field 'value' has private package access only and
     //         and class 'Me' is in a different package than Super class.
     //         Therefor the field 'value' is not inherited down to Sub class.
+
+class A {
+    static void method() {
+        System.out.print(" A B");
+    }
+}
+
+class B extends A{
+    protected static void method() {
+        System.out.print(" C D");
+    }
+}

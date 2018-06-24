@@ -1,7 +1,5 @@
 package Objective_7_Inheritence.Subobjective_5;
 
-import Objective_6_Methods_And_Encapsulation.Subobjective_4.AnotherClass;
-
 public class AbstractClassesVsInterfaces {
 
     // https://docs.oracle.com/javase/tutorial/java/IandI/interfaceDef.html
@@ -62,20 +60,23 @@ public class AbstractClassesVsInterfaces {
         Integer myInt = new Integer(9);
         boolean isInstOf = myInt instanceof Number;
 
-        InterfaceA i = new InterfaceA() {
+        InterfaceA interfaceA = new InterfaceA() {
             @Override
             public int myMethod(int i) {
                 return 0;
             }
         }; // Possible, but it must implement non-default methods!
 
-        System.out.println(10 + 5 + "I: " + i);
+        System.out.println(10 + 5 + "Interface: " + interfaceA);
+
+        System.out.println("MethodB: " + interfaceA.defaultMethodB());
 
         // =============================================================================================================
 
         A a = new A();
         //C c1 = (C)a;    // ClassCastException!
         //c1.meth();
+        System.out.println("A's MethodB: " + a.defaultMethodB());
 
         // =============================================================================================================
 
@@ -124,10 +125,10 @@ interface InterfaceA {
     public int myMethod(int i);
 
     /** EEK! Cannot override a member of Object! */
-    //public default String toString() { return "I"; }
+    //public default String toString() { return "Interface"; }
 }
 
-abstract class AbstractA implements InterfaceA { // an abstract must not implement any methods! ;)
+abstract class AbstractA implements InterfaceA { // an abstract does not need to implement any of the interface's methods! ;)
     private String name;
     public AbstractA() {    // constructor cannot be directly called! Only from sub classes!
         name = "AbstractA";
@@ -140,11 +141,11 @@ abstract class AbstractA implements InterfaceA { // an abstract must not impleme
 
 // =====================================================================================================================
 
-interface I {
+interface Interface {
     void meth();
 }
 
-class A implements I {
+class A implements Interface {
 
     void A(String s) { }
 
@@ -152,9 +153,11 @@ class A implements I {
     public void meth() {
 
     }
+
+    public int defaultMethodB() { return 7; }
 }
 
-class C extends A implements I {
+class C extends A implements Interface {
     @Override
     public void meth() {
         System.out.println("C");
