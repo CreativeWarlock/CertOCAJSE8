@@ -7,6 +7,22 @@ public class SwitchCase {
 
         SwitchCaseWithCompileTimeConstants();
 
+        StringComparisonInSwitch();
+    }
+
+    private static void StringComparisonInSwitch() {
+        String s = "A";
+
+        final String c1 = "A";      // Must be final -> Compile time constant!
+        final String c2 = "B";
+        final String c3 = "C";
+
+        switch(s) {
+            case c1: { System.out.print("A"); };
+            default: { System.out.print("default "); };
+            case c2: { System.out.print("B"); }; break;
+            case c3: { System.out.print("C"); };
+        }
     }
 
     private static void SwitchCaseWithCompileTimeConstants() {

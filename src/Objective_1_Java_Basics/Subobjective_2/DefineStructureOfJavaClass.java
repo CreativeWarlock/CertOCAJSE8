@@ -8,6 +8,10 @@ public class DefineStructureOfJavaClass {
     { System.out.println("Hello World"); }
     static { System.out.println("Static Hello World"); }
 
+    public static void main(int[] args) {}
+
+    //public static void main(String... c) {}   // same as using (String[] args)
+
     public static void main(String [ ] args) {
         System.out.println("Objective 1.2 - Define Structure of a JavaClass");
 

@@ -35,6 +35,31 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
          *
          *  -> are NOT subject to the 'CATCH or SPECIFY REQUIREMENT'!
          *
+         * Prominent SubClasses of RunTimeException:
+         * -----------------------------------------
+         *  IndexOutOfBoundException
+         *  ArithmeticException
+         *  ClassCastException
+         *  JMRuntimeException
+         *  ParseException
+         *  VMOutOfMemoryException
+         *  UnsupportedPlatformException
+         *  IllegalThreadException
+         *  IllegalStateException
+         *  SystemException
+         *  NullPointerException
+         *  SecurityException
+         *  DateTimeException
+         *  NotImplementedException
+         *  EventException
+         *  BufferOverflowException
+         *  BufferUnderflowException
+         *  AssertionFailure
+         *  NoSuchElementException
+         *  FileSystemNotFoundException
+         *  ReflectionException
+         *  UndeclaredThrowableException
+         *
          *
          *
          *  Errors:
@@ -55,6 +80,25 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // ----------------------------------------------------------------------------------------------------------------
+
+        /** Question:
+         *
+         * Which of the following will create an appropriate catch block for the following try block?
+         * try { int x = Integer.parseInt("one"); }
+         *
+         * A) IllegalArgumentException
+         * B) 
+         * C) None of the above.
+         *
+         * */
+
+        try {
+            int x = Integer.parseInt("one");
+        } catch(NumberFormatException e) {}
+
+        // answer: C -> Unchecked exceptions and errors are not subject to the 'Catch or Specifier Requirement'; hence A) and B) make no difference in the outcome!
     }
 
     public static void doSomething() throws Exception {
@@ -74,6 +118,8 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
      * */
 
     // answer: C -> Unchecked exceptions are not subject to the 'Catch or Specifier Requirement'; hence A) and B) are not necessary!
+
+    // ----------------------------------------------------------------------------------------------------------------
 
     /** Question:
      *

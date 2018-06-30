@@ -1,7 +1,6 @@
 package Objective_8_Handling_Exceptions.Subobjective_2;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,6 +29,23 @@ public class CreateATryAndCatchBlock {
         } catch (Exception e) {
             System.out.println("Exception branch.");
         }
+
+        // ----------------------------------------------------------------------------------------------------------------
+
+        try {
+            //someExceptionReturningMethod();
+            someExceptionThrowingMethod();
+        }  catch(FileNotFoundException fne) {
+            System.out.println("Exception: " + fne);
+        }catch(IOException e) {
+            System.out.println("Exception: " + e);
+        }
+
+        // ----------------------------------------------------------------------------------------------------------------
+
+        try {
+            printWhenCatchingCCE();
+        } catch(Exception e) {}
     }
 
     /** If the writeList method doesn't catch the checked exceptions that can occur within it,
@@ -145,4 +161,26 @@ public class CreateATryAndCatchBlock {
      *
      * -> You can retrieve these suppressed exceptions by calling the 'Throwable.getSuppressed()' method from the exception
      * thrown by the try block. */
+
+    // ----------------------------------------------------------------------------------------------------------------
+    public static IOException someExceptionReturningMethod() {
+        return new IOException("Some IOException occurred");
+    }
+
+    public static void someExceptionThrowingMethod()throws IOException { // omg.. lol
+        throw new FileNotFoundException("File Not Found Exception");
+    }
+
+    static void printWhenCatchingCCE() {
+        try {
+            //System.out.print("Throwing NPE: ");
+            throw new NullPointerException();
+        } catch(ClassCastException e) {
+            System.out.println("Class Cast ");
+        } finally {
+            System.out.println("Final ");
+        }
+
+        System.out.println("OCAJP ");
+    }
 }

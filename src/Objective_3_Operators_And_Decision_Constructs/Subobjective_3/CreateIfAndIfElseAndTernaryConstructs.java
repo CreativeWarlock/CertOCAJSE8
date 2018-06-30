@@ -5,6 +5,8 @@ public class CreateIfAndIfElseAndTernaryConstructs {
     // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
     // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op2.html
 
+    static String out = "";
+
     public static void main(String[] args) {
         System.out.println("Chapter 3.3 - Create If and Else and Ternary Constructs");
 
@@ -52,5 +54,19 @@ public class CreateIfAndIfElseAndTernaryConstructs {
         i = 1; short s = 2;
         int number = i > s ? i : s;
         System.out.println(number);
+
+        // -----------------------------------------------------------------------------------------------------------
+
+        int x = 5, y = 8;
+
+        if (x++ == 5)
+            out += "1";
+        if (x != 6) {}
+            else if (x > 9) { out += 2; }
+            else if (x < 9) { out += 3; }
+            else if (x == 6) { out += 4; }
+            else { out += 5; }
+
+        System.out.println("If-Else-Stuff adding to out: " + out);
     }
 }

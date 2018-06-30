@@ -6,6 +6,12 @@ import java.awt.Rectangle.*; // <-- this import alone will not import the Rectan
 import java.awt.*;
 // import javafx.scene.shape.Rectangle; // ambiguous import! -> Rectangle would need to be fully qualified
 import static java.lang.System.*;
+//static import java.lang.System.*; // wrong order
+
+import java.lang.Math.*;
+import static java.lang.Math.*;
+import java.lang.*;
+
 
 public class Import_Other_Java_Packages {
 
@@ -94,6 +100,16 @@ public class Import_Other_Java_Packages {
          * import static mypackage.MyConstants.*;
          *
         */
+
+         A myClassA = new A();
+
+         /** Question: Which of the following import statements are unnecessary?
+          * import java.lang.Math.*;
+          * import static java.lang.Math.*;
+          * import java.lang.*;
+          */
+
+         System.out.print(PI);
     }
 
 //    class B extends A {

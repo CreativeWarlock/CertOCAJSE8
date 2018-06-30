@@ -63,5 +63,7 @@ public class CreateAndUseForLoops {
             System.out.print(element + " ");
         }*/
 
+        //for( ; ; System.out.print("Bla")); // CAREFUL!
+
     }
 }

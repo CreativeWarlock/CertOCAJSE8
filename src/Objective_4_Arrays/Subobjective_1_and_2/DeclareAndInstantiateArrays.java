@@ -10,6 +10,8 @@ public class DeclareAndInstantiateArrays {
 
     static int staticVar;
 
+    static int numberOfFields = 1;
+
     public static void main(String [ ] args) {
         System.out.println("Chapter 4.1 - Declare, Instantiate and use a one-dimensional Array");
 
@@ -34,6 +36,7 @@ public class DeclareAndInstantiateArrays {
 
         /** Instantiation: */
         int[] singleDim = new int[2]; // 1-Dim array with 2 elements initialized with 0.
+        int[] singleDimWithStaticInit = new int[numberOfFields];
 
         /** Initialization: */
         int[] singleDimInit1 = {5, 6, 7, 8};           // Uses initializer with curly brackets
@@ -50,6 +53,15 @@ public class DeclareAndInstantiateArrays {
 
         int[] singleDim10 = new int[2*5]; // evaluates to an int :)
         int[] singleDimMax = new int[Math.max(2,5)]; // evaluates to an int :)
+
+        // =============================================================================================================
+
+        Integer[] a = new Integer[2];
+        a[1] = 20;
+        System.out.print("Integer a: ");
+
+        for(Integer i : a)
+            System.out.print(i);
 
         // =============================================================================================================
 
@@ -117,6 +129,24 @@ public class DeclareAndInstantiateArrays {
 
         // =============================================================================================================
 
+        int[] numbers = {1,-5,23,4,9};
+        int[] numbers2 = {1,-5,23,4,9};
+        //System.out.println(numbers == numbers2 + " ");
+        System.out.println((numbers == numbers2) + " ");
+        System.out.println(Arrays.equals(numbers, numbers2));
+        //System.out.println(Arrays.deepEquals(numbers, numbers2) + "");
+
+        // =============================================================================================================
+
+        String[] sortLetters = {"n", "L", "O", "S", "p"};
+        Arrays.sort(sortLetters);
+        System.out.print("sortLetters: ");
+        for(String s : sortLetters)
+            System.out.print(s);
+        System.out.println();
+
+        // =============================================================================================================
+
         /**==========================
         //  Multi dimensional array
         // ========================*/
@@ -126,7 +156,7 @@ public class DeclareAndInstantiateArrays {
 
         // =============================================================================================================
 
-        int[][] intArray3x2 = {{1, 2, 3}, {4, 5}};
+        int intArray3x2[][] = {{1, 2, 3}, {4, 5}};
         int[][] intArray3x2WithTypeSafety = new int[][]{{1, 2, 3}, {4, 5}};
         System.out.println("intArray3x2: " + intArray3x2);
         System.out.println("intArray3x2: " + Arrays.deepToString(intArray3x2));
@@ -170,11 +200,11 @@ public class DeclareAndInstantiateArrays {
         // =============================================================================================================
 
         String[][] wildLetters = {{"A", "Z"}, {"C", "D", "P"}, {"L", "Q"}};
-        Arrays.sort(wildLetters); // will throw CCE
+        /*Arrays.sort(wildLetters); // will throw CCE
         for(String[] str : wildLetters)
             for (String s : str) {
                 System.out.print(s);
-            }
+            }*/
 
 
         // =============================================================================================================

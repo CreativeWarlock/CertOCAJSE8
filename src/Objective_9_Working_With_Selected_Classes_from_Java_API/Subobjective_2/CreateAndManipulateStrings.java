@@ -177,5 +177,19 @@ public class CreateAndManipulateStrings {
         int capitalA = 97;
         char fromInt = (char)capitalA;
         System.out.println("fromInt: " + fromInt);
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        /** Question 7: What is the result of the following code?
+         * A) 12
+         * B) 123
+         * C) An exception.
+         * D) Compilation fails.
+         * */
+
+        String part1 = "1";
+        String part2 = part1.concat("2");
+        part2.concat("3");  // Nice trick: Since String class is immutable -> this concat(..) method cannot alter the string! It HAS TO return a new string!!
+        System.out.print("Part2: " + part2);
     }
 }
