@@ -62,7 +62,7 @@ public class ManipulateDataUsingStringBuilder {
         int x = builder.capacity();
         builder.trimToSize();
         int y = builder.capacity();
-        System.out.println(x+y);
+        System.out.println("Rockland Capacity:" + (x+y));
 
         // --------------------------------------------------
 

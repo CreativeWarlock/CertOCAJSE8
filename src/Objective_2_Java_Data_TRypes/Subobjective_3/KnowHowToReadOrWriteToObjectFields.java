@@ -50,6 +50,10 @@ class MyClass {
         return this.myField;
     }
 
+    MyClass method() {
+        return new MyClass();
+    }
+
     void setMyField(String newValue) {
         // can drop 'this'
         this.myField = newValue;

@@ -16,7 +16,20 @@ public class DefineStructureOfJavaClass {
         System.out.println("Objective 1.2 - Define Structure of a JavaClass");
 
         /**=============================================================================================================
-         *  Which of the following must be included in a java source file in order to compile?
+         // Sequence of Elements in a Java source file
+         // ----------------
+
+         Element                Example                     Requirement?            Place
+         Package declaration    package Rock;               no                      First line in file
+         Import statement/s     import java.io.*            no                      immediately after package!
+         class declaration      public class Rock           yes                     immediately after import!
+         field declaration/s    int value;                  no                      anywhere inside a class
+         method declarations    void method()               no                      anywhere inside a class
+
+         */
+
+        /** -----------------------------------------------------------------------------------------------------------
+         *  Question: Which of the following must be included in a java source file in order to compile?
          *
          * a) Package declaration
          * b) Class declaration
@@ -32,20 +45,7 @@ public class DefineStructureOfJavaClass {
          * e) Field declaration     -> not necessarily required
          */
 
-        /**=============================================================================================================
-        // Sequence of Elements in a Java source file
-        // ----------------
-
-         Element                Example                     Requirement?            Place
-         Package declaration    package Rock;               no                      First line in file
-         Import statement/s     import java.io.*            no                      immediately after package!
-         class declaration      public class Rock           yes                     immediately after import!
-         field declaration/s    int value;                  no                      anywhere inside a class
-         method declarations    void method()               no                      anywhere inside a class
-
-        */
-
-        /**=============================================================================================================
+        /** -----------------------------------------------------------------------------------------------------------
          *  Which of the following is a valid top level class declaration?
          *
          * a) class one() {}
@@ -61,6 +61,8 @@ public class DefineStructureOfJavaClass {
          * d) class If{}                --> Correct
          * e) All of above
          */
+
+        /** --------------------------------------------------------------------------------------------------------- */
     }
 }
 

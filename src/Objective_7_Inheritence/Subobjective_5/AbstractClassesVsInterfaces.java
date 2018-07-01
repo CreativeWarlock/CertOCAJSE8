@@ -103,6 +103,9 @@ public class AbstractClassesVsInterfaces {
         System.out.println("Animal can fly? " + canFly);
         System.out.println("Animal is Object? " + isObject);
 
+        System.out.println(InterfaceA.numberA);
+        System.out.println(InterfaceA.numberB);
+
         // =============================================================================================================
 
         System.out.print(In2.print());

@@ -190,6 +190,22 @@ public class CreateAndManipulateStrings {
         String part1 = "1";
         String part2 = part1.concat("2");
         part2.concat("3");  // Nice trick: Since String class is immutable -> this concat(..) method cannot alter the string! It HAS TO return a new string!!
-        System.out.print("Part2: " + part2);
+        System.out.println("Part2: " + part2);
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        String compound = "";
+        compound += 2;
+        compound += 6+6;
+        compound += 'A'+3;
+        compound += false;
+        System.out.println("compound: " + compound);
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        StringBuilder rock = new StringBuilder("RockLand");
+        StringBuilder rock2 = new StringBuilder("RockLand");
+        System.out.println("rock == rock2: " + (rock == rock2));
+        System.out.println("rock.toString() == rock2.toString(): " + (rock.toString() == rock2.toString()));
     }
 }

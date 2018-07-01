@@ -4,6 +4,8 @@ public class DifferentiateBetweenObjectReferenceAndPrimitiveVariables {
 
     // https://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.12
 
+    static int x = 50;
+
     public static void main(String [ ] args) {
         System.out.println("Objective 2.2 - Differentiate between Object Reference and Primitive Variables");
 
@@ -33,6 +35,9 @@ public class DifferentiateBetweenObjectReferenceAndPrimitiveVariables {
         */
 
         // --------------------------------
+
+        int x, y = 100;
+        //System.out.println("x: " + x);
 
         int int1 = 0; int int2 = 0;
         Data data1 = new Data();
