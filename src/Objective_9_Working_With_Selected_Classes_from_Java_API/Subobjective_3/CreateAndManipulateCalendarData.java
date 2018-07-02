@@ -221,10 +221,18 @@ public class CreateAndManipulateCalendarData {
          * */
 
         Year y = Year.of(2018);
-        LocalDate date = y.atMonthDay(MonthDay.of(4,31)); //A month-day of February 29th will be adjusted to February 28th in the resulting date if the year is not a leap year.
-        System.out.println(date);
+        //LocalDate date = y.atMonthDay(MonthDay.of(4,31)); //A month-day of February 29th will be adjusted to February 28th in the resulting date if the year is not a leap year.
+        //System.out.println(date);
 
         // Answer: Passing 4 as the month and 31 as the day arguments for the method causes an exception
         //         because month April doesn't have such a day. Therefore answer d is correct.
+
+        /** --------------------------------------------------------------------------------------------------------- */
+
+        LocalDate dating = LocalDate.ofYearDay(2015, 363);
+        dating.plusWeeks(2);
+        System.out.println("Is leap year? " + dating.isLeapYear());
+
+        System.out.println("Days: " + dating.lengthOfMonth());
     }
 }

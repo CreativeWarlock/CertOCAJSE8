@@ -22,8 +22,8 @@ public class DescribeInheritenceAndItsBenefits {
          *
          */
 
-//        SubClass sub = new SubClass();
-//        sub.print();
+        SubClass sub = new SubClass();
+        sub.print();
 
         SuperClass subClass = new SubClass();
         subClass.print(); // finds print in sub class
@@ -35,7 +35,7 @@ public class DescribeInheritenceAndItsBenefits {
 
         Animal bird = new Bird();
         bird.print();
-        //bird.fly();                 // Method fly() is not known to type Animal!
+        //bird.fly();                 // Animal does not know a method fly()!
 
         System.out.println();
 
@@ -58,9 +58,9 @@ class SuperClass {
 
 class SubClass extends SuperClass {
 
-    //protected String field = "Sub class..";
+    String field = "I'm a Sub class..";
     protected void print() {
-        super.print();
+        //super.print();
         System.out.println(field);
     }
 }

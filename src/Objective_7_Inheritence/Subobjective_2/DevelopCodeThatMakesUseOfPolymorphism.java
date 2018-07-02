@@ -113,6 +113,8 @@ class OverridingSubClass {
  * b) prints 1
  * c) Compilation fails
  *
+ * Answer: since print() in the Sub class cannot be compiled due to the weaker access privileges assigned to it, the code cannot be compiled. Answer is c)
+ *
  * */
 
 class Super {
@@ -124,7 +126,7 @@ class Super {
 
 class Sub extends Super {
     int value = 1;
-    /*void print() { // trying to assign weaker access privileges!
+/*    void print() {
         System.out.println(value);
     }*/
 }

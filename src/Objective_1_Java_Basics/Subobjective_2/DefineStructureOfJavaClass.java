@@ -5,8 +5,10 @@ public class DefineStructureOfJavaClass {
     // https://docs.oracle.com/javase/tutorial/getStarted/application/index.html
     // https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html
 
+    int x = y;
+    static int y = 10;
+
     { System.out.println("Hello World"); }
-    static { System.out.println("Static Hello World"); }
 
     public static void main(int[] args) {}
 
@@ -14,6 +16,12 @@ public class DefineStructureOfJavaClass {
 
     public static void main(String [ ] args) {
         System.out.println("Objective 1.2 - Define Structure of a JavaClass");
+
+        System.out.println("X: " + new DefineStructureOfJavaClass().y + " ");
+        System.out.println("Y: " + y);
+
+
+        Long l = 3l;
 
         /**=============================================================================================================
          // Sequence of Elements in a Java source file
@@ -64,5 +72,8 @@ public class DefineStructureOfJavaClass {
 
         /** --------------------------------------------------------------------------------------------------------- */
     }
+
+    static { System.out.println("Static Hello World"); }
+
 }
 

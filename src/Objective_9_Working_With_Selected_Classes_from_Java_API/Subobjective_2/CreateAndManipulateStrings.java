@@ -207,5 +207,9 @@ public class CreateAndManipulateStrings {
         StringBuilder rock2 = new StringBuilder("RockLand");
         System.out.println("rock == rock2: " + (rock == rock2));
         System.out.println("rock.toString() == rock2.toString(): " + (rock.toString() == rock2.toString()));
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        String bla = "abcdef".substring(4);
     }
 }
