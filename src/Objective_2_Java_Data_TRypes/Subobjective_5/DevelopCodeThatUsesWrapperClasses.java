@@ -67,5 +67,34 @@ public class DevelopCodeThatUsesWrapperClasses {
 
         boolean charDefined = Character.isDefined('@'); // is available in Unicode table?
         System.out.println("charDefined: " + charDefined);
+
+        /** -------------------------------------------------------------------------------------------------------- */
+
+        Integer i = 10;
+        Double d = 10.0;
+        int ii = 10;
+        double dd = 10.0;
+
+        System.out.print(i.equals(d) + " ");
+        System.out.println(ii == dd);       // can compare int with double -> will result true here!
+
+        /** -------------------------------------------------------------------------------------------------------- */
+
+        Integer wi = 10;
+        System.out.println("wi.equals(10)" + wi.equals(10));
+
+        int dec = 10;
+        System.out.println("wi == dec: " + (wi == dec));
+
+        //Double dbl = 10;
+        System.out.println("wi == dec: " + (wi == dec));
+
+        Double dbl = 10.0;
+        System.out.println("dbl.BYTES: " + dbl.BYTES);
+        System.out.println("dbl.SIZE: " + dbl.SIZE);
+    }
+
+    static void iterator(int[]a) {
+        int b = a.length;
     }
 }

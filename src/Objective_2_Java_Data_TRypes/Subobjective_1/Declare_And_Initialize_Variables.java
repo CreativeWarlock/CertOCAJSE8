@@ -68,6 +68,11 @@ public class Declare_And_Initialize_Variables {
 
         int _6 = 6;
         int x = 0XE;
+        int x2 = 0xE;
+        long l1 = 0xEl;
+
+        int f = 0xF;
+        //int z = 018; // Integer number too large.. oO
     }
 }
 

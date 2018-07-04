@@ -8,8 +8,8 @@ import java.awt.*;
 import static java.lang.System.*;
 //static import java.lang.System.*; // wrong order
 
-import java.lang.Math.*;
 import static java.lang.Math.*;
+import static java.lang.Math.abs; // imports all static abs(..) methods
 import java.lang.*;
 
 
@@ -18,6 +18,8 @@ public class Import_Other_Java_Packages {
     // https://docs.oracle.com/javase/tutorial/java/package/usepkgs.html
 
     public static void main(String [] args) {
+
+        abs(1);
 
         out.println("Objective 1.4 - Import other Java packages to make them accessible in your code");
 
@@ -111,9 +113,11 @@ public class Import_Other_Java_Packages {
 
          System.out.print(PI);
     }
+}
 
-//    class B extends A {
-//
-//    }
+class B extends A {
+    public static void main(String[] args) {
+        A a = new A();
+    }
 }
 

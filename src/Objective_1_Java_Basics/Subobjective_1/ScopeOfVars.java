@@ -4,6 +4,8 @@ public class ScopeOfVars {
 
     // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
 
+    static int staticVar = 1;
+
     private String robot = "R2D2";
     { System.out.println("robot: " + robot); } // No print out!
 
@@ -11,6 +13,12 @@ public class ScopeOfVars {
         System.out.println("Chapter 1.1 - Scope of Variables");
 
         ScopeOfVars sv = new ScopeOfVars();
+
+        staticVar++;
+        //int staticVar = 10;
+        System.out.println("staticVar " + staticVar);
+
+        final int staticVar = 10;
 
         /** Available scopes for variables:
          *      - local (aka method-local variables)

@@ -20,7 +20,6 @@ public class ApplyEncapsulationPrinciplesToAClass {
         char c = 'A'; //ASCI value of A is 65
         System.out.println(aval(c));
         //System.out.println((char)97);
-
     }
 
     private static int aval(char c) {

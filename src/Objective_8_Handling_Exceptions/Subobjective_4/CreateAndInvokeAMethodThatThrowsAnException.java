@@ -33,6 +33,8 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
         methodThatHandlesACheckedException(); // must have individual exception handling or rethrowing
 
         methodThatPropagatesAnUncheckedExceptionMethod(); // Unchecked Exception -> no need for 'throws' clause -> will automatically propagate up
+
+        tryDivision();
     }
 
     /** Methods with Checked Exceptions
@@ -65,29 +67,15 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
     }
 
     //public static void uncheckedExceptionMethod() throws Exception { // Would lead to unhandled exception! (despite there is no such Exception being thrown ;) )
+
     //public static void uncheckedExceptionMethod() throws RuntimeException { // NO NEED FOR extra 'throws' clause!
     public static void uncheckedExceptionMethod() {
-        throw new RuntimeException();
+        //throw new RuntimeException();
         //throw new Exception();
     }
 
     // ------------------------------------------------------
 
-    /** Question 1:
-     *
-     * public void doSomething() {
-     *     doSomethingElse();
-     * }
-     *
-     * public void doSomethingElse() throws Exception {
-     *     throw new RuntimeException();
-     * }
-     *
-     * What happens when the above methods are compiled?
-     * A) Compilation succeeds
-     * B) Compilation fails
-     *
-     */
 
     // ------------------------------------------------------
 
@@ -110,5 +98,34 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
     // Answer Q1: B)
     // Answer Q2: B)
 
+    /** Question 1:
+     *
+     * public void doSomething() {
+     *     doSomethingElse();
+     * }
+     *
+     * public void doSomethingElse() throws Exception {
+     *     throw new RuntimeException();
+     * }
+     *
+     * What happens when the above methods are compiled?
+     * A) Compilation succeeds
+     * B) Compilation fails
+     *
+     */
+
+    private static void tryDivision() {
+        int x = 5, y = 10;
+
+        try {
+            y /= x;
+            System.out.println("y: " + y);
+
+        } catch (Exception e) {
+            System.out.println("error");
+        } finally {
+            System.out.println("finally");
+        }
+    }
 }
 

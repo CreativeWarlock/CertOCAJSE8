@@ -67,8 +67,9 @@ public class AbstractClassesVsInterfaces {
             }
         }; // Possible, but it must implement non-default methods!
 
-        System.out.println(10 + 5 + "Interface: " + interfaceA);
+        System.out.println(10 + 5 + " Interface: " + interfaceA);
 
+        //System.out.println("MethodB: " + interfaceA.getNumberA()); // static methods may be invoked on containing interface class only
         System.out.println("MethodB: " + interfaceA.defaultMethodB());
 
         // =============================================================================================================
@@ -84,6 +85,10 @@ public class AbstractClassesVsInterfaces {
         System.out.println(canBirdFly);
 
         // =============================================================================================================
+
+        //Fly f = new Bird();
+        Fly f = new Fly() {}; // must have {} as an implementation for the interface Fly
+        f.fly();
 
         Bird bird = new Bird();
         boolean isAnimal = bird instanceof Animal;
@@ -108,6 +113,13 @@ public class AbstractClassesVsInterfaces {
 
         // =============================================================================================================
 
+        Animal animDog = new Dog();
+        Dog doggy = new Dog();
+        doggy.eat();
+        //animDog.eat();        unhandled exception!
+
+        // =============================================================================================================
+
         System.out.print(In2.print());
     }
 }
@@ -119,16 +131,16 @@ interface InterfaceA {
 
     /** non static, non default methods must be abstrace / have NO body! */
     //public int myMethod(int i) { return i; }
+    /** non static and non default methods may ONLY have public, but public is not required */
+    public int myMethod(int i);
 
     /** static and default methods must have a body */
     public static int getNumberA() { return numberA; }
     public default int defaultMethodB() { return numberB; }
 
-    /** non static and non default methods may ONLY have public, not even public is not required */
-    public int myMethod(int i);
-
-    /** EEK! Cannot override a member of Object! */
+    /** EEK! Cannot override members of Object!!! */
     //public default String toString() { return "Interface"; }
+    //public default boolean equals(Object o) { return false; }
 }
 
 abstract class AbstractA implements InterfaceA { // an abstract does not need to implement any of the interface's methods! ;)
@@ -140,6 +152,14 @@ abstract class AbstractA implements InterfaceA { // an abstract does not need to
     // public void print(); // Method declarations are not valid!
 
     public String getName() { return name; }
+
+    abstract Number abstractNumber();
+
+    public int defaultMethodB() { return numberB; }
+}
+
+abstract class AbstractB extends AbstractA {
+    abstract Number abstractNumber();
 }
 
 // =====================================================================================================================
@@ -169,11 +189,24 @@ class C extends A implements Interface {
 
 // =====================================================================================================================
 
-class Animal {}
+class Animal {
+    public void eat() throws Exception { System.out.print("Animal eats"); }
+}
 
-interface Fly {}
+interface Fly {
+    default void fly() { System.out.println("Flying."); }
+}
 
-class Bird extends Animal implements Fly {}
+class Bird extends Animal implements Fly {
+    @Override
+    public void fly() {
+
+    }
+}
+
+class Dog extends Animal {
+    public void eat() { System.out.print("Dog eats"); }
+}
 
 // =====================================================================================================================
 

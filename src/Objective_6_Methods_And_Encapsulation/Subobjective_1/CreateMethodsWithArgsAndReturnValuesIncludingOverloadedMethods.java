@@ -53,7 +53,7 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
          * ||               |                   |        runtime exceptions       ||
          * ||               |                   |                                 ||
          * || Return Type   |    Can change     | MUST NOT change except for      ||
-         * ||               |                   |       covariant returns         ||
+         * ||               |                   |       covariant returns*        ||
          * ||               |                   |                                 ||
          * || Invocation    |  Reference type   |         Object type             ||
          * ||               | determines which  |       determines which          ||
@@ -61,11 +61,17 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
          * =========================================================================
          */
 
+        /** Covariant returns: Return type is a subtype of the method's return type that is inherited from the super class */
+
         short s1 = 1, s2 = 2;
 
-        System.out.println("The result is: " + sum(s1,s2));
+        System.out.println("sum(s1, s2): " + sum(s1,s2));
 
         printNumber(0);
+
+        int x = 1;
+        int y = new RockLand().change(x);
+        System.out.println("x+y: " + (x + y));
     }
 
     // =================================================================================================================
@@ -150,3 +156,10 @@ class Overloader {
         System.out.println(message);
     }
 }*/
+
+class RockLand {
+    int change(int x) {
+        x = 2;
+        return x;
+    }
+}

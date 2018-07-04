@@ -65,6 +65,11 @@ public class DeclareAndInstantiateArrays {
 
         // =============================================================================================================
 
+        int array[] = {1, 2, 3};
+        //double dlbs[] = array;        // incompatible!
+
+        // =============================================================================================================
+
         /** Won't compile! */
         //        int fail1[2];
         //        int[2] fail2;
@@ -246,5 +251,56 @@ public class DeclareAndInstantiateArrays {
          *      - Abstract class (those assigned elements must extend that abstract class!)
          *      - concrete class
          */
+
+        // =============================================================================================================
+
+        String str[][] = new String[2][];
+        //String str[2][] = new String[][]; // nope
+        //String str[][] = new String[][2]; // nope
+
+        // =============================================================================================================
+
+        int nums[][] = new int[3][3];
+        nums[0] = new int[2];
+
+        System.out.println("nums: " + Arrays.deepToString(nums));
+
+        // =============================================================================================================
+
+        /** anonymous Arrays: */
+//        anonymous int array : new int[] { 1, 2, 3, 4};
+//        anonymous String array : new String[] {"one", "two", "three"};
+//        anonymous char array :  new char[] {'a', 'b', 'c');
+
+        // =============================================================================================================
+
+        //final int[] finInts = new int[]; // nope
+        final int[] finInts = new int[3];
+        finInts[1]++;
+        int finLen = finInts.length;
+        System.out.println("i: ");
+        for (int i : finInts)
+            System.out.print(i);
+
+        System.out.println();
+
+        // =============================================================================================================
+
+        int[][] intExp = new int[3][2];
+        intExp[0] = new int[3];
+        //intExp[2] = {1, 2, 3}; // Array initializer not allowed here
+
+        // =============================================================================================================
+
+        int[][] sortNullInts = new int[2][];
+        //Arrays.sort(sortNullInts[1]);           // NPE!
+        System.out.println("SortnNullInts: " + Arrays.toString(sortNullInts[1]));
+
+        // =============================================================================================================
+
+        int[] binaryArray = {2, -1, 4, 5, 3};
+        Arrays.sort(binaryArray);
+        System.out.println("binaryArray: " + Arrays.binarySearch(binaryArray, -1));
+
     }
 }

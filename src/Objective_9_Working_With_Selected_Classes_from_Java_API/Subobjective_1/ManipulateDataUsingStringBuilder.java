@@ -54,7 +54,7 @@ public class ManipulateDataUsingStringBuilder {
 
         StringBuilder sb1 = new StringBuilder(10);
         StringBuilder sb2 = new StringBuilder("ABCD");
-        System.out.println(sb1.capacity() + sb2.capacity());
+        System.out.println("Capacity: " + sb1.capacity() + sb2.capacity());
 
         // --------------------------------------------------
 
@@ -93,7 +93,7 @@ public class ManipulateDataUsingStringBuilder {
 
         char[] chars2 = {'R', '2', 'D', '2'};
         charSB = new StringBuilder();
-        charSB.append(chars2, 0, chars.length - 1);
+        charSB.append(chars2, 0, chars2.length - 1);
         charSB.append('2');
         charSB.append(" \\o/");
         charSB.setLength(4);
