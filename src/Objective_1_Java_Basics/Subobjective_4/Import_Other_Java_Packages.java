@@ -3,8 +3,8 @@ package Objective_1_Java_Basics.Subobjective_4;
 import Objective_1_Java_Basics.Subobjective_4.one.*;
 
 import java.awt.Rectangle.*; // <-- this import alone will not import the Rectangle class!
+//import javafx.scene.shape.Rectangle; // ambiguous import! -> Rectangle would need to be fully qualified
 import java.awt.*;
-// import javafx.scene.shape.Rectangle; // ambiguous import! -> Rectangle would need to be fully qualified
 import static java.lang.System.*;
 //static import java.lang.System.*; // wrong order
 
@@ -92,7 +92,8 @@ public class Import_Other_Java_Packages {
          *
          * import static java.lang.Math.*;
          *
-         * Once they have been imported, the static members can be used without qualification. For example, the previous code snippet would become:
+         * Once they have been imported, the static members can be used without qualification.
+          * For example, the previous code snippet would become:
          *
          * double r = cos(PI * theta);
          *

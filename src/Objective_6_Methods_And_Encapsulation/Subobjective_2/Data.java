@@ -4,6 +4,8 @@ public class Data {
     protected int instanceValue;
     static int staticValue;
 
+    protected int getInstanceValue() { return instanceValue; }
+
     public void instanceMethodIncrementStaticValue() {
         staticValue++;
     }

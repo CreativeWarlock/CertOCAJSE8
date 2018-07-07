@@ -34,14 +34,31 @@ public class Declare_And_Initialize_Variables {
          * Primitive Data Type Casting:
          * ----------------------------
          * Widening casting: -> implicitly implemented!
-         *      byte -> short -> int -> long -> float -> double
-         *
-         * Narrowing casting: -> must be implemented explicitly!
+         *      byte -> short -> int -> long -> float -> double (BSI LFD)
+         */
+        byte myB = 6;
+        short myS = myB;
+        int myI = myS;
+        long myL = myI;
+        float myF = myL;
+        double myD = myF;
+        System.out.println("myD: " + myD);
+
+        /** Narrowing casting: -> must be implemented explicitly!
          *      double -> float -> long -> int -> short -> byte
          *
          *      -> REQUIRES casting Operator!
-         *
-         * CHAR:
+         */
+        myD = 128;
+        //myF = myD; // nope
+        myF = (float)myD;
+        myL = (long)myF;
+        myI = (int)myL;
+        myS = (short)myI;
+        myB = (byte)myS;
+        System.out.println("myB: " + myB);
+
+         /** CHAR:
          *  - special data type
          *  - has the same length as short
          *
@@ -59,7 +76,7 @@ public class Declare_And_Initialize_Variables {
          *
          * Essential statements:
          *  - The magnitude and precision of a value may be lost after being cast
-         *  - Primitive type casting never results in a runtime exception
+         *  - Primitive type casting never results in a runtime exception!
          */
 
         CastingTests tests = new CastingTests();
@@ -69,7 +86,8 @@ public class Declare_And_Initialize_Variables {
         int _6 = 6;
         int x = 0XE;
         int x2 = 0xE;
-        long l1 = 0xEl;
+        long L1 = 0xEL;
+        long l2 = 0xEl;
 
         int f = 0xF;
         //int z = 018; // Integer number too large.. oO

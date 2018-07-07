@@ -26,8 +26,7 @@ public class EqualityBetweenStringsAndObjects {
         String string2 = "RockLand";
         String string3 = "RockLand";
         System.out.println(string1 == string2); // false
-        System.out.println(string2 == string3); // true
-
+        System.out.println(string2 == string3); // true -> accessing the same String object in the pool!
 
         /**
          * Comparison of Objects Using equals()-Method:
@@ -37,7 +36,7 @@ public class EqualityBetweenStringsAndObjects {
          *  - if not overridden, it compares the same way as the == operator does
          * */
         Data data1 = new Data(0), data2 = new Data(0);
-        System.out.println("data1.equals(data2): " + data1.equals(data2)); // false
+        System.out.println("data1.equals(data2): " + data1.equals(data2)); // false because not equals is not overridden -> compares by using ==
 
         DataWithEquals dataWithEquals1 = new DataWithEquals(0);
         DataWithEquals dataWithEquals2 = new DataWithEquals(0);
@@ -59,7 +58,7 @@ public class EqualityBetweenStringsAndObjects {
         /** Question: What does the following code print? */
         String ocaString = new String("OCAJP 8");
         String copiedOcaString = new String(ocaString);
-        System.out.println("ocaString == copiedOcString: " + ocaString == copiedOcaString); // ATTENTION! This println ONLY prints "false"! Watch out for the error
+        System.out.println("ocaString == copiedOcString: " + ocaString == copiedOcaString); // ATTENTION! This println ONLY prints "false"! Watch out for missing brackets!
         System.out.println("ocaString == copiedOcString: " + (ocaString == copiedOcaString));
 
         /** Question: What does the following code print? */

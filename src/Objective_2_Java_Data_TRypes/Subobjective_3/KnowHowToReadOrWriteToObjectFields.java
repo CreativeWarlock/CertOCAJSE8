@@ -25,10 +25,11 @@ public class KnowHowToReadOrWriteToObjectFields {
         * followed by a dot-operator, followed by a simple name:
         */
 
-         MyClass myClass = new MyClass();
-         // read the field
-         String fillMe = myClass.myField;
-         // write the field
+        MyClass myClass = new MyClass();
+        // read the field
+        String fillMe = myClass.myField;
+
+        // write the field
         myClass.myField = "Change to new value from outside";
 
         // --------------------------------
@@ -43,7 +44,7 @@ public class KnowHowToReadOrWriteToObjectFields {
 }
 
 class MyClass {
-    public String myField = "I am an object field";
+    String myField = "I am an object field";
 
     String getMyField() {
         // can drop 'this'

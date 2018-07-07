@@ -17,8 +17,10 @@ public class DeclareAndInstantiateArrays {
 
         /**
          * Once allocated, all the array elements store their default values:
-         * - Elements in an array that store objects default to null.
-         * - Elements of an array that store primitive data types store
+         *
+         * - Elements in an array that store OBJECTS default to null!
+         *
+         * - Elements of an array that store PRIMITIVE data types store
          *      0 for integer types (byte, short, int, long)
          *      0.0 for decimal types (float, double)
          *      false for boolean
@@ -40,28 +42,30 @@ public class DeclareAndInstantiateArrays {
 
         /** Initialization: */
         int[] singleDimInit1 = {5, 6, 7, 8};           // Uses initializer with curly brackets
-        int[] singleDimInit2 = new int[] {5, 6, 7, 8}; // Uses initializer with new operator for additional Type safety
+        int[] singleDimInit2 = new int[] {5, 6, 7, 8}; // Anonymous array uses initializer with new operator for additional Type safety
 
-        /** Following is NOT VALID -> Cannot combine declaration, allocation and initialization with specifying the size of the array! */
+        /** Following is NOT VALID -> Cannot combine declaration, allocation and initialization! (that is, by specifying the size of the array) */
         //int[] singleDimTypeAndInitializer = new int[4] { 1, 2, 3}; //
 
-        //int[] singleDimInit3;
-        //singleDimInit3 = {5}; // initializer is NOT ALLOWED here
+        int[] singleDimInit3;
+        //singleDimInit3 = {5}; // initializer is NOT ALLOWED here! (since the array was already declared)
 
-        /** Following is NOT VALID -> initializer expected; at least the top level bracket must define a dimension! */
-        //int[] singleDim = new int[];
+        /** Following is NOT VALID -> initializer expected; at least the top level bracket must define the number of elements! */
+        //int[] singleDim4 = new int[];
 
         int[] singleDim10 = new int[2*5]; // evaluates to an int :)
         int[] singleDimMax = new int[Math.max(2,5)]; // evaluates to an int :)
 
         // =============================================================================================================
 
-        Integer[] a = new Integer[2];
-        a[1] = 20;
-        System.out.print("Integer a: ");
+        Integer[] halfInitializedArray = new Integer[2];
+        halfInitializedArray[1] = 20;
+        System.out.print("halfInitializedArray: ");
 
-        for(Integer i : a)
+        for(Integer i : halfInitializedArray)
             System.out.print(i);
+
+        System.out.println();
 
         // =============================================================================================================
 
@@ -84,7 +88,7 @@ public class DeclareAndInstantiateArrays {
 
         int[] arrayDeclaration3[]; // 2-Dimensional
         //arrayDeclaration3 = new int[2]; // --> NOT VALID since it requires type int[][]
-          arrayDeclaration3 = new int[2][]; // better :)
+        arrayDeclaration3 = new int[2][]; // better :)
 
         // =============================================================================================================
 
@@ -100,23 +104,23 @@ public class DeclareAndInstantiateArrays {
         // =============================================================================================================
 
         int x = 2;
-        int[] dependingArray= new int[x];
+        int[] dependingArray = new int[x];
         //dependingArray[0] = 0;
 
-        System.out.println("dependingArray: " + dependingArray[0]);
+        System.out.println("dependingArray: " + dependingArray[0] + ", " + dependingArray[1]);
 
         // =============================================================================================================
 
-        int[] reinitArray = {1, 2, 3};
-        reinitArray = new int[6];
-        System.out.println("reinitArray: " + reinitArray[2]);
+        int[] reInitArray = {1, 2, 3};
+        reInitArray = new int[6];
+        System.out.println("reInitArray: " + reInitArray[2]);
 
         // =============================================================================================================
 
         //short len = 8;            // works
         //char len = 8;             // works
         //byte len = 8;             // works
-        //long len = 8;             // Compilation would fail, accessor must evaluate to an integer type! Long is not implicitely cast to int!
+        //long len = 8;             // Compilation would fail, accessor MUST evaluate to an INT type! Long is not implicitly cast to int!!
         int len = 8;               // works
         int [] ints = new int[len];
 
@@ -124,7 +128,7 @@ public class DeclareAndInstantiateArrays {
 
         String[] seasonsArray = {"Spring", "Summer", "Autumn", "Winter"};
 
-        seasonsArray[2] = null;
+        seasonsArray[3] = null; // Let's skip Winter!
 
         System.out.print("Seasons: ");
         for (String season : seasonsArray) {
@@ -137,8 +141,8 @@ public class DeclareAndInstantiateArrays {
         int[] numbers = {1,-5,23,4,9};
         int[] numbers2 = {1,-5,23,4,9};
         //System.out.println(numbers == numbers2 + " ");
-        System.out.println((numbers == numbers2) + " ");
-        System.out.println(Arrays.equals(numbers, numbers2));
+        System.out.println("numbers == numbers2: " + (numbers == numbers2) + " ");
+        System.out.println("Arrays.equals(numbers, numbers2): " + Arrays.equals(numbers, numbers2));
         //System.out.println(Arrays.deepEquals(numbers, numbers2) + "");
 
         // =============================================================================================================
@@ -148,6 +152,7 @@ public class DeclareAndInstantiateArrays {
         System.out.print("sortLetters: ");
         for(String s : sortLetters)
             System.out.print(s);
+
         System.out.println();
 
         // =============================================================================================================
@@ -157,15 +162,15 @@ public class DeclareAndInstantiateArrays {
         // ========================*/
 
         /** Following is NOT VALID -> initializer expected; at least the top level bracket must define a dimension */
-        //int[][] singleDim = new int[][];
+        //int[][] multiDim = new int[][];
 
         // =============================================================================================================
 
         int[] intArray3x2[] = {{1, 2, 3}, {4, 5}};
         int[][] intArray3x2WithTypeSafety = new int[][]{{1, 2, 3}, {4, 5}};
         System.out.println("intArray3x2: " + intArray3x2);
-        System.out.println("intArray3x2: " + Arrays.deepToString(intArray3x2));
-        System.out.println("intArray3x2WithTypeSafety: " + Arrays.deepToString(intArray3x2WithTypeSafety));
+        System.out.println("Arrays.deepToString(intArray3x2): " + Arrays.deepToString(intArray3x2));
+        System.out.println("Arrays.deepToString(intArray3x2WithTypeSafety): " + Arrays.deepToString(intArray3x2WithTypeSafety));
 
         // =============================================================================================================
 
@@ -179,12 +184,13 @@ public class DeclareAndInstantiateArrays {
 
         // =============================================================================================================
 
-        int[][] intArray2x2Fails = new int[2][];
+/*        int[][] intArray2x2Fails = new int[2][];
         for (int i=0; i < 2; i++) {
-            for (int j=0; j < 2; j++) {
-                //intArray2x2Fails[i][j] = i + j;  // throws NullPointerException!
+            for (int j=0; j < 3; j++) {
+                intArray2x2Fails[i][j] = i + j;  // throws NullPointerException!
             }
         }
+        System.out.println("intArray2x2Fails: " + Arrays.deepToString(intArray2x2Fails));*/
 
         // =============================================================================================================
 
@@ -205,19 +211,17 @@ public class DeclareAndInstantiateArrays {
         // =============================================================================================================
 
         String[][] wildLetters = {{"A", "Z"}, {"C", "D", "P"}, {"L", "Q"}};
-        /*Arrays.sort(wildLetters); // will throw CCE
-        for(String[] str : wildLetters)
+        //Arrays.sort(wildLetters); // will throw CCE -> cannot be cast to java.base/java.lang.Comparable
+/*        for(String[] str : wildLetters)
             for (String s : str) {
                 System.out.print(s);
             }*/
 
-
         // =============================================================================================================
 
-
-        // ==========================
+        /**==========================
         //     Asymmetrical array
-        // ==========================
+        // ========================*/
 
         // Testing varying length of array elements at some nesting level:
         int[][][] intArray3x3 = {{{1, 2, 3}, {4, 5}, {1, 2, 3}}, {{1, 2}, {4}}}; // Elements may vary in length due to having uninitialized fields
@@ -226,10 +230,11 @@ public class DeclareAndInstantiateArrays {
 
         // =============================================================================================================
 
-        String multiStrArray[][] = new String[][]{
-                {"A", "B"},
-                null,
-                {"Jan", "Feb", "Mar"},
+        String multiStrArray[][] = new String[][]
+        {
+            {"A", "B"},
+            null,
+            {"Jan", "Feb", "Mar"},
         };
 
         System.out.println("multiStrArray: " + Arrays.deepToString(multiStrArray));
@@ -255,15 +260,15 @@ public class DeclareAndInstantiateArrays {
         // =============================================================================================================
 
         String str[][] = new String[2][];
-        //String str[2][] = new String[][]; // nope
-        //String str[][] = new String[][2]; // nope
+        //String str2[2][] = new String[][]; // nope
+        //String str3[][] = new String[][3]; // nope
 
         // =============================================================================================================
 
-        int nums[][] = new int[3][3];
-        nums[0] = new int[2];
+        int changeSizeAfterInitializing[][] = new int[3][3];
+        changeSizeAfterInitializing[0] = new int[2];
 
-        System.out.println("nums: " + Arrays.deepToString(nums));
+        System.out.println("changeSizeAfterInitializing: " + Arrays.deepToString(changeSizeAfterInitializing));
 
         // =============================================================================================================
 
@@ -274,12 +279,12 @@ public class DeclareAndInstantiateArrays {
 
         // =============================================================================================================
 
-        //final int[] finInts = new int[]; // nope
-        final int[] finInts = new int[3];
-        finInts[1]++;
-        int finLen = finInts.length;
-        System.out.println("i: ");
-        for (int i : finInts)
+        //final int[] finalIntegers = new int[]; // nope, when using an array initializer the size of elements is expected!
+        final int[] finalIntegers = new int[3];
+        finalIntegers[1]++; // we can change  the elements nonetheless
+        int finLen = finalIntegers.length;
+        System.out.print("finalIntegers: ");
+        for (int i : finalIntegers)
             System.out.print(i);
 
         System.out.println();
@@ -293,14 +298,14 @@ public class DeclareAndInstantiateArrays {
         // =============================================================================================================
 
         int[][] sortNullInts = new int[2][];
-        //Arrays.sort(sortNullInts[1]);           // NPE!
-        System.out.println("SortnNullInts: " + Arrays.toString(sortNullInts[1]));
+        //Arrays.sort(sortNullInts[1]);     // NPE!
+        System.out.println("sortNullInts: " + Arrays.toString(sortNullInts[1]));
 
         // =============================================================================================================
 
         int[] binaryArray = {2, -1, 4, 5, 3};
         Arrays.sort(binaryArray);
-        System.out.println("binaryArray: " + Arrays.binarySearch(binaryArray, -1));
+        System.out.println("Arrays.binarySearch(binaryArray, -1): " + Arrays.binarySearch(binaryArray, -1));
 
     }
 }

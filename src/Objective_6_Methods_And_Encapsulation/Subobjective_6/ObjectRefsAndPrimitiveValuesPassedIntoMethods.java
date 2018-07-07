@@ -64,16 +64,26 @@ public class ObjectRefsAndPrimitiveValuesPassedIntoMethods {
 
         // =============================================================================================================
 
-        /** Question: What is the output? */
-        A a = new B();
-        //System.out.println(a.calc(2.0, 3.1));   // A knows only calc(int a, int b) !!
+        /** Question: What is the output of the following code? Comment out after you have your answer ;)
+         *
+         * A) 5
+         * B) 5.1
+         * C) A compile time error
+         * D) An exception is thrown
+         */
 
-        // Answer:  The reference type is important during compile time! It is A, therefor the compiler cannot find
-        //          any calc-method that accepts 2 doubles!
+        A a = new B();
+        //System.out.println(a.calc(2.0, 3.1));
+
+        // Answer:
+        // The reference type is important during compile time. Since the reference type is class A,
+        // the compiler cannot find any calc()-method that accepts 2 doubles. The correct answer is c.
         // (See Objective 7.2 for 'Reference Type vs. Object Types')
 
         B b = new B();
-        System.out.println(b.calc(2.0, 3.1));   // this works!
+        System.out.println(b.calc(2.0, 3.1));   // this works fine.
+
+        // =============================================================================================================
     }
 
     static void changeValueInVain(int param) {
@@ -106,7 +116,6 @@ public class ObjectRefsAndPrimitiveValuesPassedIntoMethods {
         Data tempData = dataWrapper1.data;
         dataWrapper1.data = dataWrapper2.data;
         dataWrapper2.data = tempData;
-
     }
 }
 

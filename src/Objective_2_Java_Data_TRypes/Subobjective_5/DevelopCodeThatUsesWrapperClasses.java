@@ -27,8 +27,26 @@ public class DevelopCodeThatUsesWrapperClasses {
 
         /** Boolean Wrapper class */
         Boolean myBool = Boolean.logicalAnd(true, false);
-        int boolCompare = myBool.compareTo(false);
+        int boolCompare = myBool.compareTo(false);              // Boolean.TRUE.compareTo(Boolean.FALSE) -> 1
+        //boolCompare = Boolean.FALSE.compareTo(true);          // Boolean.FALSE.compareTo(Boolean.TRUE) -> -1
         System.out.println("boolCompare: " + boolCompare);
+
+        boolean getBoolean = Boolean.getBoolean("true"); // Requires a System.getProperty("XXX") as argument!
+        System.out.println("getBoolean: " + getBoolean);        // false
+
+        boolean parsedBoolean = Boolean.parseBoolean("TruE");
+        System.out.println("parsedBoolean: " + parsedBoolean);  // true
+
+        boolean valueOfBoolean = Boolean.valueOf("TruE");
+        System.out.println("valueOfBoolean: " + valueOfBoolean);//true
+
+        //int compareBooleans = Boolean.compare(true, false);  // 1
+        //int compareBooleans = Boolean.compare(false, true); // -1
+        //int compareBooleans = Boolean.compare(false, false); // 0
+        int compareBooleans = Boolean.compare(true, true);     // 0
+        System.out.println("compareBooleans: " + compareBooleans);
+
+        // -------------------------------------------------------------------------------------------------------------
 
         /**
          * Numerical Wrapper classes:
@@ -43,18 +61,39 @@ public class DevelopCodeThatUsesWrapperClasses {
         int intCompare = Integer.compare(6, 4);
         System.out.println("intCompare: " + intCompare);
 
+        int bitCount = Integer.bitCount(11);
+        System.out.println("bitCount: " + bitCount);
+
+        int highestOneBit = Integer.highestOneBit(11);
+        System.out.println("highestOneBit: " + highestOneBit);
+
+        int numberOfTrailingZeros = Integer.numberOfTrailingZeros(16);
+        System.out.println("numberOfTrailingZeros: " + numberOfTrailingZeros);
+
+        int numberOfLeadingZeros = Integer.numberOfLeadingZeros(1);
+        System.out.println("numberOfLeadingZeros: " + numberOfLeadingZeros);
+
+        // -------------------------------------------------------------------------------------------------------------
+
         /**
          * Floating point Wrapper classes:
          *      Float, Double
          *
          *      - Fields and methods have similar names and functionality
          */
+
         double max = Double.max(1.1, 2.1);
         System.out.println("max: " + max);
 
         Double wrapper = new Double(1.5);
-        long roundedDown = wrapper.intValue();
-        System.out.println("rounded: " + roundedDown);
+        long intValue = wrapper.intValue();
+        System.out.println("intValue: " + intValue);
+
+        //Double divByZero = 1 / 0; // incompatible types!
+        Double divByZero = 1 / 0.0;
+        System.out.println("is DivByZero infinite? " + divByZero.isInfinite());
+
+        // -------------------------------------------------------------------------------------------------------------
 
         /**
          * Character Wrapper classes:
@@ -66,7 +105,7 @@ public class DevelopCodeThatUsesWrapperClasses {
         System.out.println("codePoint: " + codePoint);
 
         boolean charDefined = Character.isDefined('@'); // is available in Unicode table?
-        System.out.println("charDefined: " + charDefined);
+        System.out.println("charDefined? " + charDefined);
 
         /** -------------------------------------------------------------------------------------------------------- */
 
@@ -75,21 +114,22 @@ public class DevelopCodeThatUsesWrapperClasses {
         int ii = 10;
         double dd = 10.0;
 
-        System.out.print(i.equals(d) + " ");
-        System.out.println(ii == dd);       // can compare int with double -> will result true here!
+        System.out.println("i.equals(d): " + i.equals(d) + " "); // At first, equals compares the data types -> FALSE
+        System.out.println("ii == dd: " + (ii == dd));       // can compare int with double -> will result true here!
 
         /** -------------------------------------------------------------------------------------------------------- */
 
         Integer wi = 10;
-        System.out.println("wi.equals(10)" + wi.equals(10));
+        System.out.println("wi.equals(10): " + wi.equals(10));
+        System.out.println("wi.equals(10.0): " + wi.equals(10.0));
 
         int dec = 10;
         System.out.println("wi == dec: " + (wi == dec));
 
-        //Double dbl = 10;
-        System.out.println("wi == dec: " + (wi == dec));
-
+        //Double dbl = 10; // Compile Error!
         Double dbl = 10.0;
+        //System.out.println("wi == dbl: " + (wi == dbl)); // Compile Error: "==" cannot be applied to Integer, Double
+
         System.out.println("dbl.BYTES: " + dbl.BYTES);
         System.out.println("dbl.SIZE: " + dbl.SIZE);
     }

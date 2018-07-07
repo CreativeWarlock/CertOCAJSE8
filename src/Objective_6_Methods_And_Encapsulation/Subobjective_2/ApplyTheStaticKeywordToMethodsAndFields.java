@@ -53,10 +53,10 @@ public class ApplyTheStaticKeywordToMethodsAndFields {
         System.out.println("data2.instanceValue: " + data2.instanceValue);
         System.out.println("data2.staticValue: " + data2.staticValue);
 
-        NastyStatic nastyStatic = new NastyStatic();
-        //NastyStatic.p2(6);       //A
-        //nastyStatic.print(6);    //B
-        //NastyStatic.print();     //C
+        NastyClassWithStaticMethod nastyClassWithStaticMethod = new NastyClassWithStaticMethod();
+        //NastyClassWithStaticMethod.p2(6);       //A
+        //nastyClassWithStaticMethod.print(6);    //B
+        //NastyClassWithStaticMethod.print();     //C
                                    //D none
 
         /** Question 1: Which of the above comments will compile when uncommmenting (A-C) or will none (D)? */
@@ -65,7 +65,7 @@ public class ApplyTheStaticKeywordToMethodsAndFields {
     }
 }
 
-class NastyStatic {
+class NastyClassWithStaticMethod {
     private static void p2(int i) {
         System.out.print(i*2);
     }

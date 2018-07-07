@@ -27,16 +27,17 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
          *
          * 2. For the remainder:
          * 1st Phase: Performs overloading resolution
-         *            without permitting boxing or unboxing conversion, or the use of varargs
+         *            WITHOUT permitting boxing NOR unboxing conversion, NOR the use of varargs
          * 2nd Phase: Performs overloading resolution
-         *            while allowing boxing and unboxing conversion, but still precluding the use of varargs#
+         *            WITH boxing and unboxing conversion, but WITHOUT use of varargs
          * 3rd Phase: allows overloading to be combined with
-         *            boxing, unboxing and varargs
+         *            WITH boxing, unboxing and WITH use of varargs
          *
          * IN SHORT:
          * ---------
-         * Overloading conflicts are resolved based on this precedence order:
-         * Most specific types -> Casting -> Boxing/Unboxing -> Varargs -> Compile Time Error
+         * OVERLOADING CONFLICTS are resolved based on this precedence order:
+         *
+         *   Most specific types -> Casting -> Boxing/Unboxing -> Varargs -> Compile Time Error
          *
          *
          * =========================================================================
@@ -52,7 +53,7 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
          * || Exceptions    |    Can change     |     Can throw new or broader    ||
          * ||               |                   |        runtime exceptions       ||
          * ||               |                   |                                 ||
-         * || Return Type   |    Can change     | MUST NOT change except for      ||
+         * || Return Type   |    Can change     | must NOT change EXCEPT for      ||
          * ||               |                   |       covariant returns*        ||
          * ||               |                   |                                 ||
          * || Invocation    |  Reference type   |         Object type             ||
@@ -61,7 +62,7 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
          * =========================================================================
          */
 
-        /** Covariant returns: Return type is a subtype of the method's return type that is inherited from the super class */
+        /** Covariant returns: Return type is a subtype of the method's return type that is inherited from a super class */
 
         short s1 = 1, s2 = 2;
 
@@ -110,10 +111,12 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
     // =================================================================================================================
 
     void    myMethod() { }
-    //boolean setMyOtherInt() { return true; } // Can not have setMyOtherInt() with 2 different return types:
     void    myMethod(double value) { }
     void    myMethod(int value) { }
-    byte    myMethod(Integer value) { return 0; } // A changed Return type is independent from the method parameter list
+    byte    myMethod(Integer value) { return 0; } // A changed Return type is INDEPENDENT from the method parameter list
+
+    //boolean setMyOtherInt() { return true; }  // Can not have setMyOtherInt() with 2 different return types
+    //void setMyOtherInt() { }                  // Can not have setMyOtherInt() with 2 different return types
 
     // =================================================================================================================
 
@@ -127,35 +130,37 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
         return new Integer(arg); // auto unboxing to int - valid
     }
 
-    /** Question: What happens when the following methods are compiled and executed? */
-    int multiply(int arg1, int arg2) {
+    // =================================================================================================================
+
+    /** Question: What happens when the following methods are compiled and executed?
+     * Try to answer before uncommenting ;) */
+
+/*    int multiply(int arg1, int arg2) {
         return arg1 * arg2;
     }
 
-/*    void multiply(int arg1, int arg2) { // not valid! -> Not overloading: parameter signature is not different from 1st multiply
+    void multiply(int arg1, int arg2) {
         System.out.println(arg1 * arg2);
     }*/
 
-    /** Question: Which method will be invoked when calling printNumber(0)? */
+    // Answer: The second multiply is not valid since it is Not overloading: parameter signature is not different from 1st multiply
 
-    static void printNumber(long arg) {         // this one -> because casting is permitted before auto boxing!
+    // =================================================================================================================
+
+    /** Question: Which of the two following methods will be invoked when calling printNumber(0)? */
+
+    static void printNumber(long arg) {
         System.out.println("long : " + arg);
     }
 
     static void printNumber(Integer arg) {
         System.out.println("Integer : " + arg);
     }
-}
 
-/*
-class Overloader {
-    void print(String message) {
-        System.out.println(message);
-    }
-    void print(String message) {
-        System.out.println(message);
-    }
-}*/
+    // Answer: The first one because casting is permitted before auto boxing!
+
+    // =================================================================================================================
+}
 
 class RockLand {
     int change(int x) {

@@ -64,6 +64,7 @@ public class CreateIfAndIfElseAndTernaryConstructs {
         if (x != 6) {}
             else if (x > 9) { out += 2; }
             else if (x < 9) { out += 3; }
+            else if (x < 6) { out += 3; } // arbitrary many else if branches -> compiler does not analyse any semantics
             else if (x == 6) { out += 4; }
             else { out += 5; }
 

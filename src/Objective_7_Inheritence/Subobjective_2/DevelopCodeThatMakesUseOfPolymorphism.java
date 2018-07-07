@@ -96,7 +96,7 @@ class OverrideMe {
         }
 }
 
-class OverridingSubClass {
+class OverridingSubClass extends OverrideMe {
     protected void printMe() {
         System.out.println("Printed from subclass 'OverridingSubClass'");
     }
@@ -112,10 +112,7 @@ class OverridingSubClass {
  * a) prints 0
  * b) prints 1
  * c) Compilation fails
- *
- * Answer: since print() in the Sub class cannot be compiled due to the weaker access privileges assigned to it, the code cannot be compiled. Answer is c)
- *
- * */
+ */
 
 class Super {
     public int value = 0;
@@ -131,5 +128,5 @@ class Sub extends Super {
     }*/
 }
 
-// Answer: c)
+//Answer: since print() in the Sub class cannot be compiled due to trying to assign weaker access privileges, the code cannot be compiled. Answer is c.
 

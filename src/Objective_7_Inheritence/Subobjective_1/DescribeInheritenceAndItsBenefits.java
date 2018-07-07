@@ -5,7 +5,7 @@ public class DescribeInheritenceAndItsBenefits {
     // https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
 
     public static void main(String[] args) {
-        System.out.println("Chapter 7.1 - Describe Inheritence and its Benefits");
+        System.out.println("Chapter 7.1 - Describe Inheritance and its Benefits");
 
         /**
          * Inheritence:
@@ -72,12 +72,12 @@ class Bird extends Animal {
     static { System.out.println("Static Bird block. "); }
     Bird() { System.out.println("Bird c'tor. ");}
 
-        void print() {
-            System.out.print("Bird");
-        }
-        void fly() {
-            System.out.print("Bird flies");
-        }
+    void print() {
+        System.out.print("Bird");
+    }
+    void fly() {
+        System.out.print("Bird flies");
+    }
 }
 
 class Animal {
@@ -92,7 +92,7 @@ class Animal {
 
 // =====================================================================================================================
 
-/** Question: Does the following sub class inherit the value field from the Super class?
+/** Question: Does the following Sub class inherit the member field 'value' from the Super class?
  *
  * A) Yes
  * B) No

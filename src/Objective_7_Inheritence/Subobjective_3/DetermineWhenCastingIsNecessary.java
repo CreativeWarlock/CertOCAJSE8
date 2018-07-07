@@ -35,43 +35,18 @@ public class DetermineWhenCastingIsNecessary {
         //Float f = (Float)d;                 // cannot cast to Float! Double is no sub/super-type of Float!
 
         Float f = 47.11f;
-        //Double biggerFloat = (Double)f;       // cannot cast to Float! Float is no sub/super-type of Double!
+        //Double biggerFloat = (Double)f;     // cannot cast to Float! Float is no sub/super-type of Double!
 
         Object o = new Object();
-        //Integer myInt = (Integer)o;             // produces a ClassCastException since 'o' is not an instance of type Integer!
+        //Integer myInt = (Integer)o;         // produces a ClassCastException since 'o' never was an instance of type Integer!
 
         // it only works if the object 'o' would have been created by casting up from an Integer like so:
         Integer intForO = new Integer(42);
-        Object betterO = (Object)intForO;
-        Integer theOldIntAgain = (Integer)betterO;
-        System.out.println(theOldIntAgain);
+        Object exIntButNowObject = (Object)intForO;
+        Integer theOldIntAgain = (Integer)exIntButNowObject;
+        System.out.println("theOldIntAgain: " + theOldIntAgain);
 
         Number myNum = (Number)theOldIntAgain;
         Long myLong = (Long)myNum;              // produces a ClassCastException!
-
-
     }
 }
-
-class SuperClass {
-    //protected String field = "Super class";
-    protected void print() {
-        //empty body!
-    }
-}
-
-class SubClass1 extends SuperClass {
-    protected String field = "Sub class 1";
-    protected void print() {
-        System.out.println(field);
-    }
-}
-
-class SubClass2 extends SuperClass {
-    protected String field = "Sub class 2";
-
-    protected void print() {
-        System.out.println(field);
-    }
-}
-

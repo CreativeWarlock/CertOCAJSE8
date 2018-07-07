@@ -35,12 +35,12 @@ public class CreateAndUseDoWhileLoops {
             j++;
         } while (j < 10);*/
 
-        /** Following just executes once before reaching the while condition */
+        /** Following executes ONCE before reaching the while condition */
         int k = 0;
         do {
             System.out.print(k + " ");
             k++;
-        } while (i < 0);
+        } while (k < 0);
 
         System.out.println();
 

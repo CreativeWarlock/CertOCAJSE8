@@ -12,7 +12,7 @@ public class UseSwitchStatement {
         /**
          * The switch statement is a control flow statement that can have several possible execution paths
          *
-         * works with the data types:
+         * works with the data types (BSC-IES):
          * - byte / Byte
          * - short / Short
          * - char / Character
@@ -20,40 +20,45 @@ public class UseSwitchStatement {
          * - enum
          * - String
          *
-         * A statement _in the body_ of a switch can be labeled with one or more 'case' or 'default' labels
+         * A statement *in the body* of a switch can be labeled with one or more 'case' or 'default' labels
+         *
          * The switch statement evaluates its expression,
          *  then executes all statements that follow the matching 'case' label
-         *
-         * */
+         */
 
         Gender gender = Gender.UNISEX;
 
         switch(gender) {
-            case MALE:
-                System.out.println("Male");
-                break;
-            case FEMALE:
-                System.out.println("Female");
-                break;
             case UNISEX:
-                System.out.println("Unisex");
+                System.out.print("Unisex ");
+            case FEMALE:
+                System.out.print("Female ");
+                break;
+            case MALE:
+                System.out.print("Male");
                 break;
             default:
+                System.out.print("No sex");
                 break;
         }
+
+        System.out.println();
 
         /*int i = 2;
         switch(i%2 == 0) { // Found boolean! Does not work!
 
         }*/
 
-        String s = "RockLand";
+        String s = "Rock";
+        final String finalCase = "Land";
         switch(s) {
             default:
                 System.out.println("Java");
-            case "RockLand":
-                System.out.println("OCAJP");
-            //default:  // NOT VALID
+            case "Rock":
+                System.out.print("OCAJP ");
+            case finalCase:
+                System.out.println("Rocks!");
+            //default:  // 2nd default is NOT VALID
                 //System.out.println("Another default?");
         }
 

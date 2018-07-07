@@ -15,10 +15,8 @@ public class ScopeOfVars {
         ScopeOfVars sv = new ScopeOfVars();
 
         staticVar++;
-        //int staticVar = 10;
+        int staticVar = 10;
         System.out.println("staticVar " + staticVar);
-
-        final int staticVar = 10;
 
         /** Available scopes for variables:
          *      - local (aka method-local variables)

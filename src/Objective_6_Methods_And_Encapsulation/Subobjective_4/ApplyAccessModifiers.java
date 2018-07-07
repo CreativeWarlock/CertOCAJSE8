@@ -49,6 +49,8 @@ public class ApplyAccessModifiers {
          * no modifier 	  Y        Y         N 	      N
          * private 	      Y 	   N         N 	      N
          *
+         *  "Protected is like private package just with 'kids'".
+         *  That means only inherited classes are allowed to access the parents' stuff = members of the superclass
          *
          * */
 
@@ -56,11 +58,12 @@ public class ApplyAccessModifiers {
         // id.instanceValue = 5; //cannot access due to protected modifier only
     }
 
-    // A static nested class is behaviorally a top level class
+    // A static NESTED class is behaviorally a top level class
     static class NestedStaticClass {
         NestedStaticClass() {
             // Can interact with the instance members of its outer class (and other classes)
-            AnotherClass ac = new AnotherClass();
+            ClassInSamePackage ac = new ClassInSamePackage();
+            ac.myOtherInt = 6;
             ac.setMyOtherInt(4);
         }
     }
@@ -68,16 +71,24 @@ public class ApplyAccessModifiers {
 
 class InheritedData extends Data {
     public InheritedData() {
-        instanceValue = 5; //can access due to protected modifier
+        //can access due to protected modifier
+        instanceValue = 5;
+    }
+    void printInstanceValue() {
+        //can access due to protected modifier
+        System.out.println("super.instanceValue:" + super.getInstanceValue());
     }
 }
 
 /**
  * Using method-local classes can increase the readability of your code by keeping related parts together.
  * As a contrived example, suppose you have a method that needs to create a thread to do something in the background:
- * */
+ */
 class TestMethodLocalInnerClass {
     public static void main(String[] args) {
+
+        // a method-local class
+
         class Greeter implements Runnable {
             private final String _greeted;
 
@@ -95,5 +106,3 @@ class TestMethodLocalInnerClass {
         new Greeter("dog").run();
     }
 }
- /**
- * */

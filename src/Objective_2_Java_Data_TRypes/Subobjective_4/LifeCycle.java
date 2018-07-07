@@ -55,10 +55,9 @@ public class LifeCycle {
         /** Question: How many objects are eligible for GC after line X is executed?  */
         // -> Answer: 2 objects are eligible for GC:
         //              - 1 because the DEFAULT constructor of MyClass is invoked
-        //                      -> an instance is created, but never referenced by any variable
+        //                      -> an instance is created, but never referenced by any variable!
         //              - 1 because within myMethod() object2 is never referenced
         //              - objectX is not ready for GC!
-
     }
 }
 
