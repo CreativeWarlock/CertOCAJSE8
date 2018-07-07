@@ -19,7 +19,7 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
          *      -> a try block that catches the exception, followed by a 'catch' or a 'finally' block or both that handles the exception
          *      -> a method that specifies that it can throw the exception; the method must provides a 'throws' clause that lists the exception class
          *
-         *  All exceptions are checked exceptions,
+         *  All exceptions are CHECKED exceptions,
          *  EXCEPT:
          *      - 'Error' and its subclasses
          *      - 'RuntimeException' and its subclasses
@@ -37,30 +37,29 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
          *
          * Prominent SubClasses of RunTimeException:
          * -----------------------------------------
-         *  IndexOutOfBoundException
          *  ArithmeticException
-         *  ClassCastException
-         *  JMRuntimeException
-         *  ParseException
-         *  VMOutOfMemoryException
-         *  UnsupportedPlatformException
-         *  IllegalThreadException
-         *  IllegalStateException
-         *  SystemException
-         *  NullPointerException
-         *  SecurityException
-         *  DateTimeException
-         *  NotImplementedException
-         *  EventException
+         *  AssertionFailure
          *  BufferOverflowException
          *  BufferUnderflowException
-         *  AssertionFailure
-         *  NoSuchElementException
+         *  ClassCastException
+         *  DateTimeException
+         *  EventException
          *  FileSystemNotFoundException
+         *  IllegalArgumentException
+         *  IllegalThreadException
+         *  IllegalStateException
+         *  IndexOutOfBoundException
+         *  JMRuntimeException
+         *  NoSuchElementException
+         *  NotImplementedException
+         *  NullPointerException
+         *  ParseException
          *  ReflectionException
+         *  SecurityException
+         *  SystemException
          *  UndeclaredThrowableException
-         *
-         *
+         *  UnsupportedPlatformException
+         *  VMOutOfMemoryException
          *
          *  Errors:
          *  -------
@@ -70,6 +69,7 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
          *  - represented by 'Error' and its subclasses
          *
          *  - Examples:
+         *      - AssertionError
          *      - OutOfMemoryError
          *      - StackOverflowError
          *

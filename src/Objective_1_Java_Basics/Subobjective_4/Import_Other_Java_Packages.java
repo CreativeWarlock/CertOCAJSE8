@@ -5,11 +5,14 @@ import Objective_1_Java_Basics.Subobjective_4.one.*;
 import java.awt.Rectangle.*; // <-- this import alone will not import the Rectangle class!
 //import javafx.scene.shape.Rectangle; // ambiguous import! -> Rectangle would need to be fully qualified
 import java.awt.*;
+import java.math.BigDecimal;
+import java.util.*;
 import static java.lang.System.*;
 //static import java.lang.System.*; // wrong order
 
 import static java.lang.Math.*;
-import static java.lang.Math.abs; // imports all static abs(..) methods
+
+//import static java.lang.Math.abs; // imports all static abs(..) methods
 import java.lang.*;
 
 
@@ -18,6 +21,11 @@ public class Import_Other_Java_Packages {
     // https://docs.oracle.com/javase/tutorial/java/package/usepkgs.html
 
     public static void main(String [] args) {
+
+        Date d = new Date();
+        System.out.println("Date d: " + d);
+
+        BigDecimal bd = new BigDecimal(10.0);
 
         abs(1);
 

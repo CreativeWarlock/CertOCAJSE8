@@ -26,7 +26,7 @@ public class RecognizeCommonExceptionClasses {
          * Example:
          * */
 
-        String text = null;
+        String text;
         //System.out.println(text.toString()); // Will throw an NPE
 
         /**
@@ -132,5 +132,22 @@ public class RecognizeCommonExceptionClasses {
 
         //myArray3[0] = (Integer)(Number)new Double(0); // will throw..
         //int a = 0.2d; // ;)
+
+        // -------------------------------------------------------
+
+        /** Question 5:
+         * Which exception will be thrown by the Java Virtual Machine (JVM)?
+         *
+         * A) IllegalArgumentException
+         * B) ExceptionInInitializerError
+         * C) IOException
+         * D) FileNotFoundException
+         * E) NumberFormatException
+         */
+
+        // Answer: IOException and FileNotFoundException are thrown by many methods in the java.io package, but it is always
+        // programmatically. The same is true for NumberFormatException and IllegalArgumentException; these exceptions are
+        // thrown programmatically by the wrapper classes of java.lang
+        // So options A, C, D and E are incorrect. ExceptionInInitializerError is thrown by the JVM when the corresponding problem rises.
     }
 }

@@ -5,6 +5,8 @@ public class Declare_And_Initialize_Variables {
     // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
     // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
 
+    //final int i;
+
     public static void main(String[] args) {
         System.out.println("Chapter 1.1 - Declare and Initialize Variables");
 
@@ -84,6 +86,7 @@ public class Declare_And_Initialize_Variables {
         tests.castingWithFloatAndLong();
 
         int _6 = 6;
+        int b = 0XB; // Hex!
         int x = 0XE;
         int x2 = 0xE;
         long L1 = 0xEL;

@@ -124,10 +124,12 @@ public class AbstractClassesVsInterfaces {
     }
 }
 
-interface InterfaceA {
+abstract interface InterfaceA {
     /** FINAL must be initialized!! */
     public static final int numberA = 0;
     int numberB = 10;
+
+    //protected int x = 10; // EEK
 
     /** non static, non default methods must be abstrace / have NO body! */
     //public int myMethod(int i) { return i; }
@@ -145,6 +147,11 @@ interface InterfaceA {
 
 abstract class AbstractA implements InterfaceA { // an abstract does not need to implement any of the interface's methods! ;)
     private String name;
+    //abstract int i = 5; // Abstract is not allowed here
+
+    final static float f = 5.0f;
+    final short s = 10;
+
     public AbstractA() {    // constructor cannot be directly called! Only from sub classes!
         name = "AbstractA";
     }

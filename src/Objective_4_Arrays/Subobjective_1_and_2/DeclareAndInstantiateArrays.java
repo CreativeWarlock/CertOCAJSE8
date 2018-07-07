@@ -291,7 +291,8 @@ public class DeclareAndInstantiateArrays {
 
         // =============================================================================================================
 
-        int[][] intExp = new int[3][2];
+        final int _1stDim = 3;
+        int[][] intExp = new int[_1stDim][2];
         intExp[0] = new int[3];
         //intExp[2] = {1, 2, 3}; // Array initializer not allowed here
 
@@ -299,6 +300,7 @@ public class DeclareAndInstantiateArrays {
 
         int[][] sortNullInts = new int[2][];
         //Arrays.sort(sortNullInts[1]);     // NPE!
+        //Arrays.sort(sortNullInts, 0,5);
         System.out.println("sortNullInts: " + Arrays.toString(sortNullInts[1]));
 
         // =============================================================================================================

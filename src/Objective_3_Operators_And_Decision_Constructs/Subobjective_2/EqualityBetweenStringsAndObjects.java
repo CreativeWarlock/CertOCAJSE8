@@ -69,6 +69,14 @@ public class EqualityBetweenStringsAndObjects {
         System.out.println("data1.equals(data3): " + data1.equals(data3));
         // The answer is false since data3 receives reference from data2 which is independent from data1
         // plus equals() is not overridden in class Data!
+
+        /** General statements about "==" and "equals":
+         * --------------------------------------------
+         *
+         * - Using "==" to test equality for primitive types will always provide accurate results EXCEPT for float/double values
+         *
+         *
+         */
     }
 }
 

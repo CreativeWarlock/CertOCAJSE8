@@ -211,5 +211,9 @@ public class CreateAndManipulateStrings {
         /** ------------------------------------------------------------------------------------------------------ */
 
         String bla = "abcdef".substring(4);
+
+        int n = 808;
+        System.out.format("%d", n);
+        System.out.format("%06d", n); // fills up the number n to 6 decimals
     }
 }

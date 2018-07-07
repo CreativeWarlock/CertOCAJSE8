@@ -51,7 +51,7 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
          * || Argument List |    MUST Change    |       must NOT change           ||
          * ||               |                   |                                 ||
          * || Exceptions    |    Can change     |     Can throw new or broader    ||
-         * ||               |                   |        runtime exceptions       ||
+         * ||               |                   |        RUNTIME exceptions       ||
          * ||               |                   |                                 ||
          * || Return Type   |    Can change     | must NOT change EXCEPT for      ||
          * ||               |                   |       covariant returns*        ||
@@ -160,6 +160,42 @@ public class CreateMethodsWithArgsAndReturnValuesIncludingOverloadedMethods {
     // Answer: The first one because casting is permitted before auto boxing!
 
     // =================================================================================================================
+
+    /** Question: Which of the following will override the method run() correctly when inserted under the commented line? */
+    class A {
+        private void run() {
+            System.out.println("A");
+        }
+    }
+
+    class B extends A {
+        // A)
+//        private void run() {
+//            System.out.println("B");
+//        }
+
+        // B)
+//        void run() {
+//            System.out.println("B");
+//        }
+
+        // C)
+//        public void run() {
+//            System.out.println("B");
+//        }
+
+        // D)
+//        private void run(String s) {
+//            System.out.println(s);
+//        }
+
+        // E
+        // We can't override the method run()
+    }
+
+    // Answer: Since method run() in the super class A has accessor private it is not visible to the outside
+    // and therefor cannot be inherited and thus not being overridden. Answer E) is therefor correct.
+
 }
 
 class RockLand {

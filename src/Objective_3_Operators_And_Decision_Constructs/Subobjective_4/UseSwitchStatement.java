@@ -10,9 +10,9 @@ public class UseSwitchStatement {
         System.out.println("Chapter 3.4 - Use a Switch Statement");
 
         /**
-         * The switch statement is a control flow statement that can have several possible execution paths
+         * The switch statement is a control flow statement that can have several possible execution paths:
          *
-         * works with the data types (BSC-IES):
+         * It works with these data types (BSC-IES):
          * - byte / Byte
          * - short / Short
          * - char / Character
@@ -24,6 +24,10 @@ public class UseSwitchStatement {
          *
          * The switch statement evaluates its expression,
          *  then executes all statements that follow the matching 'case' label
+         *
+         *  General Statement about switch (according to practice tests:)
+         *  - A switch statement is more efficient than a set of nested ifs
+         *
          */
 
         Gender gender = Gender.UNISEX;

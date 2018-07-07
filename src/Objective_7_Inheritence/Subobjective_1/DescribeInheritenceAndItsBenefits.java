@@ -25,9 +25,13 @@ public class DescribeInheritenceAndItsBenefits {
         SubClass sub = new SubClass();
         sub.print();
 
-        SuperClass subClass = new SubClass();
-        subClass.print(); // finds print in sub class
+        SuperClass superClass = new SubClass();
+        superClass.print(); // finds print in sub class
 
+        SuperClass pureSuperClass = new SuperClass();
+
+        SubClass sc = (SubClass)pureSuperClass; // cannot cast super class to subclass without ever being a subclass before!
+        sc.print();
 
         SubClass realSubClass = new SubClass();
         System.out.println("realSubClass.field: " + realSubClass.field);
