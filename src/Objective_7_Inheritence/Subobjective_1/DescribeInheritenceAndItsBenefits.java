@@ -58,6 +58,10 @@ class SuperClass {
     public SuperClass() {
         super();
     }
+    public SuperClass(String newField) {
+        super();
+        field = newField;
+    }
 
     protected void print() {
         System.out.println(field);
@@ -65,6 +69,12 @@ class SuperClass {
 }
 
 class SubClass extends SuperClass {
+
+    //SubClass() {}
+
+/*    SubClass(String field) {
+        super(field);
+    }*/
 
     String field = "I'm a Sub class..";
     protected void print() {

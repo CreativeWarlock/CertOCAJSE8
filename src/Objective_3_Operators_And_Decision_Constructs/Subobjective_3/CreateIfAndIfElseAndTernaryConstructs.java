@@ -20,6 +20,9 @@ public class CreateIfAndIfElseAndTernaryConstructs {
             System.out.println("Positive");
         }
 
+        if(-10 % -3 == 1);
+            System.out.println(-10 % -3);
+
         /**
          * The if-then-else Construct
          * --------------------------
@@ -69,5 +72,17 @@ public class CreateIfAndIfElseAndTernaryConstructs {
             else { out += 5; }
 
         System.out.println("If-Else-Stuff adding to out: " + out);
+
+        // -----------------------------------------------------------------------------------------------------------
+
+        y = 10;
+
+        if (y++ == 10)
+            if (y-- == 10)
+                if (y == 10);   // despite ';' the else block belongs to this if!
+                else y *= 3;
+            else y *= 2;
+
+        System.out.println(y);
     }
 }

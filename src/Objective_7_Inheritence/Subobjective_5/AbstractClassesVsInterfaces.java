@@ -10,6 +10,8 @@ public class AbstractClassesVsInterfaces {
     public static void main(String[] args) {
         System.out.println("Chapter 7.5 - Abstract Classes vs Interfaces");
 
+        System.out.println(1.0/0.0);
+
         /**
          * Similarities:
          * -------------
@@ -125,20 +127,24 @@ public class AbstractClassesVsInterfaces {
 }
 
 abstract interface InterfaceA {
-    /** FINAL must be initialized!! */
+
     public static final int numberA = 0;
+
+    /** it's always FINAL -> must be initialized!! */
+    //int numberB;
     int numberB = 10;
 
-    //protected int x = 10; // EEK
+    //protected int x = 10; // NOT valid!
 
     /** non static, non default methods must be abstrace / have NO body! */
     //public int myMethod(int i) { return i; }
     /** non static and non default methods may ONLY have public, but public is not required */
     public int myMethod(int i);
 
-    /** static and default methods must have a body */
+    /** STATIC and DEFAULT methods must have a BODY! */
     public static int getNumberA() { return numberA; }
     public default int defaultMethodB() { return numberB; }
+    //public default static int defaultMethodc() { return numberB; }
 
     /** EEK! Cannot override members of Object!!! */
     //public default String toString() { return "Interface"; }
@@ -147,7 +153,7 @@ abstract interface InterfaceA {
 
 abstract class AbstractA implements InterfaceA { // an abstract does not need to implement any of the interface's methods! ;)
     private String name;
-    //abstract int i = 5; // Abstract is not allowed here
+    //abstract int i = 5; // Abstract is not allowed on variables
 
     final static float f = 5.0f;
     final short s = 10;
@@ -156,13 +162,12 @@ abstract class AbstractA implements InterfaceA { // an abstract does not need to
         name = "AbstractA";
     }
 
-    // public void print(); // Method declarations are not valid!
-
-    public String getName() { return name; }
-
     abstract Number abstractNumber();
+    //public Number abstractNumber(); // Non-abstract method declarations are not allowed!
 
     public int defaultMethodB() { return numberB; }
+
+    public String getName() { return name; }
 }
 
 abstract class AbstractB extends AbstractA {

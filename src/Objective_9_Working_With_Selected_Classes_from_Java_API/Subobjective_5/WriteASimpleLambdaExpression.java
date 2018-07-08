@@ -53,6 +53,10 @@ public class WriteASimpleLambdaExpression {
         //         the correct answer is A.
 
         // ----------------------------------------------------------------------------------
+
+        Employee e = new Employee();
+        e.id = 3;
+        check(e, p -> p.id < 10);
     }
 
     public static void compareEquality(Map<Integer, Integer> map, NumberComparator comparator) {
@@ -60,6 +64,11 @@ public class WriteASimpleLambdaExpression {
             if(comparator.compare(entry.getKey(), entry.getValue()))
                 System.out.println(entry);
         }
+    }
+
+    public static void check(Employee e, Predicate<Employee> pr) {
+        String result = pr.test(e) ? "match" : "no match";
+        System.out.println(result);
     }
 
     // ----------------------------------------------------------------------------------
@@ -132,4 +141,8 @@ interface NumberComparator {
 
 interface ValueComparator {
     public boolean compare(Integer first, Integer second);
+}
+
+class Employee {
+    int id;
 }

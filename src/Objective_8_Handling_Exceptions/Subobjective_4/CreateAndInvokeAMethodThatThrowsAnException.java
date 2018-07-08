@@ -46,6 +46,8 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
             System.out.println("Bla"); // Code is NOT unreachable
         } catch(IOException e) {
             System.out.println(e.getMessage());
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -76,6 +78,22 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
 
     // ------------------------------------------------------
 
+    /** Question 1: Does the following method compile and if not, where is the error? */
+
+    /*public static void catchMixesExceptionTypes(String args[]) {
+        try {
+            System.out.println(args[0]);
+        }catch (ArrayIndexOutOfBoundsException | ArithmeticException | NullPointerException e) {
+            if (e instanceof ArrayIndexOutOfBoundsException) {
+                //e = new ArrayIndexOutOfBoundsException("Out of bounds");
+            } else if (e instanceof NullPointerException) {
+                e = new NullPointerException("Null Value");
+            } else {
+                e = new ArithmeticException("Arithmetic");
+            }
+            System.out.println(e.getMessage());
+        }
+    }*/
 
     // ------------------------------------------------------
 
@@ -98,7 +116,7 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
     // Answer Q1: B)
     // Answer Q2: B)
 
-    /** Question 1:
+    /** Question 3:
      *
      * public void doSomething() {
      *     doSomethingElse();
@@ -115,17 +133,40 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
      */
 
     private static void tryDivision() {
-        int x = 5, y = 10;
+        int x = 0, y = 0;
 
         try {
             y /= x;
             System.out.println("y: " + y);
 
-        } catch (Exception e) {
-            System.out.println("error");
+        } catch (ArithmeticException e) {
+            System.out.println("error! Division by 0!");
         } finally {
-            System.out.println("finally");
+            System.out.println("finally!");
         }
     }
+
+    // ------------------------------------------------------
+
+    /** Question 4: Does the following method compile and if not, where is the error? */
+
+/*    public static void catchMixesExceptionTypes(String args[]) {
+        try {
+            System.out.println(args[0]);
+            throw new Exception("There surely is an exception!");
+        }catch (ArrayIndexOutOfBoundsException | ArithmeticException | NullPointerException | Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }*/
+
+    // ------------------------------------------------------
+
+    /** Question 5: Does the following method compile and if not, where is the error? */
+
+/*    public static void catchMixesExceptionTypes(String args[]) {
+        try {
+            System.out.println(args[0]);
+        }catch (IOException x) {}
+    }*/
 }
 

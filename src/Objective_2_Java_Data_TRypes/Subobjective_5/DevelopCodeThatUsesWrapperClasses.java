@@ -38,6 +38,7 @@ public class DevelopCodeThatUsesWrapperClasses {
         System.out.println("parsedBoolean: " + parsedBoolean);  // true
 
         boolean valueOfBoolean = Boolean.valueOf("TruE");
+        boolean valueOfBoolean2 = Boolean.valueOf(true);
         System.out.println("valueOfBoolean: " + valueOfBoolean);//true
 
         //int compareBooleans = Boolean.compare(true, false);  // 1
@@ -125,6 +126,9 @@ public class DevelopCodeThatUsesWrapperClasses {
 
         int dec = 10;
         System.out.println("wi == dec: " + (wi == dec));
+
+        System.out.println("wi.BYTES: " + wi.BYTES);
+        System.out.println("wi.SIZE: " + wi.SIZE);
 
         //Double dbl = 10; // Compile Error!
         Double dbl = 10.0;

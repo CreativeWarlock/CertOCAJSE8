@@ -4,7 +4,7 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
 
     // https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html
 
-    public static void main(String[] args) {
+    public static void main(String i[]) {
         System.out.println("Chapter 8.1 - Differentiate among checked and unchecked Exceptions and Errors");
 
         /**

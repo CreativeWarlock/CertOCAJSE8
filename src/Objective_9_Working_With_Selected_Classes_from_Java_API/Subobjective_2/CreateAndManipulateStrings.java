@@ -236,10 +236,14 @@ public class CreateAndManipulateStrings {
         System.out.println(z808);
 
         List<String> ar = new ArrayList<>();
-        System.out.println(ar.toString());
-//        ar.add("A");
-//        ar.add("B");
-//        ar.add(1, "b");
+        //System.out.println(ar.toString());
+        ar.add("1");
+        ar.add("2");
+        ar.add("3");
+        ar.add("4");
+        //ar.add(1, "b");
+
+        System.out.println(ar.set(3, "3"));
 
     }
 }

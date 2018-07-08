@@ -113,6 +113,7 @@ public class Import_Other_Java_Packages {
         */
 
          A myClassA = new A();
+         myClassA.getMyJ();
 
          /** Question: Which of the following import statements are unnecessary?
           * import java.lang.Math.*;

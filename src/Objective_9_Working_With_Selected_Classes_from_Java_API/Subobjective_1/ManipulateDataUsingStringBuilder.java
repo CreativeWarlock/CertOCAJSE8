@@ -87,18 +87,22 @@ public class ManipulateDataUsingStringBuilder {
         charSB.append(chars, 0, chars.length - 1);
         charSB.append('2');
         charSB.append(" \\o/");
-        System.out.print(charSB);
+        System.out.println(charSB);
 
         // --------------------------------------------------
 
-        char[] chars2 = {'R', '2', 'D', '2'};
+        char[] chars2 = {'C', '3', 'P', '0'};
         charSB = new StringBuilder();
         charSB.append(chars2, 0, chars2.length - 1);
-        charSB.append('2');
+        charSB.append('O');
         charSB.append(" \\o/");
         charSB.setLength(4);
-        sb1.insert(5, "XXX");
-        System.out.print(charSB);
+        charSB.insert(0, "The annoying ");
+        charSB.delete(0, 1);
+        String prefix = charSB.substring(4); // no effect on the StringBuilder object!
+//        sb1.insert(5, "XXX");
+        System.out.println(charSB);
+        System.out.println(prefix);
 
         String bla = "bla";
         bla.indexOf("ha");

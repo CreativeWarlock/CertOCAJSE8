@@ -3,6 +3,7 @@ package Objective_9_Working_With_Selected_Classes_from_Java_API.Subobjective_3;
 import javax.swing.text.DateFormatter;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
 import java.util.Date;
 import java.util.Calendar;
 
@@ -123,6 +124,11 @@ public class CreateAndManipulateCalendarData {
         //Period.plusDays(2);  // does not exist
         //Period.minusDays(2);  // does not exist
 
+        Period p1 = Period.ofYears(1);
+        Period p2 = Period.of(0,1,0);
+        Period pYearAndMonth = p1.plus(p2);
+        System.out.println("pYearAndMonth.getDays(): " + pYearAndMonth.getDays());
+
         /** Question 1: What happens when the following code is compiled and executed? */
         LocalDate datum = LocalDate.of(2077, 07, 07);
         System.out.println(datum);
@@ -205,8 +211,8 @@ public class CreateAndManipulateCalendarData {
          * E) Compilation fails
          * */
 
-        Period p2 = Period.ofMonths(13);
-        System.out.println(p2.normalized());
+        Period pMonth = Period.ofMonths(13);
+        System.out.println("pMonth.normalized(): " + pMonth.normalized());
 
         // Answer: Since the months will increase the year by one, the normalized period will have 1Y, and the remaining months 1M, therefor answer A is the output.
 
@@ -230,9 +236,33 @@ public class CreateAndManipulateCalendarData {
         /** --------------------------------------------------------------------------------------------------------- */
 
         LocalDate dating = LocalDate.ofYearDay(2015, 363);
-        dating.plusWeeks(2);
+        dating.plusWeeks(2); // Trick!
         System.out.println("Is leap year? " + dating.isLeapYear());
 
         System.out.println("Days: " + dating.lengthOfMonth());
+
+        /** --------------------------------------------------------------------------------------------------------- */
+
+        LocalTime localTime = LocalTime.of(2, 2,15);
+        LocalDate localDate = LocalDate.of(2015, 2, 21);
+        LocalDateTime ldt = localTime.atDate(localDate);
+        //LocalDateTime ldt2 = localDate.atTime(localTime); // alternative
+        ldt.minusYears(2);
+        ldt.minusDays(2);
+        System.out.println("ldt: " + ldt.getYear() + "/" + ldt.getMonthValue() + "/" + ldt.getDayOfWeek());
+        System.out.println("local time Chrono_of_Minute: " + localTime.getLong(ChronoField.valueOf("MINUTE_OF_DAY")));
+
+        /** --------------------------------------------------------------------------------------------------------- */
+
+        LocalDate ldt3 = LocalDate.of(2000, 12, 1);
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("d/MM/uuuu");
+        //DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MMM/yyyy"); // 01/Dez./2000
+        System.out.println(ldt3.format(format));
+
+        /** --------------------------------------------------------------------------------------------------------- */
+
+        LocalDate ldtChrono = LocalDate.of(2015, 12, 12);
+        ldtChrono = ldtChrono.with(ChronoField.DAY_OF_YEAR, 30);
+        System.out.println(ldtChrono);
     }
 }

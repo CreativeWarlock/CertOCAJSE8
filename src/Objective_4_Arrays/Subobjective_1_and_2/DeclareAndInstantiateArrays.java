@@ -15,6 +15,8 @@ public class DeclareAndInstantiateArrays {
     public static void main(String [ ] args) {
         System.out.println("Chapter 4.1 - Declare, Instantiate and use a one-dimensional Array");
 
+        //args = {"1", "2", "3"}; // cannot initialize anew
+
         /**
          * Once allocated, all the array elements store their default values:
          *
@@ -44,6 +46,9 @@ public class DeclareAndInstantiateArrays {
         int[] singleDimInit1 = {5, 6, 7, 8};           // Uses initializer with curly brackets
         int[] singleDimInit2 = new int[] {5, 6, 7, 8}; // Anonymous array uses initializer with new operator for additional Type safety
 
+        int[] singleDimInitFail;
+        //singleDimInitFail = {5, 6, 7, 8};      // initialization too late!
+
         /** Following is NOT VALID -> Cannot combine declaration, allocation and initialization! (that is, by specifying the size of the array) */
         //int[] singleDimTypeAndInitializer = new int[4] { 1, 2, 3}; //
 
@@ -55,6 +60,9 @@ public class DeclareAndInstantiateArrays {
 
         int[] singleDim10 = new int[2*5]; // evaluates to an int :)
         int[] singleDimMax = new int[Math.max(2,5)]; // evaluates to an int :)
+
+        int[] singleDimFill = new int[5];
+        Arrays.fill(singleDimFill, 1);
 
         // =============================================================================================================
 

@@ -98,6 +98,14 @@ public class UseSwitchStatement {
 //                System.out.print("A");
         }
 
+        /** --------------------------------------------------------------------------------------------------------- */
+
+/*        double d = 42.42;
+
+        switch(d) {
+            case 1 :
+                System.out.print("A");
+        }*/
     }
 }
 
