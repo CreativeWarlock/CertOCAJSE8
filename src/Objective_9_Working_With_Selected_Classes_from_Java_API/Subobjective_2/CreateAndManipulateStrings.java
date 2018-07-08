@@ -1,6 +1,8 @@
 package Objective_9_Working_With_Selected_Classes_from_Java_API.Subobjective_2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class CreateAndManipulateStrings {
 
@@ -23,6 +25,7 @@ public class CreateAndManipulateStrings {
          * ---------------------
          * Characters of the current string may be replaced using 'replace', 'replaceAll' or 'replaceFirst': */
         robot = robot.replace('A', 'E');
+        robot = robot.replace("AD", "ED");
         robot2 = robot2.replaceFirst("A", "E");
         robot2 = robot2.replace("Evo", "Eva");
 
@@ -215,5 +218,28 @@ public class CreateAndManipulateStrings {
         int n = 808;
         System.out.format("%d", n);
         System.out.format("%06d", n); // fills up the number n to 6 decimals
+
+        System.out.println();
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        StringBuilder force = new StringBuilder("Go with tho Forth");
+        System.out.println("force.lastIndexOf('o'): " + force.lastIndexOf("o"));
+        force.insert(force.lastIndexOf("o"), true);
+        System.out.println(force.toString());
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        String z808 = "1Z0-808";
+        z808 = z808.replace("80", "81");
+        //z808 = z808.substring(z808.indexOf("80"), z808.lastIndexOf("80"));
+        System.out.println(z808);
+
+        List<String> ar = new ArrayList<>();
+        System.out.println(ar.toString());
+//        ar.add("A");
+//        ar.add("B");
+//        ar.add(1, "b");
+
     }
 }

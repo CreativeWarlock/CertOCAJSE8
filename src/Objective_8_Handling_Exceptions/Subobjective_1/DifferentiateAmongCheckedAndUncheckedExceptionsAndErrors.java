@@ -19,14 +19,13 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
          *      -> a try block that catches the exception, followed by a 'catch' or a 'finally' block or both that handles the exception
          *      -> a method that specifies that it can throw the exception; the method must provides a 'throws' clause that lists the exception class
          *
-         *  All exceptions are CHECKED exceptions,
-         *  EXCEPT:
-         *      - 'Error' and its subclasses
-         *      - 'RuntimeException' and its subclasses
-         *
+         *  All exceptions are CHECKED exceptions, EXCEPT
          *
          *  Unchecked Exceptions:
          *  ---------------------
+         *      1. 'RuntimeException' and its subclasses
+         *      2. 'Error' and its subclasses
+         *
          *  - are exceptional conditions that are internal to the application
          *  - the application cannot anticipate the exception
          *  - the application cannot recover from the exception
@@ -35,9 +34,10 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
          *
          *  -> are NOT subject to the 'CATCH or SPECIFY REQUIREMENT'!
          *
-         * Prominent SubClasses of RunTimeException:
-         * -----------------------------------------
+         * 1. Some SubClasses of RunTimeException:
+         * ---------------------------------------
          *  ArithmeticException
+         *  ArrayIndexOutOfBoundsException
          *  AssertionFailure
          *  BufferOverflowException
          *  BufferUnderflowException
@@ -61,8 +61,8 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
          *  UnsupportedPlatformException
          *  VMOutOfMemoryException
          *
-         *  Errors:
-         *  -------
+         *  2. Some Subclasses of Errors:
+         *  -----------------------------
          *  - are exceptional conditions that are EXTERNAL to the application
          *  - the application cannot anticipate the exception
          *  - the application cannot recover from the exception

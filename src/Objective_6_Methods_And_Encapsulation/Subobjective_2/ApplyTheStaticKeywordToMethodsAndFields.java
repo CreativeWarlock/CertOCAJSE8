@@ -5,11 +5,11 @@ public class ApplyTheStaticKeywordToMethodsAndFields {
     // https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
 
     static {
-        int x = 10;
+        //int x = 10;
         int y = 5;
     }
 
-    //final int x;
+    int x;
     //final static int y;
 
     int instanceVariable;
@@ -17,6 +17,10 @@ public class ApplyTheStaticKeywordToMethodsAndFields {
 
     public static void main(String[] args) {
         System.out.println("Chapter 6.2 - Apply the static keyword to methods and Fields");
+
+        ApplyTheStaticKeywordToMethodsAndFields ap = new ApplyTheStaticKeywordToMethodsAndFields();
+
+        System.out.println("ap.x: " + ap.x);
 
         /**
          * Static Variables:

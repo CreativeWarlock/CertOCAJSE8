@@ -8,6 +8,8 @@ public class DefineStructureOfJavaClass {
     int x = y;
     static int y = 10;
 
+    static { System.out.println("Don't Panic!"); }
+
     { System.out.println("Hello World"); }
 
     public static void main(int[] args) {}
