@@ -4,6 +4,7 @@ import javax.swing.text.DateFormatter;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Calendar;
 
@@ -264,5 +265,11 @@ public class CreateAndManipulateCalendarData {
         LocalDate ldtChrono = LocalDate.of(2015, 12, 12);
         ldtChrono = ldtChrono.with(ChronoField.DAY_OF_YEAR, 30);
         System.out.println(ldtChrono);
+
+        /** --------------------------------------------------------------------------------------------------------- */
+
+        LocalTime localTime2 = LocalTime.of(22,10);
+        localTime2 = localTime2.truncatedTo(ChronoUnit.HALF_DAYS);
+        System.out.println(localTime2);
     }
 }

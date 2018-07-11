@@ -214,6 +214,9 @@ public class CreateAndManipulateStrings {
         /** ------------------------------------------------------------------------------------------------------ */
 
         String bla = "abcdef".substring(4);
+        String bla2 = "abcdef".substring(1,2);
+
+        System.out.println("charAt(2): " + "abcdef".charAt(2));
 
         int n = 808;
         System.out.format("%d", n);
@@ -245,5 +248,16 @@ public class CreateAndManipulateStrings {
 
         System.out.println(ar.set(3, "3"));
 
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        StringBuilder groot = new StringBuilder("I'm ");
+        groot.append(new char[]{'G', 'r', 'o', 'o', 't','h'}, 0, 5);
+        System.out.println(groot);
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        StringBuilder parts = new StringBuilder("ABCDEF");
+        parts.delete(2,7);
+        System.out.println(parts);
     }
 }

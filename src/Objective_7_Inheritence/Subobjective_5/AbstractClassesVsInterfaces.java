@@ -121,6 +121,12 @@ public class AbstractClassesVsInterfaces {
         // =============================================================================================================
 
         System.out.print(In2.print());
+        System.out.println();
+
+        // =============================================================================================================
+
+        new Extension().print();
+        System.out.println();
     }
 }
 
@@ -131,6 +137,8 @@ abstract interface InterfaceA {
     /** it's always FINAL -> must be initialized!! */
     //int numberB;
     int numberB = 10;
+
+    //InterfaceA() {}   // not valid
 
     //protected int x = 10; // NOT valid!
 
@@ -160,8 +168,8 @@ abstract class AbstractA implements InterfaceA { // an abstract does not need to
         name = "AbstractA";
     }
 
-    abstract Number abstractNumber();
-    //public Number abstractNumber(); // Non-abstract method declarations are not allowed!
+    abstract Number getAbstractNumber();
+    //public Number getAbstractNumber(); // Non-abstract method declarations are not allowed!
 
     public int defaultMethodB() { return numberB; }
 
@@ -169,7 +177,7 @@ abstract class AbstractA implements InterfaceA { // an abstract does not need to
 }
 
 abstract class AbstractB extends AbstractA {
-    abstract Number abstractNumber();
+    abstract Number getAbstractNumber();
 }
 
 // =====================================================================================================================
@@ -238,5 +246,27 @@ interface In1 {
 interface In2 extends In1 {
     static String print() {
         return "Interface 2";
+    }
+}
+
+// =====================================================================================================================
+
+abstract class Base {
+    Base() {
+        System.out.print("1");
+    }
+
+    abstract void print();
+}
+
+class Extension extends Base {
+
+    Extension() {
+        System.out.print("2");
+    }
+
+    @Override
+    void print() {
+        System.out.print("3");
     }
 }

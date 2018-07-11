@@ -17,6 +17,11 @@ public class CreateAndOverloadConstructors {
          * - have no return type
          * - multiple constructors may be declared for the same class, but their parameter signature must be different
          *
+         * Special call sequence in case of inheritance:
+         * - 1. Execution of static blocks occurs before execution the base class constructor
+         *      If there are more hierarchies, the runtime goes back to the top of the base class.
+         * - 2. Execution of static blocks occurs before execution of this class constructor.
+         *
          * Default constructor:
          * --------------------
          *
