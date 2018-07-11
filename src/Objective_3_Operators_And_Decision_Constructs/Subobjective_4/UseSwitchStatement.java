@@ -68,25 +68,36 @@ public class UseSwitchStatement {
 
         /** --------------------------------------------------------------------------------------------------------- */
 
-        final int x = 0;
+        float f =2.4f;
+        f++;                // incrementor on float works! :D
+        System.out.println("f: " + f);
+
+        //final int x = 0;
 //        final int x;
 //        x = 0;
         final int y = 2;
 
-        switch(x) {
-            case x:     // fails to compile when uncommenting above because x is not a compile time constant!! (since x was assigned afterwards)
-            {System.out.print("A"); }
-            case 1:
-            {System.out.print("B"); }
-            default:
-            System.out.print("default"); break;
-            case y:
-            System.out.print("C");
-            //case z:                   // Won't compile because duplicate case '0'
-                System.out.print("Z");
-                switch(2) {
-                    case 1 :System.out.print("Nested switch");
+        for (int x = 0; x < 3; x++) {
+            switch (x) {
+                case 0:     // fails to compile when uncommenting above because x is not a compile time constant!! (since x was assigned afterwards)
+                {
+                    System.out.print("A");
                 }
+                case 1: {
+                    System.out.print("B");
+                }
+                default:
+                    System.out.print("default");
+                    break;
+                case y:
+                    System.out.print("C");
+                    //case z:                   // Won't compile because duplicate case '0'
+                    System.out.print("Z");
+                    switch (2) {
+                        case 1:
+                            System.out.print("Nested switch");
+                    }
+            }
         }
 
         /** --------------------------------------------------------------------------------------------------------- */

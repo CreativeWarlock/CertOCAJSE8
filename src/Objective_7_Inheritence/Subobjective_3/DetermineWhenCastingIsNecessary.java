@@ -47,6 +47,11 @@ public class DetermineWhenCastingIsNecessary {
         System.out.println("theOldIntAgain: " + theOldIntAgain);
 
         Number myNum = (Number)theOldIntAgain;
-        Long myLong = (Long)myNum;              // produces a ClassCastException!
+        //Long myLong = (Long)myNum;              // produces a ClassCastException!
+
+        String s = "some string";
+        Object obj = s; // ok
+      //String x1 =         obj; // gives compile-time error, obj is not necessarily a string
+        String x2 = (String)obj; // ok compile-time, but might give a runtime exception if o is not infact a String
     }
 }

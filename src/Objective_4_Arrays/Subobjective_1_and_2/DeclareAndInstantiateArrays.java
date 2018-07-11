@@ -61,7 +61,8 @@ public class DeclareAndInstantiateArrays {
         int[] singleDim10 = new int[2*5]; // evaluates to an int :)
         int[] singleDimMax = new int[Math.max(2,5)]; // evaluates to an int :)
 
-        int[] singleDimFill = new int[5];
+        int[] singleDimFill = new int[staticVar];
+        singleDimFill[3] = 6;
         Arrays.fill(singleDimFill, 1);
 
         // =============================================================================================================
@@ -288,7 +289,7 @@ public class DeclareAndInstantiateArrays {
         // =============================================================================================================
 
         //final int[] finalIntegers = new int[]; // nope, when using an array initializer the size of elements is expected!
-        final int[] finalIntegers = new int[3];
+        final int finalIntegers []= new int[3];
         finalIntegers[1]++; // we can change  the elements nonetheless
         int finLen = finalIntegers.length;
         System.out.print("finalIntegers: ");

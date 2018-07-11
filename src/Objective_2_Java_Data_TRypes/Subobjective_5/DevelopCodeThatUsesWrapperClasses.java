@@ -37,8 +37,8 @@ public class DevelopCodeThatUsesWrapperClasses {
         boolean parsedBoolean = Boolean.parseBoolean("TruE");
         System.out.println("parsedBoolean: " + parsedBoolean);  // true
 
-        boolean valueOfBoolean = Boolean.valueOf("TruE");
-        boolean valueOfBoolean2 = Boolean.valueOf(true);
+        Boolean valueOfBoolean = Boolean.valueOf("TruE");
+        Boolean valueOfBoolean2 = Boolean.valueOf(true);        // valueOf is the only method to return the wrapper class Boolean!
         System.out.println("valueOfBoolean: " + valueOfBoolean);//true
 
         //int compareBooleans = Boolean.compare(true, false);  // 1

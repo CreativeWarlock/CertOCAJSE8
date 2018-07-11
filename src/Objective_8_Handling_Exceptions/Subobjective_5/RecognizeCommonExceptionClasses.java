@@ -38,8 +38,8 @@ public class RecognizeCommonExceptionClasses {
          * Example:
          * */
 
-        int i = 0;
-        //int j = 1/i;    // Will throw an AE
+        //System.out.println(5/0);     // throws an AE
+        System.out.println(1.0/0.0); // prints Infinity
 
         Double d1 = 0.0 / 0.0; // No AE!
         System.out.println("Double.isNaN(d1): " + Double.isNaN(d1)+ " ");

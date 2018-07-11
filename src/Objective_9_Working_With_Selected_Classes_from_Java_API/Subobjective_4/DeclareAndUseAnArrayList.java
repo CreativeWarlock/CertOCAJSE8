@@ -1,7 +1,6 @@
 package Objective_9_Working_With_Selected_Classes_from_Java_API.Subobjective_4;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
 
 public class DeclareAndUseAnArrayList {
@@ -57,7 +56,7 @@ public class DeclareAndUseAnArrayList {
          *              - replaces the element at the specified position in the current list with the specified replacement
          *              - returns the replaced element!
          * */
-        anotherList.set(0, "4th");
+        anotherList.set(0, "4th");  // returns the element "1st" which was the previous element at position 0!
         System.out.println(anotherList.toString());
 
         /** --------------------------------------------------------------------------------------------------------- */

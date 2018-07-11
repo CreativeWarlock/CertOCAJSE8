@@ -28,6 +28,8 @@ public class DescribeTheAdvantagesOfExceptionHandling {
         try {
             doSomethingElse(); // this method propagates any exceptions that might occur within it
         } catch(Exception e) {
+            e.printStackTrace();
+            e.getMessage();
             // exception handling
         }
 

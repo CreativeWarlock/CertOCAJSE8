@@ -141,6 +141,8 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
 
         } catch (ArithmeticException e) {
             System.out.println("error! Division by 0!");
+        } catch (NumberFormatException nex) {
+            System.out.println("error! Division by 0!");
         } finally {
             System.out.println("finally!");
         }

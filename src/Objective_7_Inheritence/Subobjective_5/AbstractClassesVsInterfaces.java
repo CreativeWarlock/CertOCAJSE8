@@ -10,8 +10,6 @@ public class AbstractClassesVsInterfaces {
     public static void main(String[] args) {
         System.out.println("Chapter 7.5 - Abstract Classes vs Interfaces");
 
-        System.out.println(1.0/0.0);
-
         /**
          * Similarities:
          * -------------
@@ -23,8 +21,8 @@ public class AbstractClassesVsInterfaces {
          * ------------
          *              Interfaces                  Abstract Classes
          *
-         * Fields       automatically public,       may be non-public,
-         *              static and final            non-static and non-final
+         * Fields       automatically               may be non-public,
+         *              public static final         non-static and non-final
          *
          * Methods      automatically public,       may be declared with ANY
          *              must not have any other     access modifier
@@ -201,8 +199,17 @@ class C extends A implements Interface {
 
 // =====================================================================================================================
 
-class Animal {
+interface Pooping {
+    void poops();
+}
+
+class Animal implements Pooping {
     public void eat() throws Exception { System.out.print("Animal eats"); }
+
+    @Override
+    public void poops() {                   // must be public!
+        System.out.println("is pooping ");
+    }
 }
 
 interface Fly {

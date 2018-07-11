@@ -28,9 +28,10 @@ public class DescribeInheritenceAndItsBenefits {
         SuperClass superClass = new SubClass();
         superClass.print(); // finds print in sub class
 
-        //SuperClass pureSuperClass = new SuperClass();
-        //SubClass sc = (SubClass)pureSuperClass; // cannot cast super class to subclass without ever being a subclass before!
-        //sc.print();
+        /*SuperClass pureSuperClass = new SuperClass(); // Below CCE will not occur if we use = new SubClass();
+        //SubClass sc =         pureSuperClass; // Compile error
+        SubClass sc = (SubClass)pureSuperClass; // CCE! cannot cast super class to subclass without ever being a subclass before!
+        sc.print();*/
 
         SubClass pureSubClass = new SubClass();
         SuperClass forcedCast2SuperClass = (SuperClass)pureSubClass;
@@ -41,6 +42,8 @@ public class DescribeInheritenceAndItsBenefits {
         System.out.println("realSubClass.field: " + realSubClass.field);
         // =============================================================================================================
 
+        //Bird birdy = new Animal(); // A SubClass can not have a reference of type SuperClass!
+
         Animal bird = new Bird();
         bird.print();
         //bird.fly();                 // Animal does not know a method fly()!
@@ -49,6 +52,10 @@ public class DescribeInheritenceAndItsBenefits {
 
         A a = new B();
         a.method();
+
+        System.out.println();
+
+        Person p1 = new Manager();
     }
 }
 
@@ -142,4 +149,18 @@ class B extends A{
     protected static void method() {
         System.out.print(" C D");
     }
+}
+
+class Person {
+    Person() {
+        System.out.print("CP ");
+    }
+    static { System.out.print("SP "); }
+}
+
+class Manager extends Person {
+    Manager() {
+        System.out.print("CT ");
+    }
+    static {System.out.print("IT ");}
 }
