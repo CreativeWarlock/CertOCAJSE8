@@ -61,7 +61,7 @@ public class DeclareAndInstantiateArrays {
         int[] singleDim10 = new int[2*5]; // evaluates to an int :)
         int[] singleDimMax = new int[Math.max(2,5)]; // evaluates to an int :)
 
-        int[] singleDimFill = new int[staticVar];
+        int[] singleDimFill = new int[6];
         singleDimFill[3] = 6;
         Arrays.fill(singleDimFill, 1);
 
@@ -317,6 +317,12 @@ public class DeclareAndInstantiateArrays {
         int[] binaryArray = {2, -1, 4, 5, 3};
         Arrays.sort(binaryArray);
         System.out.println("Arrays.binarySearch(binaryArray, -1): " + Arrays.binarySearch(binaryArray, -1));
+
+        // =============================================================================================================
+
+        char[] letters = {'a', 'b', 'c', 'd', 'e', 'f'};
+        String strLetters = String.copyValueOf(letters, 1, 4);
+        System.out.println(strLetters);
 
     }
 }

@@ -114,9 +114,22 @@ public class UseSwitchStatement {
 /*        double d = 42.42;
 
         switch(d) {
-            case 1 :
+            case "AAA" :
                 System.out.print("A");
         }*/
+
+        /** --------------------------------------------------------------------------------------------------------- */
+
+        System.out.println();
+
+        String alphaBetaCeta = "abc";
+
+        switch(alphaBetaCeta) {
+            case "":
+                System.out.println("Nada");
+            case "ABC" :
+                System.out.print("ABC!");
+        }
     }
 }
 

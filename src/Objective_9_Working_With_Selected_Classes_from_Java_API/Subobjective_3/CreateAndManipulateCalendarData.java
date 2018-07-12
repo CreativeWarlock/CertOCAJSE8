@@ -92,10 +92,17 @@ public class CreateAndManipulateCalendarData {
 
         /** Creating LocalDate instances: */
 
-        LocalDate ld00 = LocalDate.of(2018, 06, 13);
+        LocalDate ldParse = LocalDate.parse("2018-12-31");
+        LocalDate ld00 = LocalDate.of(2018, 06, 13).now();
         LocalDate ld01 = LocalDate.of(2018, Month.JUNE, 13);
         LocalDate ld02 = LocalDate.ofYearDay(2018, 185);
         LocalDate ld03 = LocalDate.ofEpochDay(5376); // Days since 1970-01-01
+        LocalDate ld04 = ld00.plusYears(1);
+        LocalDate ld05 = ld00.plusMonths(1);
+        LocalDate ld06 = ld00.plusDays(1);
+        LocalDate ld07 = ld00.minusYears(1);
+        LocalDate ld08 = ld00.minusMonths(1);
+        LocalDate ld09 = ld00.minusDays(1);
 
         // LocalDate + atTime = LocalDateTime
         LocalDateTime combinedLdAndTime00 = ld00.atTime(lt02);
@@ -103,6 +110,8 @@ public class CreateAndManipulateCalendarData {
         LocalDateTime combinedLdAndTime02 = ld00.atTime(1, 1);
         LocalDateTime combinedLdAndTime03 = ld00.atTime(1, 1, 30);
         LocalDateTime combinedLdAndTime04 = ld00.atTime(1, 1, 30, 64);
+
+        OffsetDateTime combinedLdAndTime05 = ld00.atTime(OffsetTime.MAX); // if OffsetTime is being used -> return type is OffsetTime, too!
 
         //LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());   // Java 1.9
         //LocalDate.getXXX(); // LocalDate has no getters.

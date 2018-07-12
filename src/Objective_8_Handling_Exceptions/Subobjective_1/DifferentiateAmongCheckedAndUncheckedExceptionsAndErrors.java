@@ -48,7 +48,7 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
          *  IllegalArgumentException
          *  IllegalThreadException
          *  IllegalStateException
-         *  IndexOutOfBoundException
+         *  IndexOutOfBoundException + StringIndexOutOfBoundsException
          *  JMRuntimeException
          *  NoSuchElementException
          *  NotImplementedException
@@ -56,6 +56,7 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
          *  ParseException
          *  ReflectionException
          *  SecurityException
+         *  StringIndexOutOfBoundsException
          *  SystemException
          *  UndeclaredThrowableException
          *  UnsupportedPlatformException

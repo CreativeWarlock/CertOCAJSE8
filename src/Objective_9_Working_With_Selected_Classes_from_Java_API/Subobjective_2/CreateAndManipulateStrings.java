@@ -227,7 +227,7 @@ public class CreateAndManipulateStrings {
         /** ------------------------------------------------------------------------------------------------------ */
 
         StringBuilder force = new StringBuilder("Go with tho Forth");
-        System.out.println("force.lastIndexOf('o'): " + force.lastIndexOf("o"));
+        System.out.println("force.lastIndexOf('o'): " + force.lastIndexOf("o", 0));
         force.insert(force.lastIndexOf("o"), true);
         System.out.println(force.toString());
 
@@ -257,7 +257,29 @@ public class CreateAndManipulateStrings {
         /** ------------------------------------------------------------------------------------------------------ */
 
         StringBuilder parts = new StringBuilder("ABCDEF");
-        parts.delete(2,7);
+        parts.delete(2,11);
         System.out.println(parts);
+
+        parts.ensureCapacity(22);
+        System.out.println(parts.capacity());
+        parts.ensureCapacity(23);
+        System.out.println(parts.capacity());
+
+        parts.setLength(1);
+        System.out.println(parts);
+
+        System.out.println();
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        StringBuilder sbToyStory = new StringBuilder("Toy Story I");
+        char[] charsToyStory = new char[10];
+        charsToyStory[0] = 'X';
+        sbToyStory.getChars(1, 5, charsToyStory, 1);
+        for (char c : charsToyStory) {
+            System.out.print(c);
+        }
+
+        System.out.println();
     }
 }

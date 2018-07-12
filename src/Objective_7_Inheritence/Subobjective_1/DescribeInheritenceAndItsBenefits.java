@@ -143,12 +143,16 @@ class A {
     static void method() {
         System.out.print(" A B");
     }
+    private void print() {}
+    public void print2() throws Exception { throw new Exception("e"); }
 }
 
 class B extends A{
     protected static void method() {
         System.out.print(" C D");
     }
+    private void print() {}
+    public void print2() {}
 }
 
 class Person {

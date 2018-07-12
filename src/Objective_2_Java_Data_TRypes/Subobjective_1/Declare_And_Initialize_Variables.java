@@ -86,14 +86,27 @@ public class Declare_And_Initialize_Variables {
         tests.castingWithFloatAndLong();
 
         int _6 = 6;
-        int b = 0XB; // Hex!
+        int b = 0XB; // Hex B!
         int x = 0XE;
-        int x2 = 0xE;
+        int x2 = 0xE;   // Hex E: this is 14!
         long L1 = 0xEL;
         long l2 = 0xEl;
 
-        int f = 0xF;
+        int binary = 0b10;
+
+        int intFromOct = 017;   // 018 not possible -> Octal system has max digit 7!
+
+        System.out.println("x2: " + x2);
+        System.out.println("binary: " + binary);
+        System.out.println("intFromOct: " + intFromOct);
+
         //int z = 018; // Integer number too large.. oO
+
+        float f = 10.0f;
+        long l = 10;
+        float f2 = f + l;
+
+        //int i2 = b + l;
     }
 }
 
