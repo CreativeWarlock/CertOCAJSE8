@@ -10,16 +10,16 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
         /**
          * Checked Exceptions:
          * -------------------
-         * - are exceptional condition
+         * - are exceptional conditions
          * - a well-written application anticipates an exception (by checking it)
          * - a well-written application recovers from from an exception (that is checked)
          *
          * - are subject to the 'CATCH or SPECIFY REQUIREMENT', meaning that code that might throw a checked exception
          *   must be enclosed by either:
-         *      -> a try block that catches the exception, followed by a 'catch' or a 'finally' block or both that handles the exception
+         *      -> a TRY block that catches the exception, followed by a 'catch' or a 'finally' block or both that handles the exception
          *      -> a method that specifies that it can throw the exception; the method must provides a 'throws' clause that lists the exception class
          *
-         *  All exceptions are CHECKED exceptions, EXCEPT
+         *  All exceptions are CHECKED exceptions, EXCEPT unchecked exceptions.
          *
          *  Unchecked Exceptions:
          *  ---------------------
@@ -87,19 +87,20 @@ public class DifferentiateAmongCheckedAndUncheckedExceptionsAndErrors {
         /** Question:
          *
          * Which of the following will create an appropriate catch block for the following try block?
-         * try { int x = Integer.parseInt("one"); }
          *
          * A) IllegalArgumentException
-         * B) 
+         * B) NumberFormatException
          * C) None of the above.
+         * D) Compile Time Error.
          *
          * */
 
-        try {
-            int x = Integer.parseInt("one");
-        } catch(NumberFormatException e) {}
+//        try {
+//            int x = Integer.parseInt("one");
+//        } catch(NumberFormatException e) {}
 
-        // answer: C -> Unchecked exceptions and errors are not subject to the 'Catch or Specifier Requirement'; hence A) and B) make no difference in the outcome!
+        // Answer: The catch block is unnecessary. Unchecked exceptions and errors are not subject to the 'Catch or Specifier Requirement';
+        // Hence A) and B) make no difference in the outcome! Therefore answer c is correct.
     }
 
     public static void doSomething() throws Exception {

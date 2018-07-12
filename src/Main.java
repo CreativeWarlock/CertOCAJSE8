@@ -2,8 +2,12 @@ public class Main {
 
     static int x, y = 10, z = x*y;
 
+    static int number;
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Hello World! Some random stuff goes here.");
+
+        //int number = this.number + 1; // this can only be referenced from an instance, not a static context!
 
         System.out.println("z: " + z);
 
@@ -14,6 +18,8 @@ public class Main {
         Integer c = 256;
         Integer f = 256;
         System.out.println(c == f);
+
+        //int a = 0.2d; // ;)
 
         int iPrim = 100;
         int y = 100;
@@ -33,5 +39,8 @@ public class Main {
 
         System.out.println(Integer.decode("12"));
         System.out.println(Integer.parseInt("011"));
+
+        Integer myInt = new Integer(9);
+        boolean isInstOf = myInt instanceof Number;
     }
 }

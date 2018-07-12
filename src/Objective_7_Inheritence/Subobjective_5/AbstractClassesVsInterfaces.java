@@ -1,7 +1,5 @@
 package Objective_7_Inheritence.Subobjective_5;
 
-import java.io.IOException;
-
 public class AbstractClassesVsInterfaces {
 
     // https://docs.oracle.com/javase/tutorial/java/IandI/interfaceDef.html
@@ -23,14 +21,16 @@ public class AbstractClassesVsInterfaces {
          * ------------
          *              Interfaces                  Abstract Classes
          *
-         * Fields       automatically               may be non-public,
+         * type itself  implicitly abstract         must have 'abstract class'
+         *
+         * Fields       implicitly                  may be non-public,
          *              public static final         non-static and non-final
          *
          * Methods      automatically public,       may be declared with ANY
-         *              must not have any other     access modifier
+         *              must not have any other     access modifier; must carry 'abstract' if no body
          *              modifier
          *
-         * Inheritance  A class may implement       A class can only extend
+         * Inheritance  Person class may implement       Person class can only extend
          *              ANY number of interfaces    one class
          *
          *
@@ -59,27 +59,27 @@ public class AbstractClassesVsInterfaces {
 
         // =============================================================================================================
 
-        Integer myInt = new Integer(9);
-        boolean isInstOf = myInt instanceof Number;
-
+        /** Instantiating is possible, but we must implement all the abstract methods! */
         InterfaceA interfaceA = new InterfaceA() {
             @Override
-            public int myMethod(int i) {
+            public int publicAbstractInterfaceMethod() {
                 return 0;
             }
-        }; // Possible, but it must implement non-default methods!
+        };
 
-        System.out.println(10 + 5 + " Interface: " + interfaceA);
+        /** Person static method can only be invoked if the class contains this interface! */
+        //System.out.println("MethodB: " + interfaceA.getNumberA());
 
-        //System.out.println("MethodB: " + interfaceA.getNumberA()); // static methods may be invoked on containing interface class only
-        System.out.println("MethodB: " + interfaceA.defaultMethodB());
+        System.out.println("MethodB: " + interfaceA.getNumberB());
 
         // =============================================================================================================
 
-        A a = new A();
-        //C c1 = (C)a;    // ClassCastException!
-        //c1.meth();
-        System.out.println("A's MethodB: " + a.defaultMethodB());
+        Person person = new Person();
+        System.out.println("Person's getAge: " + person.getAge());
+
+        /** Does it compile or not? */
+        //Student student = (Student)person;
+        //System.out.println("Student's getAge: " + student.getAge());
 
         // =============================================================================================================
 
@@ -134,47 +134,50 @@ public class AbstractClassesVsInterfaces {
 
 abstract interface InterfaceA {
 
+    /** VARIABLES are always public static final (PSF)! */
     public static final int numberA = 0;
 
-    /** it's always FINAL -> must be initialized!! */
-    //int numberB;
+    //protected int x = 10; // NOT valid!
+    //int numberB; //must be initialized!
     int numberB = 10;
 
-    //InterfaceA() {}   // not valid
+    //InterfaceA() {}   // Constructor not allowed
+    //default InterfaceA() {}   // not allowed on constructor / in interfaces!
 
-    //protected int x = 10; // NOT valid!
+    /** METHODS are always PUBLIC (automatically added) and ABSTRACT!! */
+    int publicAbstractInterfaceMethod();
+    //int myMethod(int i) { return i; }  // not abstract
 
-    /** non static, non default methods must be abstrace / have NO body! */
-    //public int myMethod(int i) { return i; }
-    /** non static and non default methods may ONLY have public, but public is not required */
-    public int myMethod(int i);
+    /** DEFAULT and STATIC methods must have a BODY! */
+    default int getNumberB() { return numberB; }
+    static int getNumberA() { return numberA; }      // static methods may be invoked on containing interface class only
+    /** default + static => illegal */
+    // default static int defaultMethod() { return numberB; }
 
-    /** STATIC and DEFAULT methods must have a BODY! */
-    public static int getNumberA() { return numberA; }
-    public default int defaultMethodB() { return numberB; }
-    //public default static int defaultMethodc() { return numberB; }
-
-    /** EEK! Cannot override members of Object!!! */
+    /** Careful! Cannot override members of Object!!! */
     //public default String toString() { return "Interface"; }
     //public default boolean equals(Object o) { return false; }
 }
 
 abstract class AbstractA implements InterfaceA { // an abstract does not need to implement any of the interface's methods! ;)
     private String name;
-    //abstract int i = 5; // Abstract is not allowed on variables
+    /** abstract is not allowed on variables */
+    //abstract int i = 5;
 
     final static float f = 5.0f;
     final short s = 10;
 
-    public AbstractA() {    // constructor cannot be directly called! Only from sub classes!
+    /** Constructor can only be called from sub classes! */
+    public AbstractA() {
         name = "AbstractA";
     }
 
+    /** Methods without body must have abstract modifier */
     abstract Number getAbstractNumber();
-    //public Number getAbstractNumber(); // Non-abstract method declarations are not allowed!
+    /** Non-abstract method declarations are not allowed! */
+    //public Number getAbstractNumber();
 
-    public int defaultMethodB() { return numberB; }
-
+    public int getNumberB() { return numberB; }
     public String getName() { return name; }
 }
 
@@ -185,41 +188,41 @@ abstract class AbstractB extends AbstractA {
 // =====================================================================================================================
 
 interface Interface {
-    void meth();
+    int age = 17; // PSF
+    int getAge();
 }
 
-class A implements Interface {
-
-    void A(String s) { }
-
-    @Override
-    public void meth() {
-
+class Person implements Interface {
+    //int age = 19; // would overshadow 'age' from Interface
+    Person() {
+        //age = 21; // does not compile -> age is PSF!
     }
 
-    public int defaultMethodB() { return 7; }
+    public int getAge() { return age; }
 }
 
-class C extends A implements Interface {
+class Student extends Person implements Interface {
+    int field = 18;
+
+    // is not obligatory to override
     @Override
-    public void meth() {
-        System.out.println("C");
-    }
+    public int getAge() { return field; }
 }
 
 // =====================================================================================================================
-
-interface Pooping {
-    void poops();
-}
 
 class Animal implements Pooping {
     public void eat() throws Exception { System.out.print("Animal eats"); }
 
     @Override
-    public void poops() {                   // must be public!
+    /** must be public (like in the interface)! */
+    public void poops() {
         System.out.println("is pooping ");
     }
+}
+
+interface Pooping {
+    void poops();
 }
 
 interface Fly {

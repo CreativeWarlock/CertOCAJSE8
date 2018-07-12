@@ -5,8 +5,6 @@ public class UsingSuperAndThisToAccessObjectsAndConstructors {
     // https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html
     // https://docs.oracle.com/javase/tutorial/java/IandI/super.html
 
-    int number = 0;
-
     public static void main(String[] args) {
         System.out.println("Chapter 7.4 - Using 'super' and 'this' to access Objects and Constructors");
 
@@ -38,13 +36,11 @@ public class UsingSuperAndThisToAccessObjectsAndConstructors {
         MySubClass mySubClass = new MySubClass();
         mySubClass.print();
 
-        boolean b = mySubClass instanceof MySuperClass;
-
-        //int number = this.number + 1; // this can only be referenced from an instance, not a static context!
+        System.out.println("mySubClass instanceof MySuperClass? " + (mySubClass instanceof MySuperClass));
 
         MySuperClass superClass = new MySubClass("Make me proud!");
         superClass.print("Some String");
-        ((MySubClass) superClass).print();
+        ((MySubClass) superClass).print();  // No CCE / print can be found because superclass was initialized with MySubClass
     }
 }
 
@@ -56,7 +52,7 @@ class AssignWithConstructorClass {
     }
 
     AssignWithConstructorClass() {
-        //System.out.println(field); // If used then 'this' cannot be 2nd statement!
+        //System.out.println(field); // If used then 'this(..)' cannot be 2nd statement!
         this("Unrestricted Area");
     }
 
@@ -94,8 +90,18 @@ class MySubClass extends MySuperClass {
     }
 
     public MySubClass() {
-        super("[ empty ]"); // will be called automatically! :)
-        System.out.println("MySubClass constructor with super.field = " + super.field);
+        /** Remember: If a constructor does not explicitly invoke any other constructor,
+         *   the compiler automatically inserts a call to the no-argument constructor of the superclass!!
+         *
+         *   If we don't do it, the compiler complains at "MySubClass()" that there is no MySuperClass() c'tor!
+         *   In order to circumvent this we simply call super("someString") -> All good!
+         *   */
+
+        //System.out.println("bla"); // invalid -> super(..) must come first
+
+        super("[ empty ]");
+
+        System.out.println("MySubClass constructor with super.age = " + super.field);
 
         super.increment(super.number);
         System.out.println("Number : " + this.number);
@@ -106,6 +112,5 @@ class MySubClass extends MySuperClass {
     }
     public void print() {
         super.print(super.field);
-        //print(field);
     }
 }

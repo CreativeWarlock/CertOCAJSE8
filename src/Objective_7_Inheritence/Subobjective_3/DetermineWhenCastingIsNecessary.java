@@ -32,10 +32,10 @@ public class DetermineWhenCastingIsNecessary {
         /** Question: What happens when the following code is executed? */
 
         Double d = new Double(0);
-        //Float f = (Float)d;                 // cannot cast to Float! Double is no sub/super-type of Float!
+        //Float f = (Float)d;                 // cannot cast to Float! Double is no sub/super-type of Float! -> A Wrapper class cannot be cast to another Wrapper class!
 
         Float f = 47.11f;
-        //Double biggerFloat = (Double)f;     // cannot cast to Float! Float is no sub/super-type of Double!
+        //Double biggerFloat = (Double)f;     // cannot cast to Float! Float is no sub/super-type of Double! -> A Wrapper class cannot be cast to another Wrapper class!
 
         Object o = new Object();
         //Integer myInt = (Integer)o;         // produces a ClassCastException since 'o' never was an instance of type Integer!

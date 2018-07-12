@@ -39,7 +39,7 @@ public class DescribeInheritenceAndItsBenefits {
         forcedCast2SuperClass.print();
 
         SubClass realSubClass = new SubClass();
-        System.out.println("realSubClass.field: " + realSubClass.field);
+        System.out.println("realSubClass.age: " + realSubClass.field);
         // =============================================================================================================
 
         //Bird birdy = new Animal(); // A SubClass can not have a reference of type SuperClass!
@@ -79,8 +79,8 @@ class SubClass extends SuperClass {
 
     //SubClass() {}
 
-/*    SubClass(String field) {
-        super(field);
+/*    SubClass(String age) {
+        super(age);
     }*/
 
     String field = "I'm a Sub class..";
@@ -117,7 +117,7 @@ class Animal {
 
 // =====================================================================================================================
 
-/** Question: Does the following Sub class inherit the member field 'value' from the Super class?
+/** Question: Does the following Sub class inherit the member age 'value' from the Super class?
  *
  * A) Yes
  * B) No
@@ -135,9 +135,9 @@ class Animal {
 
  *
  */
-    // Answer: No, since field 'value' has private package access only and
+    // Answer: No, since age 'value' has private package access only and
     //         and class 'Me' is in a different package than Super class.
-    //         Therefor the field 'value' is not inherited down to Sub class.
+    //         Therefor the age 'value' is not inherited down to Sub class.
 
 class A {
     static void method() {

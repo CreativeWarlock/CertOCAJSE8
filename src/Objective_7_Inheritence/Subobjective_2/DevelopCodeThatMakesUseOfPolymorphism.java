@@ -13,10 +13,8 @@ public class DevelopCodeThatMakesUseOfPolymorphism {
         /**
          * Polymorphism:
          * =============
-         *
-         * - is the ability for a method to behave differently based on the actual object it is invoked on (on runtime!).
-         *
-         * */
+         * Is the ability for a method to behave differently based on the actual object it is invoked on (on runtime!).
+         */
 
         SuperClass object1 = new SubClass1();
         SuperClass object2 = new SubClass2();
@@ -67,7 +65,7 @@ public class DevelopCodeThatMakesUseOfPolymorphism {
 }
 
 class SuperClass {
-    //protected String field = "Super class";
+    //protected String age = "Super class";
     protected void print() {
         //empty body!
     }

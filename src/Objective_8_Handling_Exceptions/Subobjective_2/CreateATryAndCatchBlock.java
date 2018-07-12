@@ -15,6 +15,11 @@ public class CreateATryAndCatchBlock {
         /**
          * A 'try-catch' Block:
          * --------------------
+         *
+         * Note: If a catch block handles more than one exception type, then the catch parameter is implicitly final.
+         *  In the next example, the catch parameter ex is final and therefore you cannot assign any values to it
+         *  within the catch block.
+         *
          */
 
         try {
@@ -33,7 +38,7 @@ public class CreateATryAndCatchBlock {
         // ----------------------------------------------------------------------------------------------------------------
 
         try {
-            //someExceptionReturningMethod();
+            someExceptionReturningMethod();
             someExceptionThrowingMethod();
         }  catch(FileNotFoundException fne) {
             System.out.println("Exception: " + fne);
@@ -65,11 +70,6 @@ public class CreateATryAndCatchBlock {
         out.close();
     }
 
-    /** Note: If a catch block handles more than one exception type, then the catch parameter is implicitly final.
-     *  In the next example, the catch parameter ex is final and therefore you cannot assign any values to it
-     *  within the catch block.
-     */
-
 //    try {
 //      // ...
 //    } catch (IOException |SQLException ex) {
@@ -79,7 +79,8 @@ public class CreateATryAndCatchBlock {
 
     /** The finally block always executes when the try block exits.
      *
-     * This ensures that the finally block is executed even if an unexpected exception occurs.
+     * This ensures that the finally block is executed even if an UNEXPECTED exception occurs.
+     *
      * But finally is useful for more than just exception handling — it allows the programmer to avoid having cleanup code
      * accidentally bypassed by a return, continue, or break.
      *
@@ -118,14 +119,12 @@ public class CreateATryAndCatchBlock {
         }
     }
 
-    /** You may declare one or more resources in a try-with-resources statement.
+    /** You may declare one or more (separated with ; ) resources in a try-with-resources statement.
      * The following example retrieves the names of the files packaged in the zip file zipFileName and creates a text file
      * that contains the names of these files:
      */
 
-    public static void writeToFileZipFileContents(String zipFileName,
-                                                  String outputFileName)
-            throws java.io.IOException {
+    public static void writeToFileZipFileContents(String zipFileName, String outputFileName) throws java.io.IOException {
 
         java.nio.charset.Charset charset =
                 java.nio.charset.StandardCharsets.US_ASCII;
@@ -155,6 +154,7 @@ public class CreateATryAndCatchBlock {
     /** An exception can be thrown from the block of code associated with the try-with-resources statement.
      * In the example writeToFileZipFileContents, an exception can be thrown from the try block,
      * and up to two exceptions can be thrown from the try-with-resources statement when it tries to close the ZipFile and BufferedWriter objects.
+     *
      * If an exception is thrown from the try block and one or more exceptions are thrown from the try-with-resources statement,
      * then those exceptions thrown from the try-with-resources statement are suppressed,
      * and the exception thrown by the block is the one that is thrown by the writeToFileZipFileContents method.
@@ -163,6 +163,7 @@ public class CreateATryAndCatchBlock {
      * thrown by the try block. */
 
     // ----------------------------------------------------------------------------------------------------------------
+
     public static IOException someExceptionReturningMethod() {
         return new IOException("Some IOException occurred");
     }

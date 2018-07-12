@@ -24,15 +24,19 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
          *
          * B) A method that can throw an UNCHECKED exception:
          *
-         * - No requirements:
+         * - No requirements! :)
          *      - for the method that throws the unchecked exception
          *      - for any calling methods
-         *      -> A RuntimeException will automatically propagate up
+         *      -> A RuntimeException will automatically propagate up!
          * */
 
         methodThatHandlesACheckedException(); // must have individual exception handling or rethrowing
 
-        methodThatPropagatesAnUncheckedExceptionMethod(); // Unchecked Exception -> no need for 'throws' clause -> will automatically propagate up
+        try {
+            methodThatPropagatesAnUncheckedExceptionMethod();
+        } catch(RuntimeException rte) {
+            System.out.println("Caught RunTimeException. Bad bad code!");
+        }
 
         tryDivision();
     }
@@ -56,7 +60,7 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
         System.out.println("Bla"); // Code is NOT unreachable
     }
 
-    public static void methodThrowingIOException() throws IOException { // MUST HAVE throws IOException since this IS a checked Exception!
+    public static void methodThrowingIOException() throws IOException { // MUST HAVE "throws IOException" since this IS a checked Exception!
         throw new IOException("OH OH! IO Exception!");
         //System.out.println("Bla"); // Code IS unreachable! -> Compile Time Error!
     }
@@ -64,15 +68,15 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
     /** Methods with Unchecked Exceptions
      * ================================== */
 
-    public static void methodThatPropagatesAnUncheckedExceptionMethod() {
+    public static void methodThatPropagatesAnUncheckedExceptionMethod() { // Unchecked Exception -> no need for 'throws' clause -> will automatically propagate up!
         uncheckedExceptionMethod();
     }
 
     //public static void uncheckedExceptionMethod() throws Exception { // Would lead to unhandled exception! (despite there is no such Exception being thrown ;) )
 
-    //public static void uncheckedExceptionMethod() throws RuntimeException { // NO NEED FOR extra 'throws' clause!
+    //public static void uncheckedExceptionMethod() throws RuntimeException { // NO NEED FOR extra 'throws' clause -> it is automatically propagated up!
     public static void uncheckedExceptionMethod() {
-        //throw new RuntimeException();
+        throw new RuntimeException();
         //throw new Exception();
     }
 
@@ -93,7 +97,7 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
             }
             System.out.println(e.getMessage());
         }
-    }*/
+    }//*/
 
     // ------------------------------------------------------
 
@@ -115,6 +119,8 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
 
     // Answer Q1: B)
     // Answer Q2: B)
+
+    // ------------------------------------------------------
 
     /** Question 3:
      *
@@ -165,10 +171,52 @@ public class CreateAndInvokeAMethodThatThrowsAnException {
 
     /** Question 5: Does the following method compile and if not, where is the error? */
 
-/*    public static void catchMixesExceptionTypes(String args[]) {
+/*    public static void catchIOException(String args[]) {
         try {
-            System.out.println(args[0]);
+            System.out.println("Hello world!");
         }catch (IOException x) {}
     }*/
-}
 
+    // ------------------------------------------------------
+
+    /** Question 6: Does the following method compile and if not, where is the error? */
+
+/*    public static void catchParseException(String args[]) {
+        try {
+            System.out.println("Hello world!");
+            System.out.println(Integer.parseInt("Alpha01"));
+        }catch (ParseException x) {
+            System.out.println("Error while parsing the string.");
+        }
+    }*/
+
+    // ------------------------------------------------------
+
+    /** Question 7: Does the following method compile and if not, where is the error? */
+
+/*    public static void catchMixedExceptions(String args[]) {
+        try {
+            System.out.println(args[0]);
+        } catch (RuntimeException | ArrayIndexOutOfBoundsException rte) {}
+    }*/
+
+    // ------------------------------------------------------
+
+    /** Question 8: Does the following method compile and if not, where is the error? */
+
+/*    public static void catchArrayIndexOutOfBoundsException(String args[]) {
+        try {
+            System.out.println(args[0]);
+        } catch (ArrayIndexOutOfBoundsException rte) { System.out.println("Caught ArrayIndexOutOfBoundsException."); }
+    }*/
+
+    // ------------------------------------------------------
+
+    /** Question 9: Does the following method compile and if not, where is the error? */
+
+/*    public static void catchRuntimeException(String args[]) {
+        try {
+            System.out.println(args[0]);
+        } catch (RuntimeException rte) { System.out.println("Caught RuntimeException."); }
+    }*/
+}

@@ -33,7 +33,7 @@ public class DefineStructureOfJavaClass {
          Package declaration    package Rock;               no                      First line in file
          Import statement/s     import java.io.*            no                      immediately after package!
          class declaration      public class Rock           yes                     immediately after import!
-         field declaration/s    int value;                  no                      anywhere inside a class
+         age declaration/s    int value;                  no                      anywhere inside a class
          method declarations    void method()               no                      anywhere inside a class
 
          */

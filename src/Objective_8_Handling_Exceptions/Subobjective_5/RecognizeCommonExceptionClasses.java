@@ -16,7 +16,7 @@ public class RecognizeCommonExceptionClasses {
          * an application attempts to use null where an object is required, e.g.
          *
          * - Calling the instance method of a null object
-         * - Accessing or modifying the field of a null object
+         * - Accessing or modifying the age of a null object
          *
          * - Taking the length of null as if it were an array
          * - Accessing or modifying the slots of null as if it were an array
@@ -45,7 +45,6 @@ public class RecognizeCommonExceptionClasses {
         System.out.println("Double.isNaN(d1): " + Double.isNaN(d1)+ " ");
         System.out.print("Double.isInfinite(d1): " + Double.isInfinite(d1));
 
-
         /**
          * ArrayIndexOutOfBoundException:
          * ------------------------------
@@ -53,7 +52,7 @@ public class RecognizeCommonExceptionClasses {
          *  - the index is either negative or greater than or equal to the size of the array
          *
          *  Example:
-         * */
+         */
 
         int[] myInts = new int[] {1,2,3};
         //int iWantNumber5 = myInts[5];
@@ -68,7 +67,7 @@ public class RecognizeCommonExceptionClasses {
          * */
 
         Number number = new Integer(0);
-        //Float floatingPoint = (Float)number;        // Will throw a CCE
+        //Float floatingPoint = (Float)number;        // Will throw a CCE since Number never was a Float object before.
 
         Object obj = new Double(3.0);
         Number num = (Number)obj;
@@ -98,8 +97,7 @@ public class RecognizeCommonExceptionClasses {
          * D) None of the above
          */
         int[] myArray2 = new int[0];
-        if (myArray2.length > 0)
-            myArray2[1] = 1;        //will not be executed...
+        if (myArray2.length > 0) myArray2[1] = 1;
 
         // -------------------------------------------------------
 
@@ -114,7 +112,7 @@ public class RecognizeCommonExceptionClasses {
         int[] array1 = new int[0];
         int[] array2 = null;
         array1 = array2;
-        //array1[0] = array1.length;    // will throw..
+        //array1[0] = array1.length;
 
         // -------------------------------------------------------
 
@@ -130,8 +128,9 @@ public class RecognizeCommonExceptionClasses {
         if (myArray3.length == 0)
             myArray3 = null;
 
-        //myArray3[0] = (Integer)(Number)new Double(0); // will throw..
-        //int a = 0.2d; // ;)
+        myArray3[0] = (Integer)(Number)new Double(0);
+
+        // casting a Double to an Integer is invalid which results in a class casting exception. So answer is d correct.
 
         // -------------------------------------------------------
 
