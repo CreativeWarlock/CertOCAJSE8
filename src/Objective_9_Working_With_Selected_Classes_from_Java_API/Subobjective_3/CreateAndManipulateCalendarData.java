@@ -5,10 +5,12 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 import java.util.Date;
 import java.util.Calendar;
 
 import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
 public class CreateAndManipulateCalendarData {
 
@@ -77,21 +79,64 @@ public class CreateAndManipulateCalendarData {
          * Time is represented to nano-second precision.
          *
          * Date-Time Methods:
-         * ------------------ */
+         */
 
-        // Creating a new LocalDateTime instance
+        /** Creating LocalTime instances */
 
-        LocalDateTime.parse("2016-01-23 12:34".replace(" ", "T"));
+        LocalTime lt01 = LocalTime.ofNanoOfDay(19683);
+        LocalTime lt02 = LocalTime.of(16, 32);
+        LocalTime lt03 = LocalTime.of(16, 32, 55);
+        LocalTime lt04 = LocalTime.of(16, 32, 55, 1550);
+        LocalTime lt05 = lt04.plusMinutes(5);
+        LocalTime lt06 = lt04.minusMinutes(1);
 
-        LocalDateTime.now();
-        LocalTime.of(16, 32, 55);
+        /** Creating LocalDate instances: */
 
-        // Getting date-time information
-        //LocalDate.getYear(); // cannot find this method
-        LocalTime bla = LocalTime.of(1,2,3);
+        LocalDate ld00 = LocalDate.of(2018, 06, 13);
+        LocalDate ld01 = LocalDate.of(2018, Month.JUNE, 13);
+        LocalDate ld02 = LocalDate.ofYearDay(2018, 185);
+        LocalDate ld03 = LocalDate.ofEpochDay(5376); // Days since 1970-01-01
 
-        bla.plusMinutes(5);
-        bla.minusMinutes(1);
+        //LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());   // Java 1.9
+        //LocalDate.getXXX(); // LocalDate has no getters.
+
+        /** Creating LocalDateTime instances */
+
+        LocalDateTime ldt00 = LocalDateTime.of(LocalDate.now(), LocalTime.now());
+        LocalDateTime ldt01 = LocalDateTime.now();
+        LocalDateTime ldt02 = LocalDateTime.parse("2016-01-23 12:34".replace(" ", "T"));  // 'T' is expected in parsing the date string.
+        LocalDateTime ldt03 = LocalDateTime.of(2018,06,13, 12,00);
+        LocalDateTime ldt04 = LocalDateTime.of(2018,Month.JUNE,13, 12,00);
+        LocalDateTime ldt05 = LocalDateTime.of(2018,06,13, 12,00, 00);
+        LocalDateTime ldt06 = LocalDateTime.of(2018,Month.JUNE,13, 12,00, 00);
+        LocalDateTime ldt07 = LocalDateTime.of(2018,06,13, 12,00, 00, 1658);
+        LocalDateTime ldt08 = LocalDateTime.of(2018,Month.JUNE,13, 12,00, 00, 1658);
+        LocalDateTime ldt09 = LocalDateTime.MAX;
+        LocalDateTime ldt10 = LocalDateTime.MIN;
+        LocalDateTime ldt11 = LocalDateTime.ofEpochSecond(0, 0, ZoneOffset.ofHoursMinutesSeconds(1,1,1));
+        LocalDateTime ldt12 = LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault());
+
+        int ldt12Year = ldt12.getYear();
+        Month ldt12Month = ldt12.getMonth();
+        int ldt12MonthValue = ldt12.getMonthValue();
+
+        int ldt12DayOfYear = ldt12.getDayOfYear(); // ranges from 1 to 366
+        int ldt12DayOfMonth = ldt12.getDayOfMonth(); // ranges from 1 to 31
+
+        int compareldt12Toldt10 = ldt12.compareTo(ldt10);
+
+        long epochSecondLdt12 = ldt12.toEpochSecond(ZoneOffset.UTC);
+        Instant ldt12Instant = ldt12.toInstant(ZoneOffset.UTC);
+
+        // further methods:
+
+        // plusYears, plusMonths, plusWeeks, plusDays, plusHours, plusMinutes, plusSeconds, plusNanos, plus(..)
+        // minusYears, minusMonths, minusWeeks, minusDays, minusHours, minusMinutes, minusSeconds, minusNanos, minus(..)
+
+        // withYear, withMonth, withDayOfYear, withDayOfMonth, withHour, withMinute, withSecond, withNano
+
+        // atOffset, atZone, format,
+        // toLocalDate, truncatedTo
 
         /**
          * DateFormatter class:
@@ -106,24 +151,58 @@ public class CreateAndManipulateCalendarData {
          *
          * Example:
          * */
-/*        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE;
         LocalDate date = LocalDate.now();
-        String text = date.format(formatter);
-        LocalDate parsedDate = LocalDate.parse(text, formatter);*/
+        String formattedDate = date.format(formatter);
+
+        System.out.println("formattedDate: " + formattedDate);
+        LocalDate parsedDate = LocalDate.parse(formattedDate, formatter);
+        System.out.println("parsedDate: " + parsedDate.toString());
 
         /** Period class:
          *  -------------
          *  - models a quantity or amount of time in terms of years, months and days */
 
-        // Creating a new Period instance
-        //Period.parse("2016-01-23 12:34");
-        //Period.ofDays(13);
-        // Period.withMonths(10); // does not exist
+        /** Creating Period instances */
 
-        //Period.getYear();  // does not exist
+        Period p00 = Period.ZERO;
+        Period p01 = Period.ofYears(13);
+        Period p02 = Period.ofMonths(6);
+        Period p03 = Period.ofWeeks(22);
+        Period p04 = Period.ofDays(13);
+        Period p05 = Period.between(ld00, ld01);
+        Period p06 = Period.from(p00);
+        Period p07 = Period.parse("2016-01-23 12:34");
 
-        //Period.plusDays(2);  // does not exist
-        //Period.minusDays(2);  // does not exist
+        Period p08 = p00.plus(p01);
+        Period p09 = p01.minus(p00);
+
+        Period p10 = p01.plusYears(3);
+        Period p11 = p01.minusYears(3);
+        Period p12 = p01.plusMonths(3);
+        Period p13 = p01.minusMonths(3);
+        Period p14 = p01.plusDays(3);
+        Period p15 = p01.minusDays(3);
+
+        Period p16 = p01.withYears(2018);
+        Period p17 = p01.withMonths(6);
+        Period p18 = p01.withDays(13);
+
+        Period p19 = p01.normalized();
+
+        Period p20 = p01.negated();
+        Period p21 = p01.multipliedBy(3);
+
+        Temporal p22 = p01.addTo(ldt00); // addTo is not recommends -> use plus(somePeriod)
+
+        int p00Days = p00.getDays();
+        int p00Months = p00.getMonths();
+        int p00Years = p00.getYears();
+
+        //Period.getXXX();  // getters do not exist
+        //Period.withMonths(10); // does not exist
+        //Period.plusDays(2);  // does not exist!
+        //Period.minusDays(2);  // does not exist!
 
         Period p1 = Period.ofYears(1);
         Period p2 = Period.of(0,1,0);

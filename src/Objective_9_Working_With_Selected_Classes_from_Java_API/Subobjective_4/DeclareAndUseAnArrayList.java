@@ -103,17 +103,17 @@ public class DeclareAndUseAnArrayList {
          * D) It prints number "b"
          * */
 
-        // Answer A since myStrings is of a raw type -> get method returns an object, not string!
+        // Since myStrings is of a raw type the correct answer is a -> get method returns an Object, not String!
 
         /** --------------------------------------------------------------------------------------------------------- */
 
         /** Question 3: What happens when the following code fragment is compiled and executed? */
 
-//        ArrayList list = new ArrayList();
-//        list.add(1);
-//        list.add(0);
-//        list.remove(0); //int deletedInt =
-//        System.out.println(list.get(0));
+        ArrayList list = new ArrayList();
+        list.add(1);
+        list.add(0);
+        list.remove(0); //int deletedInt =
+        System.out.println("after list.remove(0): " + list.get(0));
 
         /**
          * A) Compilation fails
@@ -122,8 +122,8 @@ public class DeclareAndUseAnArrayList {
          * D) It prints 1
          * */
 
-        // Answer D since   1. remove(0) can operate on the list and
-        //                  2. remove(0) return type is not assigned to an int which conflicts with the raw type of the list!
+        // Answer C since   1. remove(0) can operate on the list and
+        //                  2. remove(0) return type is not assigned to an int which would conflict with the raw type of the list!
 
         /** --------------------------------------------------------------------------------------------------------- */
 
@@ -171,7 +171,7 @@ public class DeclareAndUseAnArrayList {
          * */
 
         // Answer: Since strings is longer than the length of array 'arr' the toArray() method allocates a new array
-        // whose length is equal to the length of the 'strings' list.
+        // whose length is equal to the length of the 'strings' list. Therefor answer B is correct.
 
         /** Documentation to toArray: "If the list fits in the specified array, it is returned therein.
          *          Otherwise, a new array is allocated with the runtime type of the specified array and the size of this list.
@@ -210,7 +210,7 @@ public class DeclareAndUseAnArrayList {
 
         /** --------------------------------------------------------------------------------------------------------- */
 
-        /** Question 6: What is  the output? */
+        /** Question 6: What is the output? */
 
 //        List list = new ArrayList<>();
 //        list.add(5);
@@ -222,7 +222,7 @@ public class DeclareAndUseAnArrayList {
          * B) 10
          * C) 1
          * D) An exception is thrown.
-         * E) Compilation fails..
+         * E) Compilation fails.
          * */
 
         // Answer: Since all elements of the list are of raw type (Object) and the max() method expects an Integer the compilation fails -> E

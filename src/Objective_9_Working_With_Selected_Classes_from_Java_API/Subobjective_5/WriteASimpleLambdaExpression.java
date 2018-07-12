@@ -127,7 +127,7 @@ public class WriteASimpleLambdaExpression {
      * */
 
     /** Answer: Functional interfaces provide target types for lambda expressions and method references. Each functional interface
-     * has a SINGLE ABSTRACT METHOD(SAM), called the functional method for that functional interface, to which
+     * has a SINGLE ABSTRACT METHOD (SAM), called the functional method for that functional interface, to which
      * the lambda expressions' parameter and return types are matched or adapted.
      * It can also include other methods such as static and default methods, however they must not be abstract (applies for all interfaces!).
      *
