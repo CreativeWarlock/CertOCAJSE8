@@ -97,6 +97,13 @@ public class CreateAndManipulateCalendarData {
         LocalDate ld02 = LocalDate.ofYearDay(2018, 185);
         LocalDate ld03 = LocalDate.ofEpochDay(5376); // Days since 1970-01-01
 
+        // LocalDate + atTime = LocalDateTime
+        LocalDateTime combinedLdAndTime00 = ld00.atTime(lt02);
+      //LocalDateTime combinedLdAndTime01 = ld00.atTime(1); // for 'hour' only does not exist!
+        LocalDateTime combinedLdAndTime02 = ld00.atTime(1, 1);
+        LocalDateTime combinedLdAndTime03 = ld00.atTime(1, 1, 30);
+        LocalDateTime combinedLdAndTime04 = ld00.atTime(1, 1, 30, 64);
+
         //LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());   // Java 1.9
         //LocalDate.getXXX(); // LocalDate has no getters.
 
@@ -172,7 +179,7 @@ public class CreateAndManipulateCalendarData {
         Period p04 = Period.ofDays(13);
         Period p05 = Period.between(ld00, ld01);
         Period p06 = Period.from(p00);
-        Period p07 = Period.parse("2016-01-23 12:34");
+        Period p07 = Period.parse("P1Y2M3W4D");
 
         Period p08 = p00.plus(p01);
         Period p09 = p01.minus(p00);
@@ -222,11 +229,13 @@ public class CreateAndManipulateCalendarData {
 
         /** --------------------------------------------------------------------------------------------------------- */
 
-        /** Question 3: What happens when the following code is compiled and executed? */
-        // we take datum from above
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy mm dd");
-//        String formattedDate = datum.format(formatter);
-//        System.out.println(formattedDate);
+        /** Question 3: What happens when the following code is compiled and executed?
+         *   Note: We use 'datum' from Question 1
+         */
+
+//        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yy mm dd");
+//        formattedDate = datum.format(formatter2);
+//        System.out.println("applying formatter2 -> formattedDate: " + formattedDate);
 
         /**
          * A) Compilation fails
@@ -307,7 +316,7 @@ public class CreateAndManipulateCalendarData {
          * */
 
         Year y = Year.of(2018);
-        //LocalDate date = y.atMonthDay(MonthDay.of(4,31)); //A month-day of February 29th will be adjusted to February 28th in the resulting date if the year is not a leap year.
+        //LocalDate date = y.atMonthDay(MonthDay.of(4,31)); // (FYI & unrelated to this question: A month-day of February 29th will be adjusted to February 28th in the resulting date if the year is not a leap year.)
         //System.out.println(date);
 
         // Answer: Passing 4 as the month and 31 as the day arguments for the method causes an exception
@@ -315,7 +324,7 @@ public class CreateAndManipulateCalendarData {
 
         /** --------------------------------------------------------------------------------------------------------- */
 
-        LocalDate dating = LocalDate.ofYearDay(2015, 363);
+        LocalDate dating = LocalDate.ofYearDay(2015, 40); // Somewhere in the middle of February
         dating.plusWeeks(2); // Trick!
         System.out.println("Is leap year? " + dating.isLeapYear());
 
@@ -342,8 +351,8 @@ public class CreateAndManipulateCalendarData {
         /** --------------------------------------------------------------------------------------------------------- */
 
         LocalDate ldtChrono = LocalDate.of(2015, 12, 12);
-        ldtChrono = ldtChrono.with(ChronoField.DAY_OF_YEAR, 30);
-        System.out.println(ldtChrono);
+        ldtChrono = ldtChrono.with(ChronoField.DAY_OF_YEAR, 40);
+        System.out.println("new localDate after applying with(ChronoField.xxx): " + ldtChrono);
 
         /** --------------------------------------------------------------------------------------------------------- */
 
