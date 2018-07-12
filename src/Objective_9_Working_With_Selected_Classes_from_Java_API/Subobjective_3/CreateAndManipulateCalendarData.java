@@ -2,6 +2,7 @@ package Objective_9_Working_With_Selected_Classes_from_Java_API.Subobjective_3;
 
 import javax.swing.text.DateFormatter;
 import java.time.*;
+import java.time.chrono.IsoChronology;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
@@ -81,7 +82,9 @@ public class CreateAndManipulateCalendarData {
          * Date-Time Methods:
          */
 
-        /** Creating LocalTime instances */
+        /** Creating LocalTime instances:
+         * ------------------------------
+         */
 
         LocalTime lt01 = LocalTime.ofNanoOfDay(19683);
         LocalTime lt02 = LocalTime.of(16, 32);
@@ -90,7 +93,9 @@ public class CreateAndManipulateCalendarData {
         LocalTime lt05 = lt04.plusMinutes(5);
         LocalTime lt06 = lt04.minusMinutes(1);
 
-        /** Creating LocalDate instances: */
+        /** Creating LocalDate instances:
+         * ------------------------------
+         */
 
         LocalDate ldParse = LocalDate.parse("2018-12-31");
         LocalDate ld00 = LocalDate.of(2018, 06, 13).now();
@@ -104,7 +109,17 @@ public class CreateAndManipulateCalendarData {
         LocalDate ld08 = ld00.minusMonths(1);
         LocalDate ld09 = ld00.minusDays(1);
 
-        // LocalDate + atTime = LocalDateTime
+        int ld00Year = ld00.getYear();
+        Month ld00Month = ld00.getMonth();
+        int ld00MonthValue = ld00.getMonthValue();  // the month-of-year, from 1 to 12
+        int ld00DayOfYear = ld00.getDayOfYear();    // the day-of-year, from 1 to 365, or 366 in a leap year
+        int ld00DayOfMonth = ld00.getDayOfMonth();  // the day-of-month, from 1 to 31
+        DayOfWeek ld00DayOfWeek = ld00.getDayOfWeek(); // enum DayOfWeek
+
+        int comparelds = ld00.compareTo(ld01);
+
+
+        /** LocalDate + atTime = LocalDateTime */
         LocalDateTime combinedLdAndTime00 = ld00.atTime(lt02);
       //LocalDateTime combinedLdAndTime01 = ld00.atTime(1); // for 'hour' only does not exist!
         LocalDateTime combinedLdAndTime02 = ld00.atTime(1, 1);
@@ -113,10 +128,13 @@ public class CreateAndManipulateCalendarData {
 
         OffsetDateTime combinedLdAndTime05 = ld00.atTime(OffsetTime.MAX); // if OffsetTime is being used -> return type is OffsetTime, too!
 
-        //LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());   // Java 1.9
-        //LocalDate.getXXX(); // LocalDate has no getters.
+        IsoChronology isoChronology = ld00.getChronology();
 
-        /** Creating LocalDateTime instances */
+        //LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());   // Java 1.9
+
+        /** Creating LocalDateTime instances:
+         * ----------------------------------
+         */
 
         LocalDateTime ldt00 = LocalDateTime.of(LocalDate.now(), LocalTime.now());
         LocalDateTime ldt01 = LocalDateTime.now();
@@ -135,7 +153,6 @@ public class CreateAndManipulateCalendarData {
         int ldt12Year = ldt12.getYear();
         Month ldt12Month = ldt12.getMonth();
         int ldt12MonthValue = ldt12.getMonthValue();
-
         int ldt12DayOfYear = ldt12.getDayOfYear(); // ranges from 1 to 366
         int ldt12DayOfMonth = ldt12.getDayOfMonth(); // ranges from 1 to 31
 
@@ -234,7 +251,7 @@ public class CreateAndManipulateCalendarData {
         /** Question 2: What happens when the following code is compiled and executed? */
         LocalTime zeit = LocalTime.of(0,1,2);
         zeit.withHour(3).withMinute(4).withSecond(5); // zeit =  missing!
-        System.out.println(zeit);
+        System.out.println("zeit: " + zeit);
 
         /** --------------------------------------------------------------------------------------------------------- */
 
@@ -254,7 +271,7 @@ public class CreateAndManipulateCalendarData {
          *
          */
         // Answer: B, because 'mm' in the pattern is NOT representing month! It represents minutes
-        // Therefore this pattern is NOT supported by Formatter  -> UnssuprtedTemporalTypeException
+        // Therefore this pattern is NOT supported by Formatter  -> UnsupportedTemporalTypeException
         // Addition: It will not through an Exception if the date carries minutes ;)
 
         /** --------------------------------------------------------------------------------------------------------- */
