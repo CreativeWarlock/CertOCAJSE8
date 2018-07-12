@@ -206,17 +206,8 @@ public class CreateAndManipulateStrings {
 
         /** ------------------------------------------------------------------------------------------------------ */
 
-        StringBuilder rock = new StringBuilder("RockLand");
-        StringBuilder rock2 = new StringBuilder("RockLand");
-        System.out.println("rock == rock2: " + (rock == rock2));
-        System.out.println("rock.toString() == rock2.toString(): " + (rock.toString() == rock2.toString()));
-
-        /** ------------------------------------------------------------------------------------------------------ */
-
-        String bla = "abcdef".substring(4);
-        String bla2 = "abcdef".substring(1,2);
-
-        System.out.println("charAt(2): " + "abcdef".charAt(2));
+        String substring  = "abcdef".substring(4);
+        String substring2 = "abcdef".substring(1,2);
 
         int n = 808;
         System.out.format("%d", n);
@@ -238,48 +229,29 @@ public class CreateAndManipulateStrings {
         //z808 = z808.substring(z808.indexOf("80"), z808.lastIndexOf("80"));
         System.out.println(z808);
 
-        List<String> ar = new ArrayList<>();
-        //System.out.println(ar.toString());
-        ar.add("1");
-        ar.add("2");
-        ar.add("3");
-        ar.add("4");
-        //ar.add(1, "b");
+        /** ------------------------------------------------------------------------------------------------------ */
 
-        System.out.println(ar.set(3, "3"));
+        String ignoreMe = "bla";
+        ignoreMe.indexOf("la");
+        ignoreMe.indexOf('a', 4);
+        ignoreMe.indexOf('a');
+        System.out.println(ignoreMe);
 
         /** ------------------------------------------------------------------------------------------------------ */
 
-        StringBuilder groot = new StringBuilder("I'm ");
-        groot.append(new char[]{'G', 'r', 'o', 'o', 't','h'}, 0, 5);
-        System.out.println(groot);
+        System.out.println("charAt(2): " + "abcdef".charAt(2));
 
-        /** ------------------------------------------------------------------------------------------------------ */
-
-        StringBuilder parts = new StringBuilder("ABCDEF");
-        parts.delete(2,11);
-        System.out.println(parts);
-
-        parts.ensureCapacity(22);
-        System.out.println(parts.capacity());
-        parts.ensureCapacity(23);
-        System.out.println(parts.capacity());
-
-        parts.setLength(1);
-        System.out.println(parts);
-
-        System.out.println();
-
-        /** ------------------------------------------------------------------------------------------------------ */
-
-        StringBuilder sbToyStory = new StringBuilder("Toy Story I");
-        char[] charsToyStory = new char[10];
-        charsToyStory[0] = 'X';
-        sbToyStory.getChars(1, 5, charsToyStory, 1);
-        for (char c : charsToyStory) {
-            System.out.print(c);
-        }
-
-        System.out.println();
+        char[] chars2 = {'C', '3', 'P', '0'};
+        StringBuilder charSB = new StringBuilder();
+        charSB.append(chars2, 0, chars2.length - 1);
+        charSB.append('O');
+        charSB.append(" \\o/");
+        charSB.setLength(4);
+        charSB.insert(0, "The annoying ");
+        charSB.delete(0, 1);
+        String prefix = charSB.substring(4); // no effect on the StringBuilder object!
+//        sb1.insert(5, "XXX");
+        System.out.println(charSB);
+        System.out.println(prefix);
     }
 }

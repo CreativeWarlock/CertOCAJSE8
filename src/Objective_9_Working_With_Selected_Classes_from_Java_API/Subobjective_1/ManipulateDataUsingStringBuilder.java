@@ -45,68 +45,87 @@ public class ManipulateDataUsingStringBuilder {
         buffer.reverse();
         System.out.println(buffer);
 
-        /** ------------------------------------------------------------------------------------------------------ */
-
         buffer.append(buffer);
         System.out.println(buffer);
 
-        /** ======================================================================================================= */
+        /** ------------------------------------------------------------------------------------------------------
+         *
+         * StringBuilder:
+         *
+         */
 
         StringBuilder sb1 = new StringBuilder(10);
         StringBuilder sb2 = new StringBuilder("ABCD");
         System.out.println("Capacity: " + sb1.capacity() + sb2.capacity());
 
-        // --------------------------------------------------
+        /** ------------------------------------------------------------------------------------------------------ */
 
-        StringBuilder builder = new StringBuilder("RockLand");
-        int x = builder.capacity();
-        builder.trimToSize();
-        int y = builder.capacity();
+        StringBuilder rockLandBuilder = new StringBuilder("RockLand");
+        int x = rockLandBuilder.capacity();
+        rockLandBuilder.trimToSize();
+        int y = rockLandBuilder.capacity();
         System.out.println("Rockland Capacity:" + (x+y));
+        rockLandBuilder.ensureCapacity(40);
+        System.out.println("Rockland Capacity:" + rockLandBuilder.capacity());
 
-        // --------------------------------------------------
-
-        List<Integer> ints = new ArrayList<>();
-        ints.add(1);
-        ints.add(2);
-        ints.add(4);
-        ints.add(2, 3);
-        ints.removeIf(e -> e < 3);
-        System.out.println(ints);
-
-        // --------------------------------------------------
+        /** ------------------------------------------------------------------------------------------------------ */
 
         StringBuilder sb3 = new StringBuilder("10");
         sb3.insert(0, 1L);
         System.out.println(sb3);
 
-        // --------------------------------------------------
+        /** ------------------------------------------------------------------------------------------------------ */
 
-        char[] chars = {'R', '2', 'D'};
-        StringBuilder charSB = new StringBuilder();
-        charSB.append(chars, 0, chars.length - 1);
-        charSB.append('2');
-        charSB.append(" \\o/");
-        System.out.println(charSB);
+        char[] rob = {'R', '2', 'D'};
+        StringBuilder robStringBuilder = new StringBuilder();
+        robStringBuilder.append(rob, 0, rob.length - 1);
+        robStringBuilder.append('2');
+        robStringBuilder.append(" \\o/");
+        System.out.println(robStringBuilder);
 
-        // --------------------------------------------------
+        /** ------------------------------------------------------------------------------------------------------ */
 
-        char[] chars2 = {'C', '3', 'P', '0'};
-        charSB = new StringBuilder();
-        charSB.append(chars2, 0, chars2.length - 1);
-        charSB.append('O');
-        charSB.append(" \\o/");
-        charSB.setLength(4);
-        charSB.insert(0, "The annoying ");
-        charSB.delete(0, 1);
-        String prefix = charSB.substring(4); // no effect on the StringBuilder object!
-//        sb1.insert(5, "XXX");
-        System.out.println(charSB);
-        System.out.println(prefix);
+        StringBuilder groot = new StringBuilder("I am ");
+        groot.append(new char[]{'G', 'r', 'o', 'o', 't','h'}, 0, 5);
+        System.out.println(groot);
 
-        String bla = "bla";
-        bla.indexOf("ha");
-        bla.indexOf('a', 4);
-        bla.indexOf('a');
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        StringBuilder parts = new StringBuilder("ABCDEF");
+        parts.delete(2,11); // end index may go beyond the length of the CharSequence -> No NPE!
+        System.out.println(parts);
+
+        parts.ensureCapacity(22);
+        System.out.println(parts.capacity());
+        parts.ensureCapacity(23);
+        System.out.println(parts.capacity());
+
+        parts.setLength(1);
+        System.out.println(parts);
+
+        System.out.println();
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        StringBuilder sbToyStory = new StringBuilder("Toy Story I");
+        char[] charsToyStory = new char[10];
+        charsToyStory[0] = 'X';
+        sbToyStory.getChars(1, 5, charsToyStory, 1);
+        for (char c : charsToyStory) {
+            System.out.print(c);
+        }
+
+        System.out.println();
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        StringBuilder rock = new StringBuilder("RockLand");
+        StringBuilder rock2 = new StringBuilder("RockLand");
+        System.out.println("rock == rock2: " + (rock == rock2));
+        System.out.println("rock.toString() == rock2.toString(): " + (rock.toString() == rock2.toString()));
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+
     }
 }

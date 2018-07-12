@@ -103,7 +103,7 @@ public class DeclareAndUseAnArrayList {
          * D) It prints number "b"
          * */
 
-        // Since myStrings is of a raw type the correct answer is a -> get method returns an Object, not String!
+        // Since myStrings is of a raw type, the correct answer is a -> get method returns an Object, not String!
 
         /** --------------------------------------------------------------------------------------------------------- */
 
@@ -226,5 +226,29 @@ public class DeclareAndUseAnArrayList {
          * */
 
         // Answer: Since all elements of the list are of raw type (Object) and the max() method expects an Integer the compilation fails -> E
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        List<Integer> ints = new ArrayList<>();
+        ints.add(1);
+        ints.add(2);
+        ints.add(4);
+        ints.add(2, 3);
+        ints.removeIf(e -> e < 3);
+        System.out.println(ints);
+
+        /** ------------------------------------------------------------------------------------------------------ */
+
+        List<String> ar = new ArrayList<>();
+        System.out.println("empty ar.toString(): " + ar.toString());
+        ar.add("ù");
+        ar.add("~");
+        ar.add("Å");
+        ar.add("í");
+        ar.add(1, "b");
+
+        System.out.println(ar.set(4, "3")); // returns the element previously at the specified position
+
+        /** ------------------------------------------------------------------------------------------------------ */
     }
 }

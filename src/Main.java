@@ -15,15 +15,15 @@ public class Main {
         Integer f = 256;
         System.out.println(c == f);
 
-        int x = 100;
+        int iPrim = 100;
         int y = 100;
-        Integer i = 100;
-        System.out.println("i equals x? " + i.equals(x));
+        Integer iObj = 100;
+        System.out.println("iObj equals iPrim? " + iObj.equals(iPrim));
 
-        Double d = 100.0;
-        System.out.println("i equals d? " + i.equals(d));
+        Double dObj = 100.0;
+        System.out.println("iObj equals dObj? " + iObj.equals(dObj));
 
-        System.out.println("d + i: " + d + i);
+        System.out.println("d + i: " + dObj + iObj);
         //System.out.println("(d + i).intValue(): " + (d + i).intValue());
 
         Long l1 = 10l;
