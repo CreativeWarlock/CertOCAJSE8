@@ -111,6 +111,8 @@ public class UseSwitchStatement {
 
         /** --------------------------------------------------------------------------------------------------------- */
 
+        // Does this compile?
+
 /*        double d = 42.42;
 
         switch(d) {
@@ -127,7 +129,7 @@ public class UseSwitchStatement {
         switch(alphaBetaCeta) {
             case "":
                 System.out.println("Nada");
-            case "ABC" :
+            case "abc":
                 System.out.print("ABC!");
         }
     }

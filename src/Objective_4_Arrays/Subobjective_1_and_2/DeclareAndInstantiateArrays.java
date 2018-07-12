@@ -65,6 +65,21 @@ public class DeclareAndInstantiateArrays {
         singleDimFill[3] = 6;
         Arrays.fill(singleDimFill, 1);
 
+        int[] copyFrom = new int[4];
+        copyFrom[0] = 1;
+        copyFrom[1] = 2;
+        copyFrom[2] = 3;
+        copyFrom[3] = 4;
+
+        int copyTo[] = Arrays.copyOf(copyFrom, 10);
+
+        System.out.print("copyTo: ");
+
+        for(int i : copyTo)
+            System.out.print(i);
+
+        System.out.println();
+
         // =============================================================================================================
 
         Integer[] halfInitializedArray = new Integer[2];

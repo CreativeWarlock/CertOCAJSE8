@@ -75,7 +75,8 @@ class MySuperClass {
         this.field = "I'm the SUPER CLASS!!! " + additionalString;
     }
 
-    protected void print(String string) {
+    protected void print(String string) /** throws Exception */ {       // Nasty pitfall with this throws Exception!
+        // The subclass would not handle the exception -> the compiler still thinks we call the Superclass's print method!
         System.out.println("MySuperclass: " + string);
     }
 

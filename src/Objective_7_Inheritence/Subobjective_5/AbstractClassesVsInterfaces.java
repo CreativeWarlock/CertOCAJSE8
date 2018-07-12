@@ -30,7 +30,7 @@ public class AbstractClassesVsInterfaces {
          *              must not have any other     access modifier; must carry 'abstract' if no body
          *              modifier
          *
-         * Inheritance  Person class may implement       Person class can only extend
+         * Inheritance  A class may implement  A class can only extend
          *              ANY number of interfaces    one class
          *
          *
@@ -67,7 +67,7 @@ public class AbstractClassesVsInterfaces {
             }
         };
 
-        /** Person static method can only be invoked if the class contains this interface! */
+        /** A static method can only be invoked if the class contains this interface! */
         //System.out.println("MethodB: " + interfaceA.getNumberA());
 
         System.out.println("MethodB: " + interfaceA.getNumberB());
