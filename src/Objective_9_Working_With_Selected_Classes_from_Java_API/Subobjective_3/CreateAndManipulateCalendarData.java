@@ -242,7 +242,7 @@ public class CreateAndManipulateCalendarData {
          *   Note: We use 'datum' from Question 1
          */
 
-//        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yy mm dd");
+//        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yy/mm/dd");
 //        formattedDate = datum.format(formatter2);
 //        System.out.println("applying formatter2 -> formattedDate: " + formattedDate);
 
@@ -255,6 +255,7 @@ public class CreateAndManipulateCalendarData {
          */
         // Answer: B, because 'mm' in the pattern is NOT representing month! It represents minutes
         // Therefore this pattern is NOT supported by Formatter  -> UnssuprtedTemporalTypeException
+        // Addition: It will not through an Exception if the date carries minutes ;)
 
         /** --------------------------------------------------------------------------------------------------------- */
 
