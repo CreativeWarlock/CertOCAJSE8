@@ -43,7 +43,7 @@ public class DevelopCodeThatMakesUseOfPolymorphism {
          * - Reference Type is the type of the variable referencing an object
          * - Object Type is the type of the referenced object at runtime
          *
-         * - an object can be assigned to a reference whose type is the same as, or a subtype of, the object type.
+         * - an object can be assigned to a reference whose type is the same as, or a subtype of the object type.
          *
          */
 
@@ -58,14 +58,14 @@ public class DevelopCodeThatMakesUseOfPolymorphism {
         // -----------------------------------
 
         /** Question: Which of the following declarations and initializations are valid? */
-        Object myString = new String("Hello World!");
+        //Object myString = new String("Hello World!");
         //Long myInt = new Integer(0);
         //Number myBool = new Boolean(false);
     }
 }
 
 class SuperClass {
-    //protected String age = "Super class";
+    //protected String field = "Super class";
     protected void print() {
         //empty body!
     }

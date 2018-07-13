@@ -102,7 +102,7 @@ class MySubClass extends MySuperClass {
 
         super("[ empty ]");
 
-        System.out.println("MySubClass constructor with super.age = " + super.field);
+        System.out.println("MySubClass constructor with super.field = " + super.field);
 
         super.increment(super.number);
         System.out.println("Number : " + this.number);

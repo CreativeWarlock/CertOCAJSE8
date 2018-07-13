@@ -16,7 +16,7 @@ public class RecognizeCommonExceptionClasses {
          * an application attempts to use null where an object is required, e.g.
          *
          * - Calling the instance method of a null object
-         * - Accessing or modifying the age of a null object
+         * - Accessing or modifying the field of a null object
          *
          * - Taking the length of null as if it were an array
          * - Accessing or modifying the slots of null as if it were an array

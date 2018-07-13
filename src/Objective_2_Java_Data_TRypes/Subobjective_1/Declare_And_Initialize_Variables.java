@@ -20,7 +20,7 @@ public class Declare_And_Initialize_Variables {
          * Default values vor variables of various data types:
          *      byte, short, int, long:     0
          *      float, double:              0.0
-         *      char:                       \u0000
+         *      char:                       \u0000 -> prints out ''
          *      boolean:                    false
          *      Object:                     null
          */

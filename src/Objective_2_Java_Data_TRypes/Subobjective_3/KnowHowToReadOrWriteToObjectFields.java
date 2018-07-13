@@ -11,8 +11,8 @@ public class KnowHowToReadOrWriteToObjectFields {
          * Inside the object:
          * ------------------
          *
-         * - Statements within an object may access and modify a age of the object using 'this' keyword
-         * - If the age is not shadowed by any local variable, the 'this' prefix may be left out
+         * - Statements within an object may access and modify a field of the object using 'this' keyword
+         * - If the field is not shadowed by any local variable, the 'this' prefix may be left out
          *
          * --> see getter and setter of MyClass
         */
@@ -21,15 +21,15 @@ public class KnowHowToReadOrWriteToObjectFields {
         * Outside the object:
         * -------------------
         *
-        * - A non-private object age can be accessed and modified from outside using an object reference,
+        * - A non-private object field can be accessed and modified from outside using an object reference,
         * followed by a dot-operator, followed by a simple name:
         */
 
         MyClass myClass = new MyClass();
-        // read the age
+        // read the field
         String fillMe = myClass.myField;
 
-        // write the age
+        // write the field
         myClass.myField = "Change to new value from outside";
 
         // --------------------------------
@@ -44,7 +44,7 @@ public class KnowHowToReadOrWriteToObjectFields {
 }
 
 class MyClass {
-    String myField = "I am an object age";
+    String myField = "I am an object field";
 
     String getMyField() {
         // can drop 'this'
