@@ -39,9 +39,9 @@ public class RecognizeCommonExceptionClasses {
          * */
 
         //System.out.println(5/0);     // throws an AE
-        System.out.println(1.0/0.0); // prints Infinity
 
-        Double d1 = 0.0 / 0.0; // No AE!
+        Double d1 = 1 / 0.0; // No AE!
+        System.out.println("d1: " + d1); // prints Infinity
         System.out.println("Double.isNaN(d1): " + Double.isNaN(d1)+ " ");
         System.out.print("Double.isInfinite(d1): " + Double.isInfinite(d1));
 
@@ -128,7 +128,7 @@ public class RecognizeCommonExceptionClasses {
         if (myArray3.length == 0)
             myArray3 = null;
 
-        myArray3[0] = (Integer)(Number)new Double(0);
+        //myArray3[0] = (Integer)(Number)new Double(0);
 
         // casting a Double to an Integer is invalid which results in a class casting exception. So answer is d correct.
 
